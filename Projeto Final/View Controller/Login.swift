@@ -8,8 +8,14 @@
 
 import UIKit
 import Firebase
+import FacebookLogin
 
 class Login: UIViewController {
+    
+
+
+    @IBOutlet weak var loginExterno: UIView!
+    
 
     @IBOutlet weak var signIn: UIButton!
     @IBOutlet weak var signUp: UIButton!
@@ -17,8 +23,19 @@ class Login: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    
+    
+    
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let loginFacebookbutton = LoginButton(readPermissions: [ .publicProfile ])
+        
+        loginExterno.addSubview(loginFacebookbutton)
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         
     }
