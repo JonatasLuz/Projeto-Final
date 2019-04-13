@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FacebookLogin
+import FacebookCore
 
 class Login: UIViewController {
     
@@ -31,18 +32,19 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let loginFacebookbutton = LoginButton(readPermissions: [ .publicProfile ])
         
+        let loginFacebookbutton = LoginButton(readPermissions: [ .publicProfile, .email,])
         loginExterno.addSubview(loginFacebookbutton)
+        loginFacebookbutton.delegate = self
         
         
-        // Do any additional setup after loading the view, typically from a nib.
+
         
     }
 
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
-            
+        
         }
     }
     
@@ -55,6 +57,29 @@ class Login: UIViewController {
             }
         }
     }
+    
+    
+}
+
+extension Login : LoginButtonDelegate{
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        //if let acessToken = AccessToken.current{
+            //let credential = FacebookAuthProvider.credential(withAccessToken: acessToken.userId!)
+           
+        //}
+        let acessToken = AccessToken.current
+        let credential = FacebookAuthProvider.credential(withAccessToken: (acessToken?.authenticationToken)!)
+        //Auth.auth().signIn(with: credencial)
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+        
+        }
+    
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+       
+    }
+    
     
 }
 
