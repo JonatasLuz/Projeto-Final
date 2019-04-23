@@ -12,6 +12,8 @@
 		570BEE50225C1B0A007F5302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE4E225C1B0A007F5302 /* Main.storyboard */; };
 		570BEE52225C1B0B007F5302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE51225C1B0B007F5302 /* Assets.xcassets */; };
 		570BEE55225C1B0B007F5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE53225C1B0B007F5302 /* LaunchScreen.storyboard */; };
+		57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C97226E833000833C09 /* PlantsTableViewController.swift */; };
+		57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */; };
 		AC2AFB12225E366C004A4C3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2AFB11225E366C004A4C3D /* GoogleService-Info.plist */; };
 		C2883979DF41F4BC67647951 /* Pods_Projeto_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */; };
 /* End PBXBuildFile section */
@@ -25,6 +27,8 @@
 		570BEE51225C1B0B007F5302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		570BEE54225C1B0B007F5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		570BEE56225C1B0B007F5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A18C97226E833000833C09 /* PlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewController.swift; sourceTree = "<group>"; };
+		57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewCell.swift; sourceTree = "<group>"; };
 		9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projeto_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2AFB11225E366C004A4C3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C641F01D96095813491B578E /* Pods-Projeto Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projeto Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				570BEE4C225C1B0A007F5302 /* Login.swift */,
+				57A18C97226E833000833C09 /* PlantsTableViewController.swift */,
+				57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -241,6 +247,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				570BEE4D225C1B0A007F5302 /* Login.swift in Sources */,
+				57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */,
+				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
 				570BEE4B225C1B0A007F5302 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
