@@ -23,7 +23,16 @@ class PlantViewController: UIViewController {
     
     @IBOutlet weak var plantView: UIView!
     @IBOutlet weak var plantViewHC : NSLayoutConstraint!
- 
+    @IBOutlet weak var informationTextHC: NSLayoutConstraint!
+    @IBOutlet weak var informationView: UIView!
+    
+    
+    
+    
+    @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var informationText: UITextView!
+    @IBOutlet weak var arrowDown: UIImageView!
+    
     
     
     override func viewDidLoad() {
@@ -42,11 +51,15 @@ class PlantViewController: UIViewController {
         
         plantName.centerXAnchor.constraint(equalToSystemSpacingAfter: plantImage.centerXAnchor, multiplier: 1).isActive = true
         
-        
-        
-        
-        
       
+        
+        
+        //Informacoes
+        
+        informationView.heightAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 0.47).isActive = true
+        informationLabel.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
+        informationTextHC.constant = self.informationText.contentSize.height
+        arrowDown.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
         
     }
     
