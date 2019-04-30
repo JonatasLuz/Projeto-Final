@@ -31,7 +31,8 @@ class PlantViewController: UIViewController {
     
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var informationText: UITextView!
-    @IBOutlet weak var arrowDown: UIImageView!
+    @IBOutlet weak var informationViewHC: NSLayoutConstraint!
+    @IBOutlet weak var informationStackView: UIStackView!
     
     
     @IBOutlet weak var calendarLabel: UILabel!
@@ -54,19 +55,19 @@ class PlantViewController: UIViewController {
         plantImage.clipsToBounds = true
         
         plantName.centerXAnchor.constraint(equalToSystemSpacingAfter: plantImage.centerXAnchor, multiplier: 1).isActive = true
-            calendarStackView.centerXAnchor.constraint(equalToSystemSpacingAfter: plantImage.centerXAnchor, multiplier: 1).isActive = true
-      
+         //   calendarStackView.centerXAnchor.constraint(equalToSystemSpacingAfter: plantImage.centerXAnchor, multiplier: 1).isActive = true
+  
         
         
         //Plant information
         
-        informationView.heightAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 0.44).isActive = true
+        
         informationLabel.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
         informationTextHC.constant = self.informationText.contentSize.height
-        arrowDown.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
+        informationViewHC.constant = informationStackView.frame.height + informationTextHC.constant - 15
         
         //Calendar
-        calendarLabel.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
+       // calendarLabel.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
         
     }
     
