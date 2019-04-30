@@ -62,7 +62,6 @@ class PlantViewController: UIViewController {
         //Plant information
         
         
-        informationLabel.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
         informationTextHC.constant = self.informationText.contentSize.height
         informationViewHC.constant = informationStackView.frame.height + informationTextHC.constant - 15
         
