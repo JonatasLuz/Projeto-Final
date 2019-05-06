@@ -2,72 +2,59 @@
 //  PlantViewController.swift
 //  Projeto Final
 //
-//  Created by ALUNO on 26/04/2019.
+//  Created by ALUNO on 03/05/19.
 //  Copyright © 2019 Jonatas da Luz. All rights reserved.
 //
 
 import UIKit
 
 class PlantViewController: UIViewController {
-    @IBOutlet var mainView: UIView!
-    
-    @IBOutlet weak var plantImageWC: NSLayoutConstraint!
-    @IBOutlet weak var plantImageHC: NSLayoutConstraint!
-    
    
-    @IBOutlet weak var plantImage: UIImageView!
+  
+    @IBOutlet var superView: UIView!
+    
+ 
+    @IBOutlet weak var plantViewHC: NSLayoutConstraint!
+    
 
-    @IBOutlet weak var plantImageLeading: NSLayoutConstraint!
-    @IBOutlet weak var plantName: UILabel!
+    @IBOutlet weak var plantImageView: UIImageView!
+
     
     
-    @IBOutlet weak var plantView: UIView!
-    @IBOutlet weak var plantViewHC : NSLayoutConstraint!
-    @IBOutlet weak var informationTextHC: NSLayoutConstraint!
     @IBOutlet weak var informationView: UIView!
-    
-    
-    
-    
-    @IBOutlet weak var informationLabel: UILabel!
-    @IBOutlet weak var informationText: UITextView!
-    @IBOutlet weak var informationViewHC: NSLayoutConstraint!
     @IBOutlet weak var informationStackView: UIStackView!
+    @IBOutlet weak var informationTextView: UITextView!
+    @IBOutlet weak var informationViewHC: NSLayoutConstraint!
+    @IBOutlet weak var informationTextViewHC: NSLayoutConstraint!
     
     
-    @IBOutlet weak var calendarLabel: UILabel!
-    @IBOutlet weak var calendarStackView: UIStackView!
-    
-    
+
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        plantViewHC.constant = superView.bounds.height / 3
+        //plantImageWC.constant = self.plantImageView.bounds.height
+        
+        
+        
+        plantImageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor, constant: 1).isActive = true
+        plantImageView.widthAnchor.constraint(equalTo: plantImageView.heightAnchor, multiplier: 0.5).isActive = true
+        
+        //let imageHC = self.plantImageView.bounds
+        //plantImageWC.constant = imageHC.height * 2
         
 
-        plantViewHC.constant = self.mainView.bounds.height / 2.5
-        print(plantViewHC.constant)
-        
-        plantImageHC.constant = plantViewHC.constant * 0.8
-        plantImageWC.constant = plantViewHC.constant * 0.8
-        plantImageLeading.constant = (self.mainView.bounds.width - plantImageWC.constant) / 2
-        
-        plantImage.layer.cornerRadius = plantImageHC.constant/2
-        plantImage.clipsToBounds = true
-        
-        plantName.centerXAnchor.constraint(equalToSystemSpacingAfter: plantImage.centerXAnchor, multiplier: 1).isActive = true
-         //   calendarStackView.centerXAnchor.constraint(equalToSystemSpacingAfter: plantImage.centerXAnchor, multiplier: 1).isActive = true
-  
         
         
-        //Plant information
+        //Information View
+        informationTextViewHC.constant = self.informationTextView.contentSize.height
+        informationViewHC.constant = informationViewHC.constant + self.informationTextView.contentSize.height - 25
         
         
-        informationTextHC.constant = self.informationText.contentSize.height
-        informationViewHC.constant = informationStackView.frame.height + informationTextHC.constant - 15
+    
         
-        //Calendar
-       // calendarLabel.centerXAnchor.constraint(equalTo: plantImage.centerXAnchor, constant: 1).isActive = true
         
+        // Do any additional setup after loading the view.
     }
     
 
