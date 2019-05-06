@@ -22,13 +22,17 @@ class PlantViewController: UIViewController {
     
     
     @IBOutlet weak var informationView: UIView!
-    @IBOutlet weak var informationStackView: UIStackView!
     @IBOutlet weak var informationTextView: UITextView!
     @IBOutlet weak var informationViewHC: NSLayoutConstraint!
     @IBOutlet weak var informationTextViewHC: NSLayoutConstraint!
     
     
-
+    @IBOutlet weak var soilView: UIView!
+    @IBOutlet weak var soilTextView: UITextView!
+    @IBOutlet weak var soilTextViewHC: NSLayoutConstraint!
+    @IBOutlet weak var soilViewHC: NSLayoutConstraint!
+    
+    
     
     override func viewDidLoad() {
         
@@ -43,18 +47,14 @@ class PlantViewController: UIViewController {
         //let imageHC = self.plantImageView.bounds
         //plantImageWC.constant = imageHC.height * 2
         
-
-        
-        
         //Information View
         informationTextViewHC.constant = self.informationTextView.contentSize.height
-        informationViewHC.constant = informationViewHC.constant + self.informationTextView.contentSize.height - 25
+        informationViewHC.constant = self.informationTextView.contentSize.height + 25
         
+        //Soil View
+        soilTextViewHC.constant = self.informationTextView.contentSize.height
+        soilViewHC.constant = self.soilTextView.contentSize.height + 25
         
-    
-        
-        
-        // Do any additional setup after loading the view.
     }
     
 
