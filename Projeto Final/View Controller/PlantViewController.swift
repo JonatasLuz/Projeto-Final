@@ -20,17 +20,27 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var plantImageView: UIImageView!
 
     
+  
     
-    @IBOutlet weak var informationView: UIView!
+
     @IBOutlet weak var informationTextView: UITextView!
     @IBOutlet weak var informationViewHC: NSLayoutConstraint!
     @IBOutlet weak var informationTextViewHC: NSLayoutConstraint!
     
     
-    @IBOutlet weak var soilView: UIView!
+
     @IBOutlet weak var soilTextView: UITextView!
     @IBOutlet weak var soilTextViewHC: NSLayoutConstraint!
     @IBOutlet weak var soilViewHC: NSLayoutConstraint!
+    
+    @IBOutlet weak var climateViewHC: NSLayoutConstraint!
+    @IBOutlet weak var climateTextView: UITextView!
+    @IBOutlet weak var climateTextViewHC: NSLayoutConstraint!
+    
+   
+    @IBOutlet weak var lightViewHC: NSLayoutConstraint!
+    @IBOutlet weak var lightTextView: UITextView!
+    @IBOutlet weak var lightTextHC: NSLayoutConstraint!
     
     
     
@@ -55,6 +65,15 @@ class PlantViewController: UIViewController {
         soilTextViewHC.constant = self.informationTextView.contentSize.height
         soilViewHC.constant = self.soilTextView.contentSize.height + 25
         
+        
+        //Climate View
+        climateTextViewHC.constant = self.climateTextView.contentSize.height
+        climateViewHC.constant = self.climateTextView.contentSize.height + 25
+        
+        //Light View
+        lightTextHC.constant = self.lightTextView.contentSize.height
+        lightViewHC.constant = self.lightTextView.contentSize.height + 25
+       
     }
     
 
