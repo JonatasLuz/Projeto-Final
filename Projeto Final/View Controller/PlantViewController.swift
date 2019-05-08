@@ -73,7 +73,7 @@ class PlantViewController: UIViewController {
         informationViewHC.constant = self.informationTextView.contentSize.height + 25
         
         //Soil View
-        soilTextViewHC.constant = self.informationTextView.contentSize.height
+        soilTextViewHC.constant = self.soilTextView.contentSize.height
         soilViewHC.constant = self.soilTextView.contentSize.height + 25
         
         
@@ -97,8 +97,4 @@ class PlantViewController: UIViewController {
         harvestTextViewHC.constant = self.harvestTextView.contentSize.height
         harvestViewHC.constant = self.harvestTextView.contentSize.height + 25
     }
-    
-
- 
-
 }
