@@ -43,6 +43,17 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var lightTextHC: NSLayoutConstraint!
     
     
+    @IBOutlet weak var plantationTextViewHC: NSLayoutConstraint!
+    @IBOutlet weak var plantationTextView: UITextView!
+    @IBOutlet weak var plantationViewHC: NSLayoutConstraint!
+    
+    @IBOutlet weak var irrigationTextViewHC: NSLayoutConstraint!
+    @IBOutlet weak var irrigationViewHC: NSLayoutConstraint!
+    @IBOutlet weak var irrigationTextView: UITextView!
+    
+    @IBOutlet weak var harvestTextViewHC: NSLayoutConstraint!
+    @IBOutlet weak var harvestViewHC: NSLayoutConstraint!
+    @IBOutlet weak var harvestTextView: UITextView!
     
     override func viewDidLoad() {
         
@@ -73,18 +84,21 @@ class PlantViewController: UIViewController {
         //Light View
         lightTextHC.constant = self.lightTextView.contentSize.height
         lightViewHC.constant = self.lightTextView.contentSize.height + 25
+        
+        //Plantation View
+        plantationTextViewHC.constant = self.plantationTextView.contentSize.height
+        plantationViewHC.constant = self.plantationTextView.contentSize.height + 25
        
+        //Irrigation View
+        irrigationTextViewHC.constant = self.irrigationTextView.contentSize.height
+        irrigationViewHC.constant = self.irrigationTextView.contentSize.height + 25
+        
+        //Harvest View
+        harvestTextViewHC.constant = self.harvestTextView.contentSize.height
+        harvestViewHC.constant = self.harvestTextView.contentSize.height + 25
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
