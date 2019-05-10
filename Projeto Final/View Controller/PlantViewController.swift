@@ -55,6 +55,7 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var harvestViewHC: NSLayoutConstraint!
     @IBOutlet weak var harvestTextView: UITextView!
     
+    
     override func viewDidLoad() {
         
         plantViewHC.constant = superView.bounds.height / 3

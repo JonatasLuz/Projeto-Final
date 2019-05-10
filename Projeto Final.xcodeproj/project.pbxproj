@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570657A12283B3030013656F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570657A02283B3030013656F /* CollectionViewController.swift */; };
+		570657A4228628D50013656F /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570657A3228628D50013656F /* Plant.swift */; };
 		570BEE4B225C1B0A007F5302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BEE4A225C1B0A007F5302 /* AppDelegate.swift */; };
 		570BEE4D225C1B0A007F5302 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BEE4C225C1B0A007F5302 /* Login.swift */; };
 		570BEE50225C1B0A007F5302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE4E225C1B0A007F5302 /* Main.storyboard */; };
 		570BEE52225C1B0B007F5302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE51225C1B0B007F5302 /* Assets.xcassets */; };
 		570BEE55225C1B0B007F5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE53225C1B0B007F5302 /* LaunchScreen.storyboard */; };
 		57828975227D07B00025E337 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828974227D07B00025E337 /* PlantViewController.swift */; };
-		579DD9A4227375940055DDA6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DD9A3227375940055DDA6 /* CollectionViewCell.swift */; };
 		57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C97226E833000833C09 /* PlantsTableViewController.swift */; };
 		57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */; };
 		AC2AFB12225E366C004A4C3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2AFB11225E366C004A4C3D /* GoogleService-Info.plist */; };
@@ -22,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		23067F31BDD680A4F1F4D23C /* Pods-Projeto Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projeto Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final.debug.xcconfig"; sourceTree = "<group>"; };
+		570657A02283B3030013656F /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		570657A3228628D50013656F /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		570BEE47225C1B0A007F5302 /* Projeto Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projeto Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		570BEE4A225C1B0A007F5302 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		570BEE4C225C1B0A007F5302 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -30,7 +33,6 @@
 		570BEE54225C1B0B007F5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		570BEE56225C1B0B007F5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57828974227D07B00025E337 /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
-		579DD9A3227375940055DDA6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		57A18C97226E833000833C09 /* PlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewController.swift; sourceTree = "<group>"; };
 		57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewCell.swift; sourceTree = "<group>"; };
 		9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projeto_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		570657A2228628C60013656F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				570657A3228628D50013656F /* Plant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		570BEE3E225C1B0A007F5302 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		570BEE49225C1B0A007F5302 /* Projeto Final */ = {
 			isa = PBXGroup;
 			children = (
+				570657A2228628C60013656F /* Model */,
 				ACC30438225E6CCA0063BB5E /* View Controller */,
 				570BEE4A225C1B0A007F5302 /* AppDelegate.swift */,
 				570BEE4E225C1B0A007F5302 /* Main.storyboard */,
@@ -96,8 +107,8 @@
 				570BEE4C225C1B0A007F5302 /* Login.swift */,
 				57A18C97226E833000833C09 /* PlantsTableViewController.swift */,
 				57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */,
-				579DD9A3227375940055DDA6 /* CollectionViewCell.swift */,
 				57828974227D07B00025E337 /* PlantViewController.swift */,
+				570657A02283B3030013656F /* CollectionViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -252,10 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				579DD9A4227375940055DDA6 /* CollectionViewCell.swift in Sources */,
+				570657A12283B3030013656F /* CollectionViewController.swift in Sources */,
 				570BEE4D225C1B0A007F5302 /* Login.swift in Sources */,
 				57828975227D07B00025E337 /* PlantViewController.swift in Sources */,
 				57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */,
+				570657A4228628D50013656F /* Plant.swift in Sources */,
 				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
 				570BEE4B225C1B0A007F5302 /* AppDelegate.swift in Sources */,
 			);
