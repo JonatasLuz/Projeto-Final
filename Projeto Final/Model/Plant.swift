@@ -16,26 +16,28 @@ class Plant{
     private var light : String!
     private var planting : String!
     private var harvest : String!
-    private var startMonth : [Int : String]!
-    private var endMonth : [Int : String]!
     private var harvestMinLimit : Int!
     private var harvestMaxLimit : Int!
+    private var months : [Int : String]!
+    private var plantingMinMonth : [Int]!
+    private var plantingMaxMonth : [Int]!
+
+    
     
     
     
     init(){
-        startMonth = [1 : "Janeiro",
-                      2 : "Fevereiro",
-                      3 : "Março",
-                      4 : "Abril",
-                      5 : "Maio",
-                      6 : "Junho",
-                      7 : "Julho",
-                      8 : "Agosto",
-                      9 : "Setembro",
-                      10 : "Outubro",
-                      11 : "Novembro",
-                      12: "Dezembro"]
-        endMonth = startMonth
+        months = [1 : "Janeiro",
+                  2 : "Fevereiro",
+                  3 : "Março",
+                  4 : "Abril",
+                  5 : "Maio",
+                  6 : "Junho",
+                  7 : "Julho",
+                  8 : "Agosto",
+                  9 : "Setembro",
+                  10 : "Outubro",
+                  11 : "Novembro",
+                  12: "Dezembro"]
     }
 }
