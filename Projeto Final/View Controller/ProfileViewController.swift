@@ -9,12 +9,13 @@
 import UIKit
 
 
-let plantIdentifier = "harvestCell"
+let plantIdentifier = "profileCell"
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var wantCollection: UICollectionView!
+    @IBOutlet weak var harvestCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -38,12 +39,16 @@ extension ProfileViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if collectionView == harvestCollection{
+            return 1
+        }else if collectionView == wantCollection{
+            return 2
+        }
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: plantIdentifier, for: indexPath)
-        cell.backgroundColor = .brown
         return cell
     }
 }
