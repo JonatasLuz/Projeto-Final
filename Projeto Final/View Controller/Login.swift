@@ -33,9 +33,9 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loginFacebookbutton = LoginButton(readPermissions: [ .publicProfile, .email,])
-        loginExterno.addSubview(loginFacebookbutton)
-        loginFacebookbutton.delegate = self
+        //let loginFacebookbutton = LoginButton(readPermissions: [ .publicProfile, .email,])
+       // loginExterno.addSubview(loginFacebookbutton)
+       // loginFacebookbutton.delegate = self
         
         
 
@@ -61,6 +61,7 @@ class Login: UIViewController {
     
 }
 
+/*
 extension Login : LoginButtonDelegate{
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         //if let acessToken = AccessToken.current{
@@ -79,7 +80,6 @@ extension Login : LoginButtonDelegate{
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
        
     }
-    
-    
-}
+ 
+}*/
 

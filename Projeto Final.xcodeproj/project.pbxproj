@@ -18,6 +18,8 @@
 		57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C97226E833000833C09 /* PlantsTableViewController.swift */; };
 		57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */; };
 		AC2AFB12225E366C004A4C3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2AFB11225E366C004A4C3D /* GoogleService-Info.plist */; };
+		AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B88822289EBA20051D78A /* ProfileViewController.swift */; };
+		AC6B88C12289F32F0051D78A /* HarvestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B88C02289F32F0051D78A /* HarvestCollectionViewCell.swift */; };
 		C2883979DF41F4BC67647951 /* Pods_Projeto_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewCell.swift; sourceTree = "<group>"; };
 		9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Projeto_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2AFB11225E366C004A4C3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC6B88822289EBA20051D78A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AC6B88C02289F32F0051D78A /* HarvestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarvestCollectionViewCell.swift; sourceTree = "<group>"; };
 		C641F01D96095813491B578E /* Pods-Projeto Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projeto Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,9 +87,8 @@
 			children = (
 				570657A2228628C60013656F /* Model */,
 				ACC30438225E6CCA0063BB5E /* View Controller */,
-				570BEE4A225C1B0A007F5302 /* AppDelegate.swift */,
-				570BEE4E225C1B0A007F5302 /* Main.storyboard */,
 				570BEE51225C1B0B007F5302 /* Assets.xcassets */,
+				570BEE4E225C1B0A007F5302 /* Main.storyboard */,
 				570BEE53225C1B0B007F5302 /* LaunchScreen.storyboard */,
 				AC2AFB11225E366C004A4C3D /* GoogleService-Info.plist */,
 				570BEE56225C1B0B007F5302 /* Info.plist */,
@@ -109,6 +112,9 @@
 				57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */,
 				57828974227D07B00025E337 /* PlantViewController.swift */,
 				570657A02283B3030013656F /* CollectionViewController.swift */,
+				570BEE4A225C1B0A007F5302 /* AppDelegate.swift */,
+				AC6B88822289EBA20051D78A /* ProfileViewController.swift */,
+				AC6B88C02289F32F0051D78A /* HarvestCollectionViewCell.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -222,8 +228,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
@@ -239,7 +244,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
@@ -253,7 +257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -269,7 +273,9 @@
 				57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */,
 				570657A4228628D50013656F /* Plant.swift in Sources */,
 				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
+				AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */,
 				570BEE4B225C1B0A007F5302 /* AppDelegate.swift in Sources */,
+				AC6B88C12289F32F0051D78A /* HarvestCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
