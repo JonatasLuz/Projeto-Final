@@ -11,12 +11,31 @@ import UIKit
 
 let plantIdentifier = "profileCell"
 class ProfileViewController: UIViewController {
-
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var profilePictureWD: NSLayoutConstraint!
+    @IBOutlet weak var profileName: UILabel!
+    
     @IBOutlet weak var wantCollection: UICollectionView!
     @IBOutlet weak var harvestCollection: UICollectionView!
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+ 
+        
+        profilePicture.layer.borderWidth = 2
+        profilePicture.layer.masksToBounds = false
+        profilePicture.layer.borderColor = UIColor.white.cgColor
+        profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
+        profilePicture.clipsToBounds = true
+        print(profilePicture.frame.height)
+        print(profilePicture.frame.width)
+        
     }
     
 

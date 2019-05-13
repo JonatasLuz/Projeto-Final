@@ -471,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zS-Kk-le9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2310" y="-1319"/>
+            <point key="canvasLocation" x="2473" y="-1410"/>
         </scene>
         <!--Plantas-->
         <scene sceneID="HNl-wQ-Ajb">
@@ -524,7 +524,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkA-1B-h3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="-403"/>
+            <point key="canvasLocation" x="1649" y="-926"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
@@ -631,17 +631,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qac-SK-v7u">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XV9-dz-Fj7">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XV9-dz-Fj7" userLabel="Profile VIew">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t0g-yG-ANq">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilephoto1" translatesAutoresizingMaskIntoConstraints="NO" id="GhM-gk-jd1">
-                                                        <rect key="frame" x="87.5" y="0.0" width="200" height="114"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="e7O-wm-uWz" userLabel="width = 150"/>
-                                                        </constraints>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilephoto1" translatesAutoresizingMaskIntoConstraints="NO" id="GhM-gk-jd1">
+                                                        <rect key="frame" x="66.5" y="0.0" width="242" height="114"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLz-Jt-HsK">
                                                         <rect key="frame" x="121" y="122" width="133.5" height="29"/>
@@ -845,12 +842,14 @@
                     </view>
                     <connections>
                         <outlet property="harvestCollection" destination="gLU-nF-4Ac" id="JNh-Rd-Xfm"/>
+                        <outlet property="profileName" destination="MLz-Jt-HsK" id="z1F-SH-9em"/>
+                        <outlet property="profilePicture" destination="GhM-gk-jd1" id="Kh6-Pl-8SA"/>
                         <outlet property="wantCollection" destination="uNK-ag-vuM" id="LxN-GE-RbY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2Y-R7-6jA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1269.5999999999999" y="-1128.4857571214393"/>
+            <point key="canvasLocation" x="2473" y="-403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bvR-UG-KuR">
@@ -868,7 +867,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KGH-Oh-pmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-403"/>
+            <point key="canvasLocation" x="842" y="-926"/>
         </scene>
     </scenes>
     <resources>
