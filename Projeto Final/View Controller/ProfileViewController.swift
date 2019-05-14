@@ -12,7 +12,6 @@ import UIKit
 let plantIdentifier = "profileCell"
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var profilePictureWD: NSLayoutConstraint!
     @IBOutlet weak var profileName: UILabel!
     
     @IBOutlet weak var wantCollection: UICollectionView!
@@ -33,8 +32,7 @@ class ProfileViewController: UIViewController {
         profilePicture.layer.borderColor = UIColor.white.cgColor
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
         profilePicture.clipsToBounds = true
-        print(profilePicture.frame.height)
-        print(profilePicture.frame.width)
+
         
     }
     

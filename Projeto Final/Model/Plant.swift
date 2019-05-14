@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+import Firebase
+import FirebaseFirestore
 class Plant{
     private var name : String!
     private var photo : URL!
@@ -15,6 +16,7 @@ class Plant{
     private var climate : String!
     private var light : String!
     private var planting : String!
+    private var watering : String!
     private var harvest : String!
     private var harvestMinLimit : Int!
     private var harvestMaxLimit : Int!
@@ -26,7 +28,24 @@ class Plant{
     
     
     
+    
     init(){
+        
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
+        let db = Firestore.firestore()
+        db.collection("planta").getDocuments() { (querySnapshot, error) in
+            if let error = error {
+                
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+        
         months = [1 : "Janeiro",
                   2 : "Fevereiro",
                   3 : "Março",

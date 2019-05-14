@@ -10,11 +10,16 @@ import UIKit
 
 class PlantsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var plantNameLabel: UILabel!
     @IBOutlet weak var plantImage: UIImageView!
     override func awakeFromNib() {
+        plantNameLabel.centerYAnchor.constraint(equalTo: plantImage.centerYAnchor, constant: 1).isActive = true
+        plantImage.layer.borderWidth = 1
+        plantImage.layer.borderColor = UIColor.green.cgColor
+        plantImage.layer.cornerRadius = plantImage.frame.height/2
+        plantImage.layer.masksToBounds = true        
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -10,8 +10,11 @@ import UIKit
 
 class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    var plants : Plant!
     let cellIdentifier = "cell"
     override func viewDidLoad() {
+        print("Porra")
+        plants = Plant()
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -38,8 +41,6 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UII
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
         cell?.plantNameLabel.text = "Cebola"
-        cell?.plantImage.layer.cornerRadius = 50
-        cell?.plantImage.layer.masksToBounds = true
         return cell!
     }
 
