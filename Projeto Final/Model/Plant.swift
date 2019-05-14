@@ -7,56 +7,55 @@
 //
 
 import Foundation
-import Firebase
-import FirebaseFirestore
 class Plant{
-    private var name : String!
-    private var photo : URL!
-    private var information : String!
-    private var climate : String!
-    private var light : String!
-    private var planting : String!
-    private var watering : String!
-    private var harvest : String!
-    private var harvestMinLimit : Int!
-    private var harvestMaxLimit : Int!
-    private var months : [Int : String]!
-    private var plantingMinMonth : [Int]!
-    private var plantingMaxMonth : [Int]!
-
+    var plantID: String!
+    var name : String!
+    var photo : String!
+    var information : String!
+    var climate : String!
+    var light : String!
+    var planting : String!
+    var watering : String!
+    var harvest : String!
+    var harvestMinLimit : Int!
+    var harvestMaxLimit : Int!
+    var months : [Int : String]!
+    var plantingMinMonth : [Int]!
+    var plantingMaxMonth : [Int]!
     
     
     
     
+    
+    init(_ plantID: String, _ name : String, _ photo : String, _ information : String, _ climate : String, _ light : String, _ planting : String, _ watering : String, _ harvest : String, _ harvestMinLimit : Int, _ harvestMaxLimit : Int, _ plantingMinMonth : [Int], _ plantingMaxMonth : [Int]){
+        self.plantID = plantID
+        self.name = name
+        self.photo = photo
+        self.information = information
+        self.climate = climate
+        self.light = light
+        self.planting = planting
+        self.watering = watering
+        self.harvest = harvest
+        self.harvestMinLimit = harvestMinLimit
+        self.harvestMaxLimit = harvestMaxLimit
+        self.plantingMaxMonth = plantingMaxMonth
+        self.plantingMinMonth = plantingMinMonth
+        self.months = [1 : "Janeiro",
+                       2 : "Fevereiro",
+                       3 : "Março",
+                       4 : "Abril",
+                       5 : "Maio",
+                       6 : "Junho",
+                       7 : "Julho",
+                       8 : "Agosto",
+                       9 : "Setembro",
+                       10 : "Outubro",
+                       11 : "Novembro",
+                       12: "Dezembro"]
+    }
     
     init(){
         
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
-        let db = Firestore.firestore()
-        db.collection("planta").getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
-        
-        months = [1 : "Janeiro",
-                  2 : "Fevereiro",
-                  3 : "Março",
-                  4 : "Abril",
-                  5 : "Maio",
-                  6 : "Junho",
-                  7 : "Julho",
-                  8 : "Agosto",
-                  9 : "Setembro",
-                  10 : "Outubro",
-                  11 : "Novembro",
-                  12: "Dezembro"]
     }
 }

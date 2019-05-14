@@ -10,12 +10,17 @@ import UIKit
 
 class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
-    var plants : Plant!
+    var plantsTableViewModel : PlantsTableViewModel!
     let cellIdentifier = "cell"
+    var plants : [Plant]!
+    
     override func viewDidLoad() {
-        print("Porra")
-        plants = Plant()
+        plantsTableViewModel = PlantsTableViewModel()
+        plants = self.plantsTableViewModel.getPlants()
+        
+        
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,14 +38,17 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UII
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 20
+        plants = plantsTableViewModel.getPlants()
+        print(plants.count)
+        
+        return plants.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
-        cell?.plantNameLabel.text = "Cebola"
+        cell?.plantNameLabel.text = plants[indexPath.row].name
         return cell!
     }
 
