@@ -15,8 +15,12 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UII
     var plants : [Plant]!
     
     override func viewDidLoad() {
+        plants = []
         plantsTableViewModel = PlantsTableViewModel()
-        plants = self.plantsTableViewModel.getPlants()
+        plantsTableViewModel.getPlants { plantsArray in
+            self.plants = plantsArray
+            self.tableView.reloadData()
+        }
         
         
         super.viewDidLoad()
@@ -38,8 +42,6 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UII
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        plants = plantsTableViewModel.getPlants()
-        print(plants.count)
         
         return plants.count
     }
@@ -49,6 +51,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UII
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
         cell?.plantNameLabel.text = plants[indexPath.row].name
+        cell?.plantImage.image =  plantsTableViewModel.getPlantImageURL(plants[indexPath.row].photo)
         return cell!
     }
 

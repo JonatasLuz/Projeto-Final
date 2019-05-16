@@ -13,14 +13,31 @@ class PlantsTableViewModel{
     
     let db = Firestore.firestore()
     
-    func getPlants() -> [Plant]{
-        var plants : [Plant] = []
-        db.collection("planta").getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
+    init(){
+        
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
+    }
+    
+    func getPlantImageURL(_ url : String) -> UIImage?{
+        do{
+            let imageURL = try Data(contentsOf: URL.init(string: url)!)
+            return UIImage(data: imageURL)
+        }catch{
+            print("Erro ao buscar imagem de planta \(error)")
+        }
+        return nil
+    }
+    
+    func getPlants(completion: @escaping ([Plant]) -> Void){
+        var plantsArray = [Plant]()
+        db.collection("planta").getDocuments { (querySnapShot, error) in
+            if let error = error{
+                print(error)
+                return
+            }else{
+                for document in querySnapShot!.documents{
                     let plantID = document.documentID
                     let name = document.get("name") as! String
                     let photo = document.get("photo") as! String
@@ -35,21 +52,12 @@ class PlantsTableViewModel{
                     let plantingMaxMonth = document.get("plantingMaxMonth") as! [Int]
                     let plantingMinMonth = document.get("plantingMinMonth") as! [Int]
                     let plant = Plant(plantID, name, photo, information, climate, light, planting, watering, harvest, harvestMinLimit, harvestMaxLimit, plantingMinMonth, plantingMaxMonth)
-                    plants.append(plant)
-                    print(plants[0].name)
-                    
+                    plantsArray.append(plant)
                 }
+                completion(plantsArray)
             }
         }
         
-        return plants
-    }
-    
-    init(){
-        
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
     }
     
 }
