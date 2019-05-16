@@ -14,7 +14,8 @@ import FacebookCore
 class Login: UIViewController {
     
 
-
+    @IBOutlet weak var logo: UILabel!
+    
     @IBOutlet weak var loginExterno: UIView!
     
 
@@ -34,12 +35,12 @@ class Login: UIViewController {
         super.viewDidLoad()
         
         //let loginFacebookbutton = LoginButton(readPermissions: [ .publicProfile, .email,])
-       // loginExterno.addSubview(loginFacebookbutton)
-       // loginFacebookbutton.delegate = self
-        
-        
-
-        
+        // loginExterno.addSubview(loginFacebookbutton)
+        // loginFacebookbutton.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        logo.adjustsFontSizeToFitWidth = true
     }
 
     @IBAction func sigIn(_ sender: UIButton) {
@@ -52,13 +53,11 @@ class Login: UIViewController {
         Auth.auth().createUser(withEmail: email.text ?? "email", password: password.text ?? "") { (authResult, error) in
             guard (authResult?.user) != nil
                 else {
-                    print("Erro no cadastro:  \(error)")
+                    print("Erro no cadastro:  \(String(describing: error))")
                 return
             }
         }
     }
-    
-    
 }
 
 /*

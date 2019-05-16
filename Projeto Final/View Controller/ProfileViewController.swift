@@ -18,23 +18,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var harvestCollection: UICollectionView!
     override func viewDidLoad() {
         
-        
-        
-        super.viewDidLoad()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
- 
-        
         profilePicture.layer.borderWidth = 2
         profilePicture.layer.masksToBounds = false
         profilePicture.layer.borderColor = UIColor.white.cgColor
         profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
         profilePicture.clipsToBounds = true
-
         
+        
+        super.viewDidLoad()
     }
+    
+ 
     
 
     /*

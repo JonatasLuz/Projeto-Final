@@ -51,6 +51,20 @@ class PlantViewController: UIViewController {
     
     override func viewDidLoad() {
         
+ 
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        plantViewModel = PlantViewModel()
+        plantName.text = plant.name
+        plantImageView.image = plantViewModel.getPlantImageURL(plant.photo)
+        informationTextView.text = plant.information
+        soilTextView.text = plant.soil
+        climateTextView.text = plant.climate
+        lightTextView.text = plant.light
+        plantationTextView.text = plant.planting
+        irrigationTextView.text = plant.watering
+        harvestTextView.text = plant.harvest
+        
         plantViewHC.constant = superView.bounds.height / 3
         //plantImageWC.constant = self.plantImageView.bounds.height
         
@@ -82,7 +96,7 @@ class PlantViewController: UIViewController {
         //Plantation View
         plantationTextViewHC.constant = self.plantationTextView.contentSize.height
         plantationViewHC.constant = self.plantationTextView.contentSize.height + 25
-       
+        
         //Irrigation View
         irrigationTextViewHC.constant = self.irrigationTextView.contentSize.height
         irrigationViewHC.constant = self.irrigationTextView.contentSize.height + 25
@@ -90,18 +104,6 @@ class PlantViewController: UIViewController {
         //Harvest View
         harvestTextViewHC.constant = self.harvestTextView.contentSize.height
         harvestViewHC.constant = self.harvestTextView.contentSize.height + 25
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        plantViewModel = PlantViewModel()
-        plantName.text = plant.name
-        plantImageView.image = plantViewModel.getPlantImageURL(plant.photo)
-        informationTextView.text = plant.information
-        soilTextView.text = plant.soil
-        climateTextView.text = plant.climate
-        lightTextView.text = plant.light
-        plantationTextView.text = plant.planting
-        irrigationTextView.text = plant.watering
-        harvestTextView.text = plant.harvest
         
     }
 }
