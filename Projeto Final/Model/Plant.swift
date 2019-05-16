@@ -14,6 +14,7 @@ class Plant{
     var information : String!
     var climate : String!
     var light : String!
+    var soil : String!
     var planting : String!
     var watering : String!
     var harvest : String!
@@ -27,9 +28,10 @@ class Plant{
     
     
     
-    init(_ plantID: String, _ name : String, _ photo : String, _ information : String, _ climate : String, _ light : String, _ planting : String, _ watering : String, _ harvest : String, _ harvestMinLimit : Int, _ harvestMaxLimit : Int, _ plantingMinMonth : [Int], _ plantingMaxMonth : [Int]){
+    init(_ plantID: String, _ name : String, _ photo : String, _ information : String, _ climate : String, _ soil : String, _ light : String, _ planting : String, _ watering : String, _ harvest : String, _ harvestMinLimit : Int, _ harvestMaxLimit : Int, _ plantingMinMonth : [Int], _ plantingMaxMonth : [Int]){
         self.plantID = plantID
         self.name = name
+        self.soil = soil
         self.photo = photo
         self.information = information
         self.climate = climate
@@ -55,7 +57,10 @@ class Plant{
                        12: "Dezembro"]
     }
     
-    init(){
+    init(_ plant: [String : Any]){
+        
         
     }
+    
+    
 }

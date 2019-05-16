@@ -9,26 +9,21 @@
 import UIKit
 
 class PlantViewController: UIViewController {
-   
+    
+    var plant: Plant!
+    var plantViewModel : PlantViewModel!
   
     @IBOutlet var superView: UIView!
-    
  
     @IBOutlet weak var plantViewHC: NSLayoutConstraint!
-    
-
     @IBOutlet weak var plantImageView: UIImageView!
-
     
-  
+    @IBOutlet weak var plantName: UILabel!
     
-
     @IBOutlet weak var informationTextView: UITextView!
     @IBOutlet weak var informationViewHC: NSLayoutConstraint!
     @IBOutlet weak var informationTextViewHC: NSLayoutConstraint!
     
-    
-
     @IBOutlet weak var soilTextView: UITextView!
     @IBOutlet weak var soilTextViewHC: NSLayoutConstraint!
     @IBOutlet weak var soilViewHC: NSLayoutConstraint!
@@ -37,11 +32,9 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var climateTextView: UITextView!
     @IBOutlet weak var climateTextViewHC: NSLayoutConstraint!
     
-   
     @IBOutlet weak var lightViewHC: NSLayoutConstraint!
     @IBOutlet weak var lightTextView: UITextView!
     @IBOutlet weak var lightTextHC: NSLayoutConstraint!
-    
     
     @IBOutlet weak var plantationTextViewHC: NSLayoutConstraint!
     @IBOutlet weak var plantationTextView: UITextView!
@@ -97,5 +90,18 @@ class PlantViewController: UIViewController {
         //Harvest View
         harvestTextViewHC.constant = self.harvestTextView.contentSize.height
         harvestViewHC.constant = self.harvestTextView.contentSize.height + 25
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        plantViewModel = PlantViewModel()
+        plantName.text = plant.name
+        plantImageView.image = plantViewModel.getPlantImageURL(plant.photo)
+        informationTextView.text = plant.information
+        soilTextView.text = plant.soil
+        climateTextView.text = plant.climate
+        lightTextView.text = plant.light
+        plantationTextView.text = plant.planting
+        irrigationTextView.text = plant.watering
+        harvestTextView.text = plant.harvest
+        
     }
 }

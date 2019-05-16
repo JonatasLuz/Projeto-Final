@@ -459,6 +459,7 @@
                         <outlet property="lightTextView" destination="6VJ-QN-sDU" id="wI4-4M-Jls"/>
                         <outlet property="lightViewHC" destination="UJH-w7-Xu6" id="pzi-GH-0sx"/>
                         <outlet property="plantImageView" destination="ViR-jK-6LZ" id="dgP-iR-BNr"/>
+                        <outlet property="plantName" destination="IAY-XK-JIZ" id="8sn-5u-fLb"/>
                         <outlet property="plantViewHC" destination="YyA-YH-F2c" id="qMo-3k-i74"/>
                         <outlet property="plantationTextView" destination="LZ1-Dj-8yH" id="Bo4-CL-Bmp"/>
                         <outlet property="plantationTextViewHC" destination="sud-z3-glw" id="BVK-UT-MAx"/>
@@ -515,7 +516,7 @@
                                     <outlet property="cellView" destination="2dy-b7-jmM" id="OsA-X8-939"/>
                                     <outlet property="plantImage" destination="VXU-oA-8gJ" id="Vil-PJ-J50"/>
                                     <outlet property="plantNameLabel" destination="wkA-iZ-090" id="MzL-b2-ZlL"/>
-                                    <segue destination="dZ6-Vs-q2d" kind="show" id="4ZU-Sr-3NQ"/>
+                                    <segue destination="dZ6-Vs-q2d" kind="show" identifier="plantIdentfier" id="4ZU-Sr-3NQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

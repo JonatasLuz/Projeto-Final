@@ -8,19 +8,14 @@
 
 import UIKit
 
-class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate{
 
     var plantsTableViewModel : PlantsTableViewModel!
     let cellIdentifier = "cell"
     var plants : [Plant]!
     
     override func viewDidLoad() {
-        plants = []
-        plantsTableViewModel = PlantsTableViewModel()
-        plantsTableViewModel.getPlants { plantsArray in
-            self.plants = plantsArray
-            self.tableView.reloadData()
-        }
+       
         
         
         super.viewDidLoad()
@@ -32,27 +27,40 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UII
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        plants = []
+        plantsTableViewModel = PlantsTableViewModel()
+        plantsTableViewModel.getPlants { plantsArray in
+            self.plants = plantsArray
+            self.tableView.reloadData()
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
         return plants.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
         cell?.plantNameLabel.text = plants[indexPath.row].name
         cell?.plantImage.image =  plantsTableViewModel.getPlantImageURL(plants[indexPath.row].photo)
         return cell!
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "plantIdentfier"{
+            let next = segue.destination as! PlantViewController
+            let row = tableView.indexPathForSelectedRow?.row
+            next.plant = plants![row!]
+        }
     }
 
 
@@ -91,14 +99,5 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UII
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
