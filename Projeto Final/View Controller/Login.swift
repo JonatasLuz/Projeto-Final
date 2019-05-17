@@ -10,33 +10,32 @@ import UIKit
 import Firebase
 import FacebookLogin
 import FacebookCore
-
+import FBSDKCoreKit
+import FBSDKLoginKit 
 class Login: UIViewController {
     
-
+    @IBOutlet weak var logoView: UIView!
+    
+    
     @IBOutlet weak var logo: UILabel!
     
-    @IBOutlet weak var loginExterno: UIView!
+    @IBOutlet weak var fbButtonView: UIView!
     
-
     @IBOutlet weak var signIn: UIButton!
     @IBOutlet weak var signUp: UIButton!
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
-    
-    
-    
-
-    
+    @IBOutlet weak var fbButton: UIButton!
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        //let loginFacebookbutton = LoginButton(readPermissions: [ .publicProfile, .email,])
-        // loginExterno.addSubview(loginFacebookbutton)
-        // loginFacebookbutton.delegate = self
+        
+        
+        
+        let loginButton = FBLoginButton(permissions: [ .publicProfile ])
+        fbButton.setTitle("Entre com o Facebook", for: [])
+        fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +44,9 @@ class Login: UIViewController {
 
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
-        
         }
+        print(Auth.auth().currentUser?.email)
+        
     }
     
     @IBAction func signUp(_ sender: UIButton) {
@@ -58,27 +58,17 @@ class Login: UIViewController {
             }
         }
     }
-}
-
-/*
-extension Login : LoginButtonDelegate{
-    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        //if let acessToken = AccessToken.current{
-            //let credential = FacebookAuthProvider.credential(withAccessToken: acessToken.userId!)
-           
-        //}
-        let acessToken = AccessToken.current
-        let credential = FacebookAuthProvider.credential(withAccessToken: (acessToken?.authenticationToken)!)
-        //Auth.auth().signIn(with: credencial)
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-        
+    @objc func loginButtonClicked() {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: [ .publicProfile ], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                print("Logged in!")
+            }
         }
-    
     }
-    
-    func loginButtonDidLogOut(_ loginButton: LoginButton) {
-       
-    }
- 
-}*/
-
+}
