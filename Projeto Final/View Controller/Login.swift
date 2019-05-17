@@ -1,17 +1,9 @@
-//
-//  ViewController.swift
-//  Projeto Final
-//
-//  Created by ALUNO on 08/04/19.
-//  Copyright © 2019 Jonatas da Luz. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import FacebookLogin
 import FacebookCore
 import FBSDKCoreKit
-import FBSDKLoginKit 
+import FBSDKLoginKit
 class Login: UIViewController {
     
     @IBOutlet weak var logoView: UIView!
@@ -40,13 +32,13 @@ class Login: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         logo.adjustsFontSizeToFitWidth = true
     }
-
+    
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
         }
-        //print(Auth.auth().currentUser?.uid)
+        print(Auth.auth().currentUser?.uid)
         
-        //print(Auth.auth().currentUser?.email)
+        print(Auth.auth().currentUser?.email)
         
     }
     
@@ -55,7 +47,7 @@ class Login: UIViewController {
             guard (authResult?.user) != nil
                 else {
                     print("Erro no cadastro:  \(String(describing: error))")
-                return
+                    return
             }
         }
     }
@@ -68,7 +60,8 @@ class Login: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                let eita = Auth.auth().currentUser?.email
+                let eita = Auth.auth().currentUser?.uid
+                print("id")
                 print(eita)
                 
                 
@@ -76,7 +69,6 @@ class Login: UIViewController {
                 
             }
         }
-        
     }
     func getUserData(){
         
