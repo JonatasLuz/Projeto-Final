@@ -33,7 +33,6 @@ class Login: UIViewController {
         
         
         
-        let loginButton = FBLoginButton(permissions: [ .publicProfile ])
         fbButton.setTitle("Entre com o Facebook", for: [])
         fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
     }
@@ -45,7 +44,9 @@ class Login: UIViewController {
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
         }
-        print(Auth.auth().currentUser?.email)
+        //print(Auth.auth().currentUser?.uid)
+        
+        //print(Auth.auth().currentUser?.email)
         
     }
     
@@ -60,15 +61,29 @@ class Login: UIViewController {
     }
     @objc func loginButtonClicked() {
         let loginManager = LoginManager()
-        loginManager.logIn(permissions: [ .publicProfile ], viewController: self) { loginResult in
+        loginManager.logIn(permissions: [ .publicProfile , .email ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                print("Logged in!")
+                let eita = Auth.auth().currentUser?.email
+                print(eita)
+                
+                
+                self.getUserData()
+                
             }
         }
+        
+    }
+    func getUserData(){
+        
+        let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, email, name, picture.width(480).height(480)"])
+        request.start(completionHandler: { (connection, result, error) -> Void in
+            let teste = result as! NSDictionary
+            
+        })
     }
 }
