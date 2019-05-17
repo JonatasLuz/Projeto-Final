@@ -545,10 +545,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqV-ge-EzV">
-                                                <rect key="frame" x="20" y="52" width="335" height="91"/>
+                                                <rect key="frame" x="20" y="52" width="335" height="109"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.0" green="0.68749707937240601" blue="0.38967907428741455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="PLANTYS">
+                                                    <fragment content="PlantYs">
                                                         <attributes>
                                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <font key="NSFont" size="77" name="ChalkboardSE-Bold"/>
@@ -559,7 +560,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.68749707937240601" blue="0.38967907428741455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9H4-x4-j8Y">
                                         <rect key="frame" x="0.0" y="209.5" width="375" height="199"/>
@@ -601,7 +602,6 @@
                                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.68749707937240601" blue="0.38967907428741455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNU-UB-rnz">
                                         <rect key="frame" x="0.0" y="418.5" width="375" height="199.5"/>
@@ -613,12 +613,12 @@
                                                 <state key="normal" title="Entrar com o Facebook"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.68749707937240601" blue="0.38967907428741455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.68749707937240601" blue="0.38967907428741455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qJ9-Ws-wf0" secondAttribute="trailing" id="6gr-y7-Ngh"/>
                             <constraint firstItem="qJ9-Ws-wf0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Hjt-BR-JWl"/>
