@@ -37,9 +37,6 @@ class PlantsTableViewModel{
                 return
             }else{
                 for document in querySnapShot!.documents{
-                    let eita = Plant(document.data())
-                    
-                    
                     let plantID = document.documentID
                     let name = document.get("name") as! String
                     let photo = document.get("photo") as! String

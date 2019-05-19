@@ -27,10 +27,23 @@ class Login: UIViewController {
         
         fbButton.setTitle("Entre com o Facebook", for: [])
         fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
+        
+        //print(Auth.auth().currentUser?.uid)
+        
+        do{
+            try Auth.auth().signOut()
+        }catch{
+            print("Error On signOut")
+        }
+        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         logo.adjustsFontSizeToFitWidth = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //performSegue(withIdentifier: "loginAcepted", sender: self)
     }
     
     @IBAction func sigIn(_ sender: UIButton) {
@@ -39,6 +52,7 @@ class Login: UIViewController {
         print(Auth.auth().currentUser?.uid)
         
         print(Auth.auth().currentUser?.email)
+        
         
     }
     
@@ -60,22 +74,31 @@ class Login: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                let eita = Auth.auth().currentUser?.uid
-                print("id")
-                print(eita)
-                
-                
+                print("sucesso")
                 self.getUserData()
-                
+                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+                Auth.auth().signIn(with: credential, completion: { (result, error) in
+                    if let error = error{
+                        print(error)
+                    }
+                    else{
+                        print("Sucess")
+                    }
+                })
             }
+        }
+        if Auth.auth().currentUser != nil {
+            performSegue(withIdentifier: "loginAcepted", sender: self)
         }
     }
     func getUserData(){
         
         let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, email, name, picture.width(480).height(480)"])
         request.start(completionHandler: { (connection, result, error) -> Void in
-            let teste = result as! NSDictionary
             
+            let teste = result as! NSDictionary
+                print("getUserData")
+                print(teste.value(forKey: "email"))
         })
     }
 }
