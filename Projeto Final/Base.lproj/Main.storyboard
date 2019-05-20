@@ -614,9 +614,10 @@
                                         <rect key="frame" x="0.0" y="418.5" width="375" height="199.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJb-tH-0ZN">
-                                                <rect key="frame" x="93" y="15" width="203" height="34"/>
+                                                <rect key="frame" x="48" y="8" width="279" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.22943970561027527" green="0.34702008962631226" blue="0.59602290391921997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Entrar com o Facebook"/>
                                             </button>
                                         </subviews>
@@ -648,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="-245"/>
+            <point key="canvasLocation" x="56.799999999999997" y="-245.12743628185908"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="j8w-TA-whT">
