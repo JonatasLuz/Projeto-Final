@@ -664,30 +664,24 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XV9-dz-Fj7" userLabel="Profile VIew">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t0g-yG-ANq">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilephoto1" translatesAutoresizingMaskIntoConstraints="NO" id="GhM-gk-jd1">
-                                                        <rect key="frame" x="66.5" y="0.0" width="242" height="114"/>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLz-Jt-HsK">
-                                                        <rect key="frame" x="113" y="122" width="149" height="29"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                        <color key="textColor" red="0.0" green="0.68749707937240601" blue="0.38967907428741455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="MLz-Jt-HsK" firstAttribute="height" secondItem="GhM-gk-jd1" secondAttribute="height" multiplier="1:4" id="8n8-KX-2Q6"/>
-                                                </constraints>
-                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLz-Jt-HsK">
+                                                <rect key="frame" x="121" y="19" width="133.5" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" red="0.0" green="0.68749707937240601" blue="0.38967907428741455" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLT-7N-jps">
+                                                <rect key="frame" x="120" y="76" width="136" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.0" green="0.68749707940000004" blue="0.38967907429999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Minha Horta">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="t0g-yG-ANq" firstAttribute="top" secondItem="XV9-dz-Fj7" secondAttribute="top" id="KeV-ab-KsR"/>
-                                            <constraint firstAttribute="bottom" secondItem="t0g-yG-ANq" secondAttribute="bottom" id="eQZ-Kf-NaB"/>
-                                            <constraint firstItem="t0g-yG-ANq" firstAttribute="leading" secondItem="XV9-dz-Fj7" secondAttribute="leading" id="jsU-BT-yVJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="t0g-yG-ANq" secondAttribute="trailing" id="p1o-m6-9a3"/>
-                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efk-xR-DHf">
                                         <rect key="frame" x="0.0" y="151" width="375" height="150.5"/>
@@ -696,13 +690,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Já Plantei" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="le1-ZZ-g0A">
-                                                        <rect key="frame" x="141.5" y="0.0" width="92" height="20.5"/>
+                                                        <rect key="frame" x="141.5" y="0.0" width="92" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" red="0.0" green="0.68749707940000004" blue="0.38967907429999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gLU-nF-4Ac">
-                                                        <rect key="frame" x="0.0" y="28.5" width="375" height="122"/>
+                                                        <rect key="frame" x="0.0" y="34.5" width="375" height="116"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H6c-Eg-5if">
                                                             <size key="itemSize" width="125" height="118"/>
@@ -712,7 +706,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="profileCell" id="IFF-94-iZ7" customClass="HarvestCollectionViewCell" customModule="Projeto_Final" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="2" width="125" height="118"/>
+                                                                <rect key="frame" x="0.0" y="-1" width="125" height="118"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="118"/>
@@ -727,7 +721,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </view>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="1" green="0.72668384295353028" blue="0.59412438324654371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
@@ -758,13 +752,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quero Plantar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm7-9W-I28">
-                                                        <rect key="frame" x="119.5" y="0.0" width="136" height="20.5"/>
+                                                        <rect key="frame" x="119.5" y="0.0" width="136" height="27.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                         <color key="textColor" red="0.0" green="0.68749707940000004" blue="0.38967907429999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-ag-vuM">
-                                                        <rect key="frame" x="0.0" y="28.5" width="375" height="122.5"/>
+                                                        <rect key="frame" x="0.0" y="35.5" width="375" height="115.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bg8-rT-zrE">
                                                             <size key="itemSize" width="129" height="122.5"/>
@@ -774,7 +768,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="profileCell" id="5QL-pu-3fH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="129" height="122.5"/>
+                                                                <rect key="frame" x="0.0" y="-3.5" width="129" height="122.5"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="129" height="122.5"/>
@@ -811,13 +805,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conquistas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZl-Tz-9TZ">
-                                                        <rect key="frame" x="133.5" y="0.0" width="108" height="20.5"/>
+                                                        <rect key="frame" x="133.5" y="0.0" width="108" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <color key="textColor" red="0.0" green="0.68749707940000004" blue="0.38967907429999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zh4-FX-NYC">
-                                                        <rect key="frame" x="0.0" y="28.5" width="375" height="122"/>
+                                                        <rect key="frame" x="0.0" y="34.5" width="375" height="116"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wcW-ur-llo">
                                                             <size key="itemSize" width="133" height="122"/>
@@ -827,7 +821,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="profileCell" id="dMv-QQ-Uaa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="133" height="122"/>
+                                                                <rect key="frame" x="0.0" y="-3" width="133" height="122"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="133" height="122"/>
@@ -871,14 +865,14 @@
                     </view>
                     <connections>
                         <outlet property="harvestCollection" destination="gLU-nF-4Ac" id="JNh-Rd-Xfm"/>
+                        <outlet property="myGardenButton" destination="cLT-7N-jps" id="Bby-t5-pmn"/>
                         <outlet property="profileName" destination="MLz-Jt-HsK" id="z1F-SH-9em"/>
-                        <outlet property="profilePicture" destination="GhM-gk-jd1" id="Kh6-Pl-8SA"/>
                         <outlet property="wantCollection" destination="uNK-ag-vuM" id="LxN-GE-RbY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2Y-R7-6jA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="-403"/>
+            <point key="canvasLocation" x="2472.8000000000002" y="-403.44827586206901"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bvR-UG-KuR">
@@ -901,6 +895,5 @@
     </scenes>
     <resources>
         <image name="large_image9-1498775460956" width="480" height="333"/>
-        <image name="profilephoto1" width="242" height="241"/>
     </resources>
 </document>

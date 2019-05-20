@@ -11,19 +11,21 @@ import UIKit
 
 let plantIdentifier = "profileCell"
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     
+    @IBOutlet weak var myGardenButton: UIButton!
     @IBOutlet weak var wantCollection: UICollectionView!
     @IBOutlet weak var harvestCollection: UICollectionView!
     override func viewDidLoad() {
         
-        profilePicture.layer.borderWidth = 2
-        profilePicture.layer.masksToBounds = false
-        profilePicture.layer.borderColor = UIColor.white.cgColor
-        profilePicture.layer.cornerRadius = profilePicture.frame.height / 2
-        profilePicture.clipsToBounds = true
         
+        myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
+        myGardenButton.layer.borderWidth = 1
+        myGardenButton.layer.borderColor = UIColor.black.cgColor
+        
+        myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        myGardenButton.clipsToBounds = true
         
         super.viewDidLoad()
     }
