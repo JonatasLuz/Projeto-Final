@@ -20,8 +20,12 @@ class Login: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var fbButton: UIButton!
+    
+    var loginViewModel : LoginViewModel!
+    
     override func viewDidLoad() {
         
+        loginViewModel = LoginViewModel()
         
         
         
@@ -30,11 +34,11 @@ class Login: UIViewController {
         
         //print(Auth.auth().currentUser?.uid)
         
-        do{
-            try Auth.auth().signOut()
-        }catch{
-            print("Error On signOut")
-        }
+      //  do{
+      //      try Auth.auth().signOut()
+      //  }catch{
+      //      print("Error On signOut")
+      //  }
         super.viewDidLoad()
     }
     
@@ -42,18 +46,10 @@ class Login: UIViewController {
         logo.adjustsFontSizeToFitWidth = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //performSegue(withIdentifier: "loginAcepted", sender: self)
-    }
     
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
         }
-        print(Auth.auth().currentUser?.uid)
-        
-        print(Auth.auth().currentUser?.email)
-        
-        
     }
     
     @IBAction func signUp(_ sender: UIButton) {
@@ -74,31 +70,25 @@ class Login: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                print("sucesso")
-                self.getUserData()
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
                 Auth.auth().signIn(with: credential, completion: { (result, error) in
                     if let error = error{
                         print(error)
                     }
                     else{
-                        print("Sucess")
+                        self.loginViewModel.setUserId(Auth.auth().currentUser!.uid)
+                        self.loginViewModel.getUserData(completion: {
+                              self.performSegue(withIdentifier: "loginAcepted", sender: self)
+                        })
                     }
                 })
             }
         }
-        if Auth.auth().currentUser != nil {
-            performSegue(withIdentifier: "loginAcepted", sender: self)
-        }
     }
-    func getUserData(){
-        
-        let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, email, name, picture.width(480).height(480)"])
-        request.start(completionHandler: { (connection, result, error) -> Void in
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginAcepted"{
             
-            let teste = result as! NSDictionary
-                print("getUserData")
-                print(teste.value(forKey: "email"))
-        })
+        }
     }
 }

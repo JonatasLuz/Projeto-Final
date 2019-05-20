@@ -47,7 +47,6 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         return plants.count
     }
 
-   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
         cell?.plantNameLabel.text = plants[indexPath.row].name

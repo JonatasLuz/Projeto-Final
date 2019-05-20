@@ -29,6 +29,7 @@ class PlantsTableViewModel{
         return nil
     }
     
+    
     func getPlants(completion: @escaping ([Plant]) -> Void){
         var plantsArray = [Plant]()
         db.collection("planta").getDocuments { (querySnapShot, error) in
@@ -56,6 +57,7 @@ class PlantsTableViewModel{
                     
                 }
                 completion(plantsArray)
+                
             }
         }
     }

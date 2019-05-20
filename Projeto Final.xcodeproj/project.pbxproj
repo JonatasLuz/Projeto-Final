@@ -21,6 +21,7 @@
 		AC4C713D228DC7B70042D292 /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C713C228DC7B70042D292 /* PlantViewModel.swift */; };
 		AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B88822289EBA20051D78A /* ProfileViewController.swift */; };
 		AC6B88C12289F32F0051D78A /* HarvestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B88C02289F32F0051D78A /* HarvestCollectionViewCell.swift */; };
+		AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC77A7A32292175B0096FC14 /* LoginViewModel.swift */; };
 		AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93B756228B495500D67405 /* PlantsTableViewModel.swift */; };
 		C2883979DF41F4BC67647951 /* Pods_Projeto_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		AC4C713C228DC7B70042D292 /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantViewModel.swift; path = "Projeto Final/View Model/PlantViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		AC6B88822289EBA20051D78A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC6B88C02289F32F0051D78A /* HarvestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarvestCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC77A7A32292175B0096FC14 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AC93B756228B495500D67405 /* PlantsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantsTableViewModel.swift; path = "Projeto Final/View Model/PlantsTableViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		C641F01D96095813491B578E /* Pods-Projeto Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projeto Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 			children = (
 				AC93B756228B495500D67405 /* PlantsTableViewModel.swift */,
 				AC4C713C228DC7B70042D292 /* PlantViewModel.swift */,
+				AC77A7A32292175B0096FC14 /* LoginViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				570657A4228628D50013656F /* Plant.swift in Sources */,
 				AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */,
 				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
+				AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */,
 				AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */,
 				570BEE4B225C1B0A007F5302 /* AppDelegate.swift in Sources */,
 				AC6B88C12289F32F0051D78A /* HarvestCollectionViewCell.swift in Sources */,
