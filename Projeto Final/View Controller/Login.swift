@@ -77,9 +77,8 @@ class Login: UIViewController {
                         print(error)
                     }
                     else{
-                        self.loginViewModel.setUserId(Auth.auth().currentUser!.uid)
+                        self.loginViewModel.setUserInfo(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!)
                         self.loginViewModel.getUserData(completion: {
-                            
                             print("chego")
                               self.performSegue(withIdentifier: "loginAcepted", sender: self)
                         })
