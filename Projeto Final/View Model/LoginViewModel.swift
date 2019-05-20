@@ -31,19 +31,28 @@ class LoginViewModel{
             print("Document")
             
             if let error = error{
+                
                 print("Erro \(error)")
             }else{
+                
                 if querySnapShot != nil{
+                    
                     for user in querySnapShot!.documents{
+                        
                         let userInfo = user.data()
                         print("Ha user")
                         print(userInfo)
                         
                     }
+                    
+                   print("cawabunga")
                 }else{
+                    
                     print("Nao ha user")
                     
                 }
+                
+                completion(["eita"])
             }
         }
         
@@ -54,10 +63,8 @@ class LoginViewModel{
     }
     
     func getUserData(completion: @escaping ()->()){
-        //var userArray = [String]()
         getData { (userArray) in
-            print("eita")
-        
+            completion()
         }
         
         

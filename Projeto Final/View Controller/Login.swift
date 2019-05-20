@@ -78,6 +78,8 @@ class Login: UIViewController {
                     else{
                         self.loginViewModel.setUserId(Auth.auth().currentUser!.uid)
                         self.loginViewModel.getUserData(completion: {
+                            
+                            print("chego")
                               self.performSegue(withIdentifier: "loginAcepted", sender: self)
                         })
                     }
@@ -87,8 +89,5 @@ class Login: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginAcepted"{
-            
-        }
     }
 }
