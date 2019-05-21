@@ -41,6 +41,7 @@ class Login: UIViewController {
       //      print("Error On signOut")
       //  }
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

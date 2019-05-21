@@ -14,6 +14,7 @@
 		570BEE50225C1B0A007F5302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE4E225C1B0A007F5302 /* Main.storyboard */; };
 		570BEE52225C1B0B007F5302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE51225C1B0B007F5302 /* Assets.xcassets */; };
 		570BEE55225C1B0B007F5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE53225C1B0B007F5302 /* LaunchScreen.storyboard */; };
+		574EBBB22293765100927E67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EBBB12293765100927E67 /* User.swift */; };
 		57828975227D07B00025E337 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828974227D07B00025E337 /* PlantViewController.swift */; };
 		57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C97226E833000833C09 /* PlantsTableViewController.swift */; };
 		57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */; };
@@ -37,6 +38,7 @@
 		570BEE51225C1B0B007F5302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		570BEE54225C1B0B007F5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		570BEE56225C1B0B007F5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		574EBBB12293765100927E67 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		57828974227D07B00025E337 /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		57A18C97226E833000833C09 /* PlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewController.swift; sourceTree = "<group>"; };
 		57A18C99226E834A00833C09 /* PlantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewCell.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				570657A3228628D50013656F /* Plant.swift */,
+				574EBBB12293765100927E67 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574EBBB22293765100927E67 /* User.swift in Sources */,
 				570657A12283B3030013656F /* CollectionViewController.swift in Sources */,
 				570BEE4D225C1B0A007F5302 /* Login.swift in Sources */,
 				57828975227D07B00025E337 /* PlantViewController.swift in Sources */,

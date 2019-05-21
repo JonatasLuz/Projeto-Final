@@ -22,7 +22,7 @@ class LoginViewModel{
     init (){
     }
     
-    func getData(completion: @escaping ([String]) -> Void ){
+    func getData(completion: @escaping ()->()){
         
         let userRef = db.collection("usuario")
         userRef.document(userFirebaseId)
@@ -42,7 +42,7 @@ class LoginViewModel{
                     print("Nao ha user")
                     
                 }
-                completion(["eita"])
+                completion()
             }
         }
         
@@ -54,7 +54,7 @@ class LoginViewModel{
     }
     
     func getUserData(completion: @escaping ()->()){
-        getData { (userArray) in
+        getData {
             completion()
         }
         

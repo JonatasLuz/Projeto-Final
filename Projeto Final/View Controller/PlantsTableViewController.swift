@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate{
 
@@ -14,11 +15,14 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     let cellIdentifier = "cell"
     var plants : [Plant]!
     
+    
     override func viewDidLoad() {
-       
+     
         
         
         super.viewDidLoad()
+
+        
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -59,6 +63,10 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
             let next = segue.destination as! PlantViewController
             let row = tableView.indexPathForSelectedRow?.row
             next.plant = plants![row!]
+        }else{
+            
+            
+            
         }
     }
 
