@@ -18,6 +18,10 @@ class User{
     var myAchievements : [String]!
     var planted : [String]!
     
+    init(){
+        
+    }
+    
     init(_ userId : String, _ firstName : String, _ lastName : String, _ email: String, _ wantList : [String], _ myGarden : [String], _ myAchievements : [String], _ planted : [String] ){
         self.userId = userId
         self.firstName = firstName

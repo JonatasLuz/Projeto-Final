@@ -57,8 +57,7 @@ class LoginViewModel{
         getData {
             completion()
         }
-        
-        
+
         let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, first_name, last_name, middle_name"])
         request.start(completionHandler: { (connection, result, error) -> Void in
             let user = result as! NSDictionary
@@ -68,6 +67,53 @@ class LoginViewModel{
             completion()
         })
     }
+    
+    func getUser(_ userId : String, _ userEmail : String, completion: @escaping ((User) -> Void)){
+        var user : User!
+        let userRef = db.collection("usuario")
+        userRef.document(userId)
+        userRef.getDocuments { (querySnapshot, error) in
+            if let error = error{
+                print(error)
+            }
+            else{
+                if querySnapshot != nil && querySnapshot!.count > 0{
+                    print("Ha users")
+                    for userData in querySnapshot!.documents{
+                        let firstName = userData.get("firstName") as! String
+                        let lastName = userData.get("lastName") as! String
+                        var wantList = [String]()
+                        if userData.get("want") != nil{
+                            wantList = userData.get("want") as![String]
+                        }
+                        var myGarden = [String]()
+                        if userData.get("myGarden") != nil{
+                            myGarden = userData.get("myGarden") as! [String]
+                        }
+                        var myAchievements = [String]()
+                        if userData.get("myAchievements") != nil{
+                            myAchievements = userData.get("myAchievements") as! [String]
+                        }
+                        var planted = [String]()
+                        if userData.get("planted") != nil{
+                            planted = userData.get("planted") as! [String]
+                        }
+                        user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
+                        print(user.planted)
+                    }
+                }
+                else{
+                    user = User()
+                    print("Nao ha users")
+                    
+                }
+            }
+            completion(user)
+        }
+    }
+    
+    
+    
     func createUserFacebook(){
         print(self.userFirstName)
         db.collection("usuario").document(self.userFirebaseId).setData([
