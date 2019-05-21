@@ -12,6 +12,7 @@ class PlantViewController: UIViewController {
     
     var plant: Plant!
     var plantViewModel : PlantViewModel!
+    var plantImage : UIImage!
   
     @IBOutlet var superView: UIView!
  
@@ -63,6 +64,7 @@ class PlantViewController: UIViewController {
         plantationTextView.text = plant.planting
         irrigationTextView.text = plant.watering
         harvestTextView.text = plant.harvest
+        plantImageView.image = plantImage
         
         plantViewHC.constant = superView.bounds.height / 3
         //plantImageWC.constant = self.plantImageView.bounds.height

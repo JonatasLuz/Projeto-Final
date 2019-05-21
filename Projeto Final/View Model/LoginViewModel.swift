@@ -58,12 +58,11 @@ class LoginViewModel{
             completion()
         }
 
-        let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, first_name, last_name, middle_name"])
+        let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, first_name, last_name"])
         request.start(completionHandler: { (connection, result, error) -> Void in
             let user = result as! NSDictionary
-            
             self.userFirstName = user.value(forKey: "first_name") as? String
-            self.userLastName = user.value(forKey: "last_name") as! String
+            self.userLastName = user.value(forKey: "last_name") as? String
             completion()
         })
     }

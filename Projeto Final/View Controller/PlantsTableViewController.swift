@@ -32,15 +32,17 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.plantImages=[]
         plants = []
         plantsTableViewModel = PlantsTableViewModel()
         plantsTableViewModel.getPlants { plantsArray in
             self.plants = plantsArray
             for plant in self.plants{
-                let plantImage = self.plantsTableViewModel.getPlantImageURL(plant.photo)
-                print(plant.photo)
-                
-                self.plantImages.append(plantImage!)
+                self.plantsTableViewModel.getPlantImageURL(plant.photo, completion: { (image) in
+                    print("chego")
+                    
+                    self.plantImages.append(image)
+                })
             }
             self.tableView.reloadData()
         }
@@ -67,9 +69,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         if segue.identifier == "plantIdentfier"{
             let next = segue.destination as! PlantViewController
             let row = tableView.indexPathForSelectedRow?.row
-            print(row)
-            
-            next.plantImageView.image = plantImages[row!]
+            next.plantImage = plantImages?[row!]
             next.plant = plants![row!]
         }else if segue.identifier == "profileIdentifier"{
             let next = segue.destination as! ProfileViewController

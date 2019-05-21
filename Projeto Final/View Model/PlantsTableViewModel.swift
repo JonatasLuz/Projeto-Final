@@ -19,14 +19,15 @@ class PlantsTableViewModel{
         }
     }
     
-    func getPlantImageURL(_ url : String) -> UIImage?{
+    func getPlantImageURL(_ url : String, completion: @escaping (UIImage) -> Void) {
         do{
             let imageURL = try Data(contentsOf: URL.init(string: url)!)
-            return UIImage(data: imageURL)
+            print(url)
+            
+            completion(UIImage(data: imageURL)!)
         }catch{
             print("Erro ao buscar imagem de planta \(error)")
         }
-        return nil
     }
     
     
