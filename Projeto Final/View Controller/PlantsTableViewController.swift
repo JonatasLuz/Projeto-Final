@@ -14,6 +14,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     var plantsTableViewModel : PlantsTableViewModel!
     let cellIdentifier = "cell"
     var plants : [Plant]!
+    var user : User!
     
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         
         
         super.viewDidLoad()
+        
 
         
         
@@ -63,10 +65,9 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
             let next = segue.destination as! PlantViewController
             let row = tableView.indexPathForSelectedRow?.row
             next.plant = plants![row!]
-        }else{
-            
-            
-            
+        }else if segue.identifier == "profileIdentifier"{
+            let next = segue.destination as! ProfileViewController
+            next.userInfo = user
         }
     }
 

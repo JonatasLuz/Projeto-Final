@@ -57,7 +57,6 @@ class PlantsTableViewModel{
                     
                 }
                 completion(plantsArray)
-                
             }
         }
     }

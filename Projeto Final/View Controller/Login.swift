@@ -23,6 +23,8 @@ class Login: UIViewController {
     
     var loginViewModel : LoginViewModel!
     
+    var userLogin : User!
+    
     override func viewDidLoad() {
         
         loginViewModel = LoginViewModel()
@@ -48,7 +50,6 @@ class Login: UIViewController {
         logo.adjustsFontSizeToFitWidth = true
     }
     
-    
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
         }
@@ -63,6 +64,7 @@ class Login: UIViewController {
             }
         }
     }
+    
     @objc func loginButtonClicked() {
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [ .publicProfile , .email ], viewController: self) { loginResult in
@@ -83,6 +85,7 @@ class Login: UIViewController {
                        //       self.performSegue(withIdentifier: "loginAcepted", sender: self)
                         //})
                         self.loginViewModel.getUser(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!, completion: { (user) in
+                            self.userLogin = user
                             self.performSegue(withIdentifier: "loginAccepted", sender: self)
                         })
                     }
@@ -92,5 +95,11 @@ class Login: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginAccepted"{
+            if let navView = segue.destination as? UINavigationController{
+                let next = navView.topViewController as! PlantsTableViewController
+                next.user = userLogin
+            }
+        }
     }
 }
