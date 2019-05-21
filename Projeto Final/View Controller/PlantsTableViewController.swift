@@ -15,6 +15,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     let cellIdentifier = "cell"
     var plants : [Plant]!
     var user : User!
+    var plantImages : [UIImage]!
     
     
     override func viewDidLoad() {
@@ -35,6 +36,12 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         plantsTableViewModel = PlantsTableViewModel()
         plantsTableViewModel.getPlants { plantsArray in
             self.plants = plantsArray
+            for plant in self.plants{
+                let plantImage = self.plantsTableViewModel.getPlantImageURL(plant.photo)
+                print(plant.photo)
+                
+                self.plantImages.append(plantImage!)
+            }
             self.tableView.reloadData()
         }
     }
@@ -52,7 +59,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
         cell?.plantNameLabel.text = plants[indexPath.row].name
-        cell?.plantImage.image =  plantsTableViewModel.getPlantImageURL(plants[indexPath.row].photo)
+        cell?.plantImage.image =  plantImages[indexPath.row]
         return cell!
     }
     
@@ -62,7 +69,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
             let row = tableView.indexPathForSelectedRow?.row
             print(row)
             
-            next.plantImageView.image = plantsTableViewModel.getPlantImageURL(plants[row!].photo)
+            next.plantImageView.image = plantImages[row!]
             next.plant = plants![row!]
         }else if segue.identifier == "profileIdentifier"{
             let next = segue.destination as! ProfileViewController
