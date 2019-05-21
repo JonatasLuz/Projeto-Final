@@ -56,7 +56,6 @@ class PlantViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         plantViewModel = PlantViewModel()
         plantName.text = plant.name
-        plantImageView.image = plantViewModel.getPlantImageURL(plant.photo)
         informationTextView.text = plant.information
         soilTextView.text = plant.soil
         climateTextView.text = plant.climate

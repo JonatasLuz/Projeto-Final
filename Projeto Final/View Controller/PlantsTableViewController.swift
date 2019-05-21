@@ -22,11 +22,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         
         
         super.viewDidLoad()
-        
-
-        
-        
-
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -64,6 +60,9 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         if segue.identifier == "plantIdentfier"{
             let next = segue.destination as! PlantViewController
             let row = tableView.indexPathForSelectedRow?.row
+            print(row)
+            
+            next.plantImageView.image = plantsTableViewModel.getPlantImageURL(plants[row!].photo)
             next.plant = plants![row!]
         }else if segue.identifier == "profileIdentifier"{
             let next = segue.destination as! ProfileViewController
