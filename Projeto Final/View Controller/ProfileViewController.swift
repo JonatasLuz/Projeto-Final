@@ -15,7 +15,14 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var wantCollection: UICollectionView!
     @IBOutlet weak var harvestCollection: UICollectionView!
+ 
+    
+    
     @IBOutlet weak var profileNameLabel: UILabel!
+    
+    
+    
+    
     
     var userInfo : User!
     var plants : [Plant]!
@@ -24,16 +31,12 @@ class ProfileViewController: UIViewController {
  
     
     override func viewDidLoad() {
-        print(userInfo.firstName)
-        
-        print(plants.count)
         profileNameLabel.text = userInfo.firstName
         
         myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
-                print(userInfo.wantList.count)
-                super.viewDidLoad()
+        super.viewDidLoad()
     }
 }
 
@@ -59,8 +62,11 @@ extension ProfileViewController : UICollectionViewDataSource{
             let plant = plants.first(where: {$0.plantID == self.userInfo.planted[indexPath.row]})
             cell.plantImageView.image = plant?.photo
             cell.plantNameLabel.text = plant?.name
-            print(cell.plantImageView.frame.height)
-            print(cell.plantImageView.frame.width)
+            print("Constraint")
+            print( cell.plantImageView.constraints)
+            //cell.plantImageView.layer.cornerRadius = 0.5 * cell.bounds.height
+            //cell.plantImageView.layer.borderWidth = 3
+            cell.plantImageView.layer.borderColor = cell.plantNameLabel.textColor.cgColor
             
             return cell
         }else if collectionView == self.wantCollection{
@@ -78,6 +84,6 @@ extension ProfileViewController : UICollectionViewDataSource{
 
 extension ProfileViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.wantCollection.frame.height, height: self.wantCollection    .frame.height)
+        return CGSize(width: self.wantCollection.frame.height, height: self.wantCollection.frame.height)
     }
 }
