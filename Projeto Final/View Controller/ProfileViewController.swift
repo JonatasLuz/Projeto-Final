@@ -9,22 +9,23 @@
 import UIKit
 
 
-let plantIdentifier = "profileCell"
+let profileCell = "profileCell"
 class ProfileViewController: UIViewController {
+    @IBOutlet weak var harvestCollection: UICollectionView!
     @IBOutlet weak var profileName: UILabel!
     var userInfo : User!
-    
     @IBOutlet weak var myGardenButton: UIButton!
-    @IBOutlet weak var wantCollection: UICollectionView!
-    @IBOutlet weak var harvestCollection: UICollectionView!
+ 
+    
     override func viewDidLoad() {
         myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
         myGardenButton.layer.borderWidth = 1
         myGardenButton.layer.borderColor = UIColor.black.cgColor
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
+                print(userInfo.wantList.count)
         
-        super.viewDidLoad()
+                super.viewDidLoad()
     }
     
  
@@ -42,23 +43,24 @@ class ProfileViewController: UIViewController {
 
 }
 
-extension ProfileViewController : UICollectionViewDataSource {
+extension ProfileViewController : UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == harvestCollection{
-            return 1
-        }else if collectionView == wantCollection{
-            return 2
-        }
-        return 3
+        return userInfo.wantList.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: plantIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCell, for: indexPath)
         return cell
+    }
+}
+extension ProfileViewController : UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: harvestCollection.frame.height, height: harvestCollection.frame.height)
     }
 }
