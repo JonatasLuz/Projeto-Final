@@ -5,12 +5,12 @@
 //  Created by ALUNO on 10/05/19.
 //  Copyright © 2019 Jonatas da Luz. All rights reserved.
 //
-
+import UIKit
 import Foundation
 class Plant{
     var plantID: String!
     var name : String!
-    var photo : String!
+    var photo : UIImage!
     var information : String!
     var climate : String!
     var light : String!
@@ -28,7 +28,7 @@ class Plant{
     
     
     
-    init(_ plantID: String, _ name : String, _ photo : String, _ information : String, _ climate : String, _ soil : String, _ light : String, _ planting : String, _ watering : String, _ harvest : String, _ harvestMinLimit : Int, _ harvestMaxLimit : Int, _ plantingMinMonth : [Int], _ plantingMaxMonth : [Int]){
+    init(_ plantID: String, _ name : String, _ photo : UIImage, _ information : String, _ climate : String, _ soil : String, _ light : String, _ planting : String, _ watering : String, _ harvest : String, _ harvestMinLimit : Int, _ harvestMaxLimit : Int, _ plantingMinMonth : [Int], _ plantingMaxMonth : [Int]){
         self.plantID = plantID
         self.name = name
         self.soil = soil

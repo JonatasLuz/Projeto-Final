@@ -15,7 +15,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     let cellIdentifier = "cell"
     var plants : [Plant]!
     var user : User!
-    var plantImages : [UIImage]!
+
     
     
     override func viewDidLoad() {
@@ -32,18 +32,10 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.plantImages=[]
         plants = []
         plantsTableViewModel = PlantsTableViewModel()
         plantsTableViewModel.getPlants { plantsArray in
             self.plants = plantsArray
-            for plant in self.plants{
-                self.plantsTableViewModel.getPlantImageURL(plant.photo, completion: { (image) in
-                    print("chego")
-                    
-                    self.plantImages.append(image)
-                })
-            }
             self.tableView.reloadData()
         }
     }
@@ -61,7 +53,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
         cell?.plantNameLabel.text = plants[indexPath.row].name
-        cell?.plantImage.image =  plantImages[indexPath.row]
+        cell?.plantImage.image =  plants[indexPath.row].photo
         return cell!
     }
     
@@ -69,7 +61,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         if segue.identifier == "plantIdentfier"{
             let next = segue.destination as! PlantViewController
             let row = tableView.indexPathForSelectedRow?.row
-            next.plantImage = plantImages?[row!]
+            next.plantImage = plants[row!].photo
             next.plant = plants![row!]
         }else if segue.identifier == "profileIdentifier"{
             let next = segue.destination as! ProfileViewController
