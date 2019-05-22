@@ -95,13 +95,13 @@ class LoginViewModel{
                         }
                         var planted = [String]()
                         let eita = userData.get("planted")
-                        print(eita)
                         
+                       let dataDescription = userData.get("planted") as! NSArray
                         
                         //if userData.get("planted") != nil{
                         //    planted = userData.get("planted") as! [String]
                         //}
-                        user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
+                        //user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
                         print(user.planted)
                     }
                 }
