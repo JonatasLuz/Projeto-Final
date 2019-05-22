@@ -65,6 +65,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
             next.plant = plants![row!]
         }else if segue.identifier == "profileIdentifier"{
             let next = segue.destination as! ProfileViewController
+            next.plants = plants
             next.userInfo = user
         }
     }

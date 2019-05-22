@@ -18,13 +18,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileNameLabel: UILabel!
     
     var userInfo : User!
+    var plants : [Plant]!
+    
     @IBOutlet weak var myGardenButton: UIButton!
  
     
     override func viewDidLoad() {
         print(userInfo.firstName)
         
-        
+        print(plants.count)
         profileNameLabel.text = userInfo.firstName
         
         myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
@@ -35,20 +37,6 @@ class ProfileViewController: UIViewController {
                 print(userInfo.wantList.count)
                 super.viewDidLoad()
     }
-    
- 
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ProfileViewController : UICollectionViewDataSource{
@@ -64,13 +52,9 @@ extension ProfileViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.harvestCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "harvestCell", for: indexPath) as! HarvestCollectionViewCell
-            let eita : String!
-            if indexPath.row == 1{
-                eita = "1"
-            }else{
-                eita = "2"
-            }
-            cell.plantNameLabel.text = eita
+            let plant = plants.first(where: {$0.plantID == self.userInfo.planted[indexPath.row]})
+            cell.plantImageView.image = plant?.photo
+            cell.plantNameLabel.text = plant?.name
             return cell
         }else if collectionView == self.wantCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "wantCell", for: indexPath)
