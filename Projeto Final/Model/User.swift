@@ -32,6 +32,4 @@ class User{
         self.myAchievements = myAchievements
         self.planted = planted
     }
-    
-    
 }
