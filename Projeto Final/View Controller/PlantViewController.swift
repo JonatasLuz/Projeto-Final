@@ -18,6 +18,7 @@ class PlantViewController: UIViewController {
      @IBOutlet weak var plantViewHC: NSLayoutConstraint!
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var plantImageWC: NSLayoutConstraint!
+    @IBOutlet weak var plantImageHC: NSLayoutConstraint!
     
     @IBOutlet weak var plantName: UILabel!
     
@@ -49,19 +50,23 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var harvestViewHC: NSLayoutConstraint!
     @IBOutlet weak var harvestTextView: UITextView!
     
+    @IBOutlet weak var addGarden: UIButton!
+    @IBOutlet weak var wantPlantButton: UIButton!
     
     override func viewDidLoad() {
         
        plantImageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
-        plantImageWC.constant = 200
-        print(plantImageView.frame.height)
-        print(plantImageWC.constant)
-        
+        plantImageHC.constant = superView.bounds.height/3 - (plantName.bounds.height + 20)
+        plantImageWC.constant = plantImageHC.constant
         self.view.layoutIfNeeded()
         plantImageView.layer.borderWidth = 8
         plantImageView.layer.borderColor = plantName.textColor.cgColor
-        plantImageView.layer.cornerRadius = plantImageView.frame.height/2
+        plantImageView.layer.cornerRadius = plantImageHC.constant/2
         plantImageView.layer.masksToBounds = true
+        plantImageWC.constant = plantImageHC.constant
+        addGarden.layer.cornerRadius = 0.5 * addGarden.bounds.size.height
+        wantPlantButton.layer.cornerRadius = 0.5 * wantPlantButton.bounds.size.height
+        
         super.viewDidLoad()
         
  
@@ -82,12 +87,6 @@ class PlantViewController: UIViewController {
         
         
         plantViewHC.constant = superView.bounds.height / 3
-        
-        
-        
-        
-        
-        
         
         
         

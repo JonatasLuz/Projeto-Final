@@ -30,8 +30,6 @@ class ProfileViewController: UIViewController {
         profileNameLabel.text = userInfo.firstName
         
         myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
-        myGardenButton.layer.borderWidth = 1
-        myGardenButton.layer.borderColor = UIColor.black.cgColor
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
                 print(userInfo.wantList.count)
@@ -61,6 +59,9 @@ extension ProfileViewController : UICollectionViewDataSource{
             let plant = plants.first(where: {$0.plantID == self.userInfo.planted[indexPath.row]})
             cell.plantImageView.image = plant?.photo
             cell.plantNameLabel.text = plant?.name
+            print(cell.plantImageView.frame.height)
+            print(cell.plantImageView.frame.width)
+            
             return cell
         }else if collectionView == self.wantCollection{
             let plant = plants.first(where: {$0.plantID == self.userInfo.wantList[indexPath.row]})

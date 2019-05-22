@@ -15,8 +15,8 @@ class PlantsTableViewCell: UITableViewCell {
     @IBOutlet weak var plantImage: UIImageView!
     override func awakeFromNib() {
         plantNameLabel.centerYAnchor.constraint(equalTo: plantImage.centerYAnchor, constant: 1).isActive = true
-        plantImage.layer.borderWidth = 1
-        plantImage.layer.borderColor = UIColor.green.cgColor
+        plantImage.layer.borderWidth = 3
+        plantImage.layer.borderColor = plantNameLabel.textColor.cgColor
         plantImage.layer.cornerRadius = plantImage.frame.height/2
         plantImage.layer.masksToBounds = true        
         super.awakeFromNib()
