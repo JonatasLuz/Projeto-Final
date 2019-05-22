@@ -81,32 +81,32 @@ class PlantViewController: UIViewController {
         
         //Information View
         informationTextViewHC.constant = self.informationTextView.contentSize.height
-        informationViewHC.constant = self.informationTextView.contentSize.height + 25
+        informationViewHC.constant = self.informationTextView.contentSize.height + 30
         
         //Soil View
         soilTextViewHC.constant = self.soilTextView.contentSize.height
-        soilViewHC.constant = self.soilTextView.contentSize.height + 25
+        soilViewHC.constant = self.soilTextView.contentSize.height + 30
         
         
         //Climate View
         climateTextViewHC.constant = self.climateTextView.contentSize.height
-        climateViewHC.constant = self.climateTextView.contentSize.height + 25
+        climateViewHC.constant = self.climateTextView.contentSize.height + 30
         
         //Light View
         lightTextHC.constant = self.lightTextView.contentSize.height
-        lightViewHC.constant = self.lightTextView.contentSize.height + 25
+        lightViewHC.constant = self.lightTextView.contentSize.height + 30
         
         //Plantation View
         plantationTextViewHC.constant = self.plantationTextView.contentSize.height
-        plantationViewHC.constant = self.plantationTextView.contentSize.height + 25
+        plantationViewHC.constant = self.plantationTextView.contentSize.height + 30
         
         //Irrigation View
         irrigationTextViewHC.constant = self.irrigationTextView.contentSize.height
-        irrigationViewHC.constant = self.irrigationTextView.contentSize.height + 25
+        irrigationViewHC.constant = self.irrigationTextView.contentSize.height + 30
         
         //Harvest View
         harvestTextViewHC.constant = self.harvestTextView.contentSize.height
-        harvestViewHC.constant = self.harvestTextView.contentSize.height + 25
+        harvestViewHC.constant = self.harvestTextView.contentSize.height + 30
         
     }
 }
