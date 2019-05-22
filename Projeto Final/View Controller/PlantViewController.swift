@@ -53,7 +53,11 @@ class PlantViewController: UIViewController {
     override func viewDidLoad() {
         
        plantImageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
-        plantImageWC.constant = self.plantImageView.bounds.height
+        plantImageWC.constant = 200
+        print(plantImageView.frame.height)
+        print(plantImageWC.constant)
+        
+        self.view.layoutIfNeeded()
         plantImageView.layer.borderWidth = 8
         plantImageView.layer.borderColor = plantName.textColor.cgColor
         plantImageView.layer.cornerRadius = plantImageView.frame.height/2
