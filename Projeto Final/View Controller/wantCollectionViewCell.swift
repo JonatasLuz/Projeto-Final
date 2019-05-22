@@ -10,4 +10,6 @@ import UIKit
 
 class WantCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var plantNameLabel: UILabel!
 }

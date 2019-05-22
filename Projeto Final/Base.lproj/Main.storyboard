@@ -702,7 +702,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="harvestCell" id="4oV-pj-nON" customClass="HarvestCollectionViewCell">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="harvestCell" id="4oV-pj-nON" customClass="HarvestCollectionViewCell" customModule="Projeto_Final" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -732,8 +732,8 @@
                                                     <constraint firstItem="bz7-lu-tFf" firstAttribute="top" secondItem="4oV-pj-nON" secondAttribute="top" id="soh-Hl-WTN"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="plantImageView" destination="bz7-lu-tFf" id="mIz-Uu-Isg"/>
-                                                    <outlet property="plantNameLabel" destination="zrr-Wj-hH4" id="jNz-eJ-m3B"/>
+                                                    <outlet property="plantImageView" destination="bz7-lu-tFf" id="Cbb-T2-WBj"/>
+                                                    <outlet property="plantNameLabel" destination="zrr-Wj-hH4" id="BsY-gb-0rJ"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -775,7 +775,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wantCell" id="EoQ-xY-23q" customClass="wantCollectionViewCell" customModule="Projeto_Final" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wantCell" id="EoQ-xY-23q" customClass="WantCollectionViewCell" customModule="Projeto_Final" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -804,6 +804,10 @@
                                                     <constraint firstAttribute="trailing" secondItem="Hvh-O4-BbU" secondAttribute="trailing" id="zYG-0C-xWn"/>
                                                     <constraint firstItem="F8Z-Ts-cCm" firstAttribute="top" secondItem="EoQ-xY-23q" secondAttribute="top" id="znx-sW-gVq"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="plantImageView" destination="F8Z-Ts-cCm" id="EvW-CV-1uV"/>
+                                                    <outlet property="plantNameLabel" destination="Hvh-O4-BbU" id="QVA-HN-HRD"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>

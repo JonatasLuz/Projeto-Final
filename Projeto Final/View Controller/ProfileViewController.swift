@@ -63,7 +63,14 @@ extension ProfileViewController : UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.harvestCollection{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "harvestCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "harvestCell", for: indexPath) as! HarvestCollectionViewCell
+            let eita : String!
+            if indexPath.row == 1{
+                eita = "1"
+            }else{
+                eita = "2"
+            }
+            cell.plantNameLabel.text = eita
             return cell
         }else if collectionView == self.wantCollection{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "wantCell", for: indexPath)
