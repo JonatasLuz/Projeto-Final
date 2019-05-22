@@ -94,15 +94,15 @@ class LoginViewModel{
                             myAchievements = userData.get("myAchievements") as! [String]
                         }
                         var planted = [String]()
-                        let eita = userData.get("planted")
+                        let plants = userData.get("planted")
                         
-                       let dataDescription = userData.get("planted") as! NSArray
+                       let dataDescription = userData.get("planted") as! [String]
                         
-                        //if userData.get("planted") != nil{
-                        //    planted = userData.get("planted") as! [String]
-                        //}
-                        //user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
-                        print(user.planted)
+                        if userData.get("planted") != nil{
+                            planted = userData.get("planted") as! [String]
+                        }
+                        user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
+                        
                     }
                 }
                 else{

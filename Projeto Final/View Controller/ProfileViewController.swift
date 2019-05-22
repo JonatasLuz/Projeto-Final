@@ -9,22 +9,30 @@
 import UIKit
 
 
-let profileCell = "profileCell"
+let profileCell = "harvestCell"
 class ProfileViewController: UIViewController {
+    
+    
+    @IBOutlet weak var wantCollection: UICollectionView!
     @IBOutlet weak var harvestCollection: UICollectionView!
-    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    
     var userInfo : User!
     @IBOutlet weak var myGardenButton: UIButton!
  
     
     override func viewDidLoad() {
+        print(userInfo.firstName)
+        
+        
+        profileNameLabel.text = userInfo.firstName
+        
         myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
         myGardenButton.layer.borderWidth = 1
         myGardenButton.layer.borderColor = UIColor.black.cgColor
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
                 print(userInfo.wantList.count)
-        
                 super.viewDidLoad()
     }
     
@@ -50,17 +58,25 @@ extension ProfileViewController : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userInfo.wantList.count
-        
+        return userInfo.planted.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCell, for: indexPath)
-        return cell
+        if collectionView == self.harvestCollection{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "harvestCell", for: indexPath)
+            return cell
+        }else if collectionView == self.wantCollection{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "wantCell", for: indexPath)
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievement", for: indexPath)
+            return cell
+        }
     }
 }
+
 extension ProfileViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: harvestCollection.frame.height, height: harvestCollection.frame.height)
+        return CGSize(width: self.wantCollection.frame.height, height: self.wantCollection    .frame.height)
     }
 }

@@ -24,6 +24,7 @@
 		AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B88822289EBA20051D78A /* ProfileViewController.swift */; };
 		AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC77A7A32292175B0096FC14 /* LoginViewModel.swift */; };
 		AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93B756228B495500D67405 /* PlantsTableViewModel.swift */; };
+		ACCDE6A72295935D00556D00 /* wantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDE6A62295935D00556D00 /* wantCollectionViewCell.swift */; };
 		C2883979DF41F4BC67647951 /* Pods_Projeto_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		AC6B88822289EBA20051D78A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC77A7A32292175B0096FC14 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AC93B756228B495500D67405 /* PlantsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantsTableViewModel.swift; path = "Projeto Final/View Model/PlantsTableViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		ACCDE6A62295935D00556D00 /* wantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wantCollectionViewCell.swift; sourceTree = "<group>"; };
 		C641F01D96095813491B578E /* Pods-Projeto Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projeto Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 				570657A02283B3030013656F /* CollectionViewController.swift */,
 				AC6B88822289EBA20051D78A /* ProfileViewController.swift */,
 				AC422FF32294C93200A7F7CC /* harvestCollectionViewCell.swift */,
+				ACCDE6A62295935D00556D00 /* wantCollectionViewCell.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				574EBBB22293765100927E67 /* User.swift in Sources */,
 				570657A12283B3030013656F /* CollectionViewController.swift in Sources */,
 				570BEE4D225C1B0A007F5302 /* Login.swift in Sources */,
+				ACCDE6A72295935D00556D00 /* wantCollectionViewCell.swift in Sources */,
 				57828975227D07B00025E337 /* PlantViewController.swift in Sources */,
 				AC4C713D228DC7B70042D292 /* PlantViewModel.swift in Sources */,
 				57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */,
