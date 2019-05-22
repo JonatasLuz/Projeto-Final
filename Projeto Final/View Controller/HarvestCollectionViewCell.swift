@@ -8,6 +8,8 @@
 
 import UIKit
 
-class harvestCollectionViewCell: UICollectionViewCell {
+class HarvestCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var plantNameLabel: UILabel!
 }

@@ -1,5 +1,5 @@
 //
-//  wantCollectionViewCell.swift
+//  WantCollectionViewCell.swift
 //  Projeto Final
 //
 //  Created by Guest User on 22/05/19.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class wantCollectionViewCell: UICollectionViewCell {
+class WantCollectionViewCell: UICollectionViewCell {
     
 }
