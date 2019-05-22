@@ -15,9 +15,9 @@ class PlantViewController: UIViewController {
     var plantViewModel : PlantViewModel!
   
     @IBOutlet var superView: UIView!
- 
-    @IBOutlet weak var plantViewHC: NSLayoutConstraint!
+     @IBOutlet weak var plantViewHC: NSLayoutConstraint!
     @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var plantImageWC: NSLayoutConstraint!
     
     @IBOutlet weak var plantName: UILabel!
     
@@ -52,6 +52,14 @@ class PlantViewController: UIViewController {
     
     override func viewDidLoad() {
         
+       plantImageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
+        plantImageWC.constant = self.plantImageView.bounds.height
+        plantImageView.layer.borderWidth = 8
+        plantImageView.layer.borderColor = plantName.textColor.cgColor
+        plantImageView.layer.cornerRadius = plantImageView.frame.height/2
+        plantImageView.layer.masksToBounds = true
+        super.viewDidLoad()
+        
  
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -68,16 +76,16 @@ class PlantViewController: UIViewController {
         harvestTextView.text = plant.harvest
         plantImageView.image = plant.photo
         
+        
         plantViewHC.constant = superView.bounds.height / 3
-        //plantImageWC.constant = self.plantImageView.bounds.height
         
         
         
-        plantImageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor, constant: 1).isActive = true
-        plantImageView.widthAnchor.constraint(equalTo: plantImageView.heightAnchor, multiplier: 0.5).isActive = true
         
-        //let imageHC = self.plantImageView.bounds
-        //plantImageWC.constant = imageHC.height * 2
+        
+        
+        
+        
         
         //Information View
         informationTextViewHC.constant = self.informationTextView.contentSize.height

@@ -30,18 +30,22 @@
                                                 <color key="textColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" image="large_image9-1498775460956" translatesAutoresizingMaskIntoConstraints="NO" id="ViR-jK-6LZ">
-                                                <rect key="frame" x="129" y="5" width="116" height="144"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ViR-jK-6LZ">
+                                                <rect key="frame" x="129.5" y="5" width="116" height="144"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="116" id="cfg-Ng-Rsu"/>
+                                                </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="ViR-jK-6LZ" firstAttribute="top" secondItem="RIz-tK-jem" secondAttribute="top" constant="5" id="2YF-MB-RV9"/>
-                                            <constraint firstItem="IAY-XK-JIZ" firstAttribute="leading" secondItem="RIz-tK-jem" secondAttribute="leading" constant="20" id="M4e-yc-uBy"/>
-                                            <constraint firstItem="IAY-XK-JIZ" firstAttribute="top" secondItem="ViR-jK-6LZ" secondAttribute="bottom" constant="5" id="PqL-3y-E6g"/>
+                                            <constraint firstItem="IAY-XK-JIZ" firstAttribute="leading" secondItem="RIz-tK-jem" secondAttribute="leading" constant="20" id="FYG-Q2-dEI"/>
                                             <constraint firstAttribute="height" constant="200" id="YyA-YH-F2c"/>
-                                            <constraint firstAttribute="trailing" secondItem="IAY-XK-JIZ" secondAttribute="trailing" constant="20" id="ZRk-x2-Ihf"/>
-                                            <constraint firstAttribute="bottom" secondItem="IAY-XK-JIZ" secondAttribute="bottom" constant="10" id="ypY-v9-PyT"/>
+                                            <constraint firstItem="IAY-XK-JIZ" firstAttribute="top" secondItem="ViR-jK-6LZ" secondAttribute="bottom" constant="5" id="aV4-Ua-rwS"/>
+                                            <constraint firstAttribute="bottom" secondItem="IAY-XK-JIZ" secondAttribute="bottom" constant="10" id="eg8-kR-UXY"/>
+                                            <constraint firstAttribute="trailing" secondItem="IAY-XK-JIZ" secondAttribute="trailing" constant="20" id="l5G-Su-EBK"/>
+                                            <constraint firstItem="ViR-jK-6LZ" firstAttribute="top" secondItem="RIz-tK-jem" secondAttribute="top" constant="5" id="lhg-9O-BL8"/>
+                                            <constraint firstItem="IAY-XK-JIZ" firstAttribute="top" secondItem="ViR-jK-6LZ" secondAttribute="bottom" constant="5" id="wml-uw-S5i"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-T9-3Uh" userLabel="Information View">
@@ -391,11 +395,11 @@
                                             <constraint firstAttribute="height" constant="150" id="Djg-qR-WqY"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tot-Ft-1P0">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tot-Ft-1P0">
                                         <rect key="frame" x="100" y="1170" width="175" height="150"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-SI-124">
-                                                <rect key="frame" x="0.0" y="0.0" width="175" height="98"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-SI-124">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="65"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -404,8 +408,8 @@
                                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlv-h5-DaV">
-                                                <rect key="frame" x="0.0" y="106" width="175" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlv-h5-DaV">
+                                                <rect key="frame" x="0.0" y="85" width="175" height="65"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -486,6 +490,7 @@
                         <outlet property="lightTextView" destination="6VJ-QN-sDU" id="wI4-4M-Jls"/>
                         <outlet property="lightViewHC" destination="UJH-w7-Xu6" id="pzi-GH-0sx"/>
                         <outlet property="plantImageView" destination="ViR-jK-6LZ" id="dgP-iR-BNr"/>
+                        <outlet property="plantImageWC" destination="cfg-Ng-Rsu" id="kO6-AB-wIH"/>
                         <outlet property="plantName" destination="IAY-XK-JIZ" id="8sn-5u-fLb"/>
                         <outlet property="plantViewHC" destination="YyA-YH-F2c" id="qMo-3k-i74"/>
                         <outlet property="plantationTextView" destination="LZ1-Dj-8yH" id="Bo4-CL-Bmp"/>
