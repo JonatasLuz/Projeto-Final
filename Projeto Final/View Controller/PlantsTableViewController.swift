@@ -61,8 +61,8 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
         if segue.identifier == "plantIdentfier"{
             let next = segue.destination as! PlantViewController
             let row = tableView.indexPathForSelectedRow?.row
-            next.plantImage = plants[row!].photo
-            next.plant = plants![row!]
+            next.plantSelected = row
+            next.plants = plants
         }else if segue.identifier == "profileIdentifier"{
             let next = segue.destination as! ProfileViewController
             next.plants = plants

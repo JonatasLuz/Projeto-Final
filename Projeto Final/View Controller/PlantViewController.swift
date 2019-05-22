@@ -10,9 +10,9 @@ import UIKit
 
 class PlantViewController: UIViewController {
     
-    var plant: Plant!
+    var plantSelected : Int!
+    var plants: [Plant]!
     var plantViewModel : PlantViewModel!
-    var plantImage : UIImage!
   
     @IBOutlet var superView: UIView!
  
@@ -55,6 +55,8 @@ class PlantViewController: UIViewController {
  
     }
     override func viewWillAppear(_ animated: Bool) {
+        let plant = plants[plantSelected]
+        
         plantViewModel = PlantViewModel()
         plantName.text = plant.name
         informationTextView.text = plant.information
@@ -64,7 +66,7 @@ class PlantViewController: UIViewController {
         plantationTextView.text = plant.planting
         irrigationTextView.text = plant.watering
         harvestTextView.text = plant.harvest
-        plantImageView.image = plantImage
+        plantImageView.image = plant.photo
         
         plantViewHC.constant = superView.bounds.height / 3
         //plantImageWC.constant = self.plantImageView.bounds.height

@@ -46,7 +46,13 @@ extension ProfileViewController : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userInfo.planted.count
+        if collectionView ==  self.wantCollection{
+            return userInfo.wantList.count
+            
+        }else if collectionView == self.harvestCollection{
+            return userInfo.planted.count
+        }
+        return userInfo.myAchievements.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,7 +63,10 @@ extension ProfileViewController : UICollectionViewDataSource{
             cell.plantNameLabel.text = plant?.name
             return cell
         }else if collectionView == self.wantCollection{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "wantCell", for: indexPath)
+            let plant = plants.first(where: {$0.plantID == self.userInfo.wantList[indexPath.row]})
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "wantCell", for: indexPath) as! WantCollectionViewCell
+            cell.plantImageView.image = plant?.photo
+            cell.plantNameLabel.text = plant?.name
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievement", for: indexPath)
