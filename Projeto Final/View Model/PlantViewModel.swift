@@ -8,20 +8,21 @@
 
 import Foundation
 import UIKit
-
+import FirebaseFirestore
 class PlantViewModel{
+    
+    let db = Firestore.firestore().collection("usuario")
     
     init() {
         
     }
     
-    func getPlantImageURL(_ url : String) -> UIImage?{
-        do{
-            let imageURL = try Data(contentsOf: URL.init(string: url)!)
-            return UIImage(data: imageURL)
-        }catch{
-            print("Erro ao buscar imagem de planta \(error)")
-        }
-        return nil
+    func addWantPlant(_ plantId: String, user : User){
+        user.wantList.append(plantId)
+        let data : [String : Any] = ["want" : user.wantList]
+        db.document(user.userId).setData(data)
+        print("puta merda")
+
+        
     }
 }

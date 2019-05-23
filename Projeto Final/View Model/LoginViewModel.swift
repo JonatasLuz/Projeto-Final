@@ -35,11 +35,12 @@ class LoginViewModel{
                     for user in querySnapShot!.documents{
                         let userInfo = user.data()
                         print("Ha user")
-                        print(userInfo)
+                        
                     }
                 }else{
                     self.createUserFacebook()
                     print("Nao ha user")
+                    
                     
                 }
                 completion()
@@ -94,10 +95,7 @@ class LoginViewModel{
                             myAchievements = userData.get("myAchievements") as! [String]
                         }
                         var planted = [String]()
-                        let plants = userData.get("planted")
-                        
-                       let dataDescription = userData.get("planted") as! [String]
-                        
+                    
                         if userData.get("planted") != nil{
                             planted = userData.get("planted") as! [String]
                         }

@@ -391,37 +391,50 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3P2-l1-4vy">
-                                        <rect key="frame" x="0.0" y="1170" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="1170" width="375" height="100"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Tot-Ft-1P0">
+                                                <rect key="frame" x="100" y="0.0" width="175" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-SI-124">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="37.5"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Adicionar a Horta">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="addAction:" destination="dZ6-Vs-q2d" eventType="touchUpInside" id="eJQ-PQ-qE2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlv-h5-DaV">
+                                                        <rect key="frame" x="0.0" y="62.5" width="175" height="37.5"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Quero plantar">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="wantAction:" destination="VeJ-jN-5M6" eventType="touchUpInside" id="s8H-HK-gmr"/>
+                                                            <action selector="wantAction:" destination="dZ6-Vs-q2d" eventType="touchUpInside" id="wcf-jr-adC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="Djg-qR-WqY"/>
+                                            <constraint firstItem="Tot-Ft-1P0" firstAttribute="top" secondItem="3P2-l1-4vy" secondAttribute="top" id="3oL-2a-67b"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tot-Ft-1P0" secondAttribute="trailing" constant="100" id="SlL-wM-VLc"/>
+                                            <constraint firstAttribute="height" constant="100" id="TZz-rt-mJ5"/>
+                                            <constraint firstAttribute="bottom" secondItem="Tot-Ft-1P0" secondAttribute="bottom" id="Tij-rI-t7v"/>
+                                            <constraint firstItem="Tot-Ft-1P0" firstAttribute="leading" secondItem="3P2-l1-4vy" secondAttribute="leading" constant="100" id="eOj-rF-zmY"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Tot-Ft-1P0">
-                                        <rect key="frame" x="100" y="1170" width="175" height="150"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-SI-124">
-                                                <rect key="frame" x="0.0" y="0.0" width="175" height="62.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Adicionar a Horta">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlv-h5-DaV">
-                                                <rect key="frame" x="0.0" y="87.5" width="175" height="62.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Quero plantar">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -442,10 +455,8 @@
                                     <constraint firstAttribute="trailing" secondItem="iSD-Jb-66s" secondAttribute="trailing" id="PbP-1o-y6d"/>
                                     <constraint firstItem="WDI-kp-HXg" firstAttribute="top" secondItem="iSD-Jb-66s" secondAttribute="bottom" id="Rmc-UL-RDZ"/>
                                     <constraint firstAttribute="trailing" secondItem="0WY-z5-YmH" secondAttribute="trailing" id="SzZ-Jn-MgY"/>
-                                    <constraint firstAttribute="bottom" secondItem="Tot-Ft-1P0" secondAttribute="bottom" id="UNb-po-m5i"/>
                                     <constraint firstAttribute="trailing" secondItem="3P2-l1-4vy" secondAttribute="trailing" id="XRe-Cc-DIj"/>
                                     <constraint firstItem="RIz-tK-jem" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" id="Yy7-dK-gl0"/>
-                                    <constraint firstItem="Tot-Ft-1P0" firstAttribute="top" secondItem="0WY-z5-YmH" secondAttribute="bottom" id="Zeo-jp-xXV"/>
                                     <constraint firstItem="RIz-tK-jem" firstAttribute="centerX" secondItem="FnN-uj-91x" secondAttribute="centerX" id="Zky-o3-XBy"/>
                                     <constraint firstItem="e2w-o2-mNw" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" id="bDJ-Mp-yVa"/>
                                     <constraint firstAttribute="trailing" secondItem="e2w-o2-mNw" secondAttribute="trailing" id="cvh-HE-SAJ"/>
@@ -453,13 +464,11 @@
                                     <constraint firstItem="3P2-l1-4vy" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" id="iyN-By-4Zn"/>
                                     <constraint firstItem="Gx1-g2-x10" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" id="kBW-RK-Pec"/>
                                     <constraint firstItem="0WY-z5-YmH" firstAttribute="top" secondItem="Gx1-g2-x10" secondAttribute="bottom" id="ldJ-RX-UfX"/>
-                                    <constraint firstItem="Tot-Ft-1P0" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" constant="100" id="mq8-pi-02J"/>
                                     <constraint firstAttribute="trailing" secondItem="Hef-it-deC" secondAttribute="trailing" id="mt0-W7-525"/>
                                     <constraint firstItem="a8i-LK-4b4" firstAttribute="top" secondItem="hDA-T9-3Uh" secondAttribute="bottom" id="nEc-RC-jfa"/>
                                     <constraint firstItem="Hef-it-deC" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" id="pmD-gW-Qa8"/>
                                     <constraint firstItem="WDI-kp-HXg" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" id="r0E-Am-k2D"/>
                                     <constraint firstItem="a8i-LK-4b4" firstAttribute="leading" secondItem="FnN-uj-91x" secondAttribute="leading" id="sZg-5w-wlX"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tot-Ft-1P0" secondAttribute="trailing" constant="100" id="xhz-Lz-Dsi"/>
                                     <constraint firstItem="e2w-o2-mNw" firstAttribute="top" secondItem="a8i-LK-4b4" secondAttribute="bottom" id="zKi-tR-gVE"/>
                                 </constraints>
                             </scrollView>
@@ -504,10 +513,11 @@
                         <outlet property="soilTextViewHC" destination="wJ0-xP-Lfg" id="Dtm-gz-EqV"/>
                         <outlet property="soilViewHC" destination="VMK-Wz-fUy" id="sB8-Ca-1CK"/>
                         <outlet property="superView" destination="a0X-vK-bPJ" id="C61-ct-Hnf"/>
-                        <outlet property="wantPlantButton" destination="Mlv-h5-DaV" id="6FW-NG-s36"/>
+                        <outlet property="wantPlantButton" destination="Mlv-h5-DaV" id="P4c-2L-IqY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zS-Kk-le9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VeJ-jN-5M6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2437.5999999999999" y="-1426.6866566716642"/>
         </scene>

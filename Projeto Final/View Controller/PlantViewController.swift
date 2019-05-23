@@ -13,6 +13,8 @@ class PlantViewController: UIViewController {
     var plantSelected : Int!
     var plants: [Plant]!
     var plantViewModel : PlantViewModel!
+    var userInfo : User!
+    
   
     @IBOutlet var superView: UIView!
      @IBOutlet weak var plantViewHC: NSLayoutConstraint!
@@ -55,6 +57,8 @@ class PlantViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        plantViewModel = PlantViewModel()
+        
        plantImageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
         plantImageHC.constant = superView.bounds.height/3 - (plantName.bounds.height + 20)
         plantImageWC.constant = plantImageHC.constant
@@ -74,7 +78,6 @@ class PlantViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let plant = plants[plantSelected]
         
-        plantViewModel = PlantViewModel()
         plantName.text = plant.name
         informationTextView.text = plant.information
         soilTextView.text = plant.soil
@@ -87,8 +90,6 @@ class PlantViewController: UIViewController {
         
         
         plantViewHC.constant = superView.bounds.height / 3
-        
-        
         
         //Information View
         informationTextViewHC.constant = self.informationTextView.contentSize.height
@@ -120,4 +121,14 @@ class PlantViewController: UIViewController {
         harvestViewHC.constant = self.harvestTextView.contentSize.height + 30
         
     }
+    
+    @IBAction func addAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func wantAction(_ sender: Any) {
+        plantViewModel.addWantPlant(plants[plantSelected].plantID, user: userInfo)
+        
+    }
+    
+    
 }
