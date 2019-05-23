@@ -122,6 +122,14 @@ class PlantViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "plantsIdentifier"{
+            let next = segue.destination as! PlantsTableViewController
+            next.plants = plants
+            next.user = userInfo
+        }
+    }
+    
     @IBAction func addAction(_ sender: UIButton) {
     }
     
@@ -135,12 +143,10 @@ class PlantViewController: UIViewController {
         }
         let alertController = UIAlertController(title: "Quero Plantar", message: message, preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
-        
+            self.performSegue(withIdentifier: "plantsIdentifier", sender: self)
         }
         alertController.addAction(actionButton)
         self.present(alertController, animated: true)
-        
-        
     }
     
     
