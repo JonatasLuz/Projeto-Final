@@ -36,6 +36,8 @@ class ProfileViewController: UIViewController {
         myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
+        print(userInfo.myGarden.count)
+        
         super.viewDidLoad()
     }
     

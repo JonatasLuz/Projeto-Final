@@ -28,4 +28,22 @@ class PlantViewModel{
             return true
         }
     }
+    
+    func addGardenPlant(_ plant: Plant, _ user: User){
+        let plantedDate = Date()
+        let harvestMinLimit = Calendar.current.date(byAdding: .day, value: plant.harvestMinLimit, to: Date())
+        let harvestMaxLimit = Calendar.current.date(byAdding: .day, value: plant.harvestMaxLimit, to: Date())
+        let format = DateFormatter()
+        format.dateFormat = "dd/MM/yyyy"
+        let plantedDateString = format.string(from: plantedDate)
+        let harvestMinLimitString = format.string(from: harvestMinLimit!)
+        let harvestMaxLimitString = format.string(from: harvestMaxLimit!)
+        let plantedPlant : [String : Any] = [
+            "plantId" : plant.plantID, "plantedDate" : plantedDateString, "harvestMinLimit" : harvestMinLimitString, "harvestMaxLimit" : harvestMaxLimitString
+         ]
+        let newPlant = PlantedPlant(plant.plantID, plantedDateString, harvestMinLimitString, harvestMaxLimitString)
+        user.myGarden.append(newPlant)
+        let myGardenRef = db.document(user.userId).collection("myGarden").document().setData(plantedPlant)
+        
+    }
 }

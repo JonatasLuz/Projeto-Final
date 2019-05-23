@@ -7,14 +7,14 @@
 //
 
 import Foundation
-
+import FirebaseFirestore
 class User{
     var userId : String!
     var firstName : String!
     var lastName : String!
     var email : String!
     var wantList: [String]!
-    var myGarden : [String]!
+    var myGarden : [PlantedPlant]!
     var myAchievements : [String]!
     var planted : [String]!
     
@@ -22,7 +22,7 @@ class User{
         
     }
     
-    init(_ userId : String, _ firstName : String, _ lastName : String, _ email: String, _ wantList : [String], _ myGarden : [String], _ myAchievements : [String], _ planted : [String] ){
+    init(_ userId : String, _ firstName : String, _ lastName : String, _ email: String, _ wantList : [String], _ myGarden : [PlantedPlant], _ myAchievements : [String], _ planted : [String] ){
         self.userId = userId
         self.firstName = firstName
         self.lastName = lastName

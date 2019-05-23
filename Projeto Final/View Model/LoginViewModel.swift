@@ -69,8 +69,15 @@ class LoginViewModel{
     }
     
     func getUser(_ userId : String, _ userEmail : String, completion: @escaping ((User) -> Void)){
-        var user : User!
+        var user = User()
         let userRef = db.collection("usuario")
+        var firstName : String!
+        var lastName : String!
+        var wantList = [String]()
+        var myGarden = [PlantedPlant]()
+        var myAchievements = [String]()
+        var planted = [String]()
+        let myGardenRef = db.collection("usuario").document(userId).collection("myGarden")
         userRef.document(userId)
         userRef.getDocuments { (querySnapshot, error) in
             if let error = error{
@@ -78,39 +85,38 @@ class LoginViewModel{
             }
             else{
                 if querySnapshot != nil && querySnapshot!.count > 0{
-                    print("Ha users")
                     for userData in querySnapshot!.documents{
-                        let firstName = userData.get("firstName") as! String
-                        let lastName = userData.get("lastName") as! String
-                        var wantList = [String]()
+                        firstName = userData.get("firstName") as? String
+                        lastName = userData.get("lastName") as? String
                         if userData.get("want") != nil{
-                            wantList = userData.get("want") as![String]
+                            wantList = userData.get("want") as! [String]
                         }
-                        var myGarden = [String]()
-                        if userData.get("myGarden") != nil{
-                            myGarden = userData.get("myGarden") as! [String]
-                        }
-                        var myAchievements = [String]()
                         if userData.get("myAchievements") != nil{
                             myAchievements = userData.get("myAchievements") as! [String]
                         }
-                        var planted = [String]()
-                    
                         if userData.get("planted") != nil{
                             planted = userData.get("planted") as! [String]
                         }
-                        user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
-                        
+                    }
+                    myGardenRef.getDocuments { (querySnapShot, error) in
+                        if querySnapShot != nil && querySnapShot!.count > 0{
+                            for document in querySnapShot!.documents{
+                                let plantId = document.documentID
+                                let plantedDate = document.get("plantedDate") as! String
+                                let harvestMinLimit = document.get("harvestMinLimit") as! String
+                                let harvestMaxLimit = document.get("harvestMaxLimit") as! String
+                                let plantedPlant = PlantedPlant(plantId, plantedDate, harvestMinLimit,harvestMaxLimit)
+                                myGarden.append(plantedPlant)
+                            }
+
+                             user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
+                            completion(user)
+                        }
                     }
                 }
-                else{
-                    user = User()
-                    print("Nao ha users")
-                    
-                }
             }
-            completion(user)
         }
+        
     }
     
     func createUserFacebook(){
@@ -119,5 +125,7 @@ class LoginViewModel{
             "firstName" : self.userFirstName,
             "lastName" : self.userLastName
         ])
+ 
     }
 }
+

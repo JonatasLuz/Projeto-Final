@@ -131,6 +131,13 @@ class PlantViewController: UIViewController {
     }
     
     @IBAction func addAction(_ sender: UIButton) {
+        let addPlant = plantViewModel.addGardenPlant(plants[plantSelected], userInfo)
+        let alertController = UIAlertController(title: "Plantar", message: "Planta adicionada a sua horta", preferredStyle: .alert)
+        let actionButton = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+            self.performSegue(withIdentifier: "plantsIdentifier", sender: self)
+        }
+        alertController.addAction(actionButton)
+        self.present(alertController, animated: true)
     }
     
     @IBAction func wantAction(_ sender: Any) {
