@@ -135,9 +135,7 @@ class PlantViewController: UIViewController {
         }
         let alertController = UIAlertController(title: "Quero Plantar", message: message, preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
-            print("eita")
-            
-            
+        
         }
         alertController.addAction(actionButton)
         self.present(alertController, animated: true)

@@ -32,11 +32,16 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        plants = []
-        plantsTableViewModel = PlantsTableViewModel()
-        plantsTableViewModel.getPlants { plantsArray in
-            self.plants = plantsArray
-            self.tableView.reloadData()
+        if plants != nil{
+            print("N ta nulo")
+            
+        }else {
+            plants = []
+            plantsTableViewModel = PlantsTableViewModel()
+            plantsTableViewModel.getPlants { plantsArray in
+                self.plants = plantsArray
+                self.tableView.reloadData()
+            }
         }
     }
 
