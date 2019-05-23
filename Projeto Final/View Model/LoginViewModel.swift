@@ -113,8 +113,6 @@ class LoginViewModel{
         }
     }
     
-    
-    
     func createUserFacebook(){
         print(self.userFirstName)
         db.collection("usuario").document(self.userFirebaseId).setData([

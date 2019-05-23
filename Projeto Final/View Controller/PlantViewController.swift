@@ -126,7 +126,22 @@ class PlantViewController: UIViewController {
     }
     
     @IBAction func wantAction(_ sender: Any) {
-        plantViewModel.addWantPlant(plants[plantSelected].plantID, user: userInfo)
+        let addPlant = plantViewModel.addWantPlant(plants[plantSelected].plantID, user: userInfo)
+        let message : String!
+        if addPlant == true{
+            message = "Planta adicionada a sua lista."
+        }else{
+            message = "Voce ja possui a planta na sua lista"
+        }
+        let alertController = UIAlertController(title: "Quero Plantar", message: message, preferredStyle: .alert)
+        let actionButton = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+            print("eita")
+            
+            
+        }
+        alertController.addAction(actionButton)
+        self.present(alertController, animated: true)
+        
         
     }
     

@@ -17,12 +17,15 @@ class PlantViewModel{
         
     }
     
-    func addWantPlant(_ plantId: String, user : User){
-        user.wantList.append(plantId)
-        let data : [String : Any] = ["want" : user.wantList]
-        db.document(user.userId).setData(data)
-        print("puta merda")
-
+    func addWantPlant(_ plantId: String, user : User) -> Bool{
         
+        if user.wantList.first(where: {$0 == plantId}) != nil{
+            return false
+        }else{
+            user.wantList.append(plantId)
+            let wantList=["want":user.wantList]
+            db.document(user.userId).updateData(wantList as [AnyHashable : Any])
+            return true
+        }
     }
 }
