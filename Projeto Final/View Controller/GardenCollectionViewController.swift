@@ -48,12 +48,18 @@ class GardenCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 7
+        return user.myGarden.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GardenCollectionViewCell
+        let plant = plants.first(where: {$0.plantID == user.myGarden[indexPath.row].plantId})
         
+        cell.plantImage.image = plant?.photo
+        cell.namePlant.text = plant?.name
+        cell.plantingDate.text = "Plantio: " + user.myGarden[indexPath.row].plantedDate
+        cell.harvestMinMonth.text = "Inico:" + user.myGarden[indexPath.row].harvestMinLimit
+        cell.harvestMaxMonth.text = "Fim: " + user.myGarden[indexPath.row].harvestMaxLimit
         return cell
     }
     

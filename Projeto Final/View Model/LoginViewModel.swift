@@ -98,18 +98,22 @@ class LoginViewModel{
                             planted = userData.get("planted") as! [String]
                         }
                     }
+                    
                     myGardenRef.getDocuments { (querySnapShot, error) in
                         if querySnapShot != nil && querySnapShot!.count > 0{
                             for document in querySnapShot!.documents{
-                                let plantId = document.documentID
+                                let plantId = document.get("plantId") as! String
                                 let plantedDate = document.get("plantedDate") as! String
                                 let harvestMinLimit = document.get("harvestMinLimit") as! String
                                 let harvestMaxLimit = document.get("harvestMaxLimit") as! String
                                 let plantedPlant = PlantedPlant(plantId, plantedDate, harvestMinLimit,harvestMaxLimit)
                                 myGarden.append(plantedPlant)
                             }
-
                              user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
+                            completion(user)
+                        }
+                        else{
+                            user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
                             completion(user)
                         }
                     }
