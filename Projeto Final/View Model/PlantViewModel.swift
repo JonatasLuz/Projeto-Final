@@ -52,5 +52,12 @@ class PlantViewModel{
         db.document(user.userId).collection("myGarden").document().setData(plantedPlant)
     }
     
+    func removeGardenPlant(_ index: Int, _ user: User){
+        
+        let plant = user.myGarden[index]
+        let index = user.myGarden.firstIndex(where: {$0.plantId == plant.plantId})
+        user.myGarden.remove(at: index!)
+        db.document(user.userId).collection("myGarden").document().delete()
+    }
     
 }
