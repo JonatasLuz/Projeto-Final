@@ -20,10 +20,6 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileNameLabel: UILabel!
     
-    
-    
-    
-    
     var userInfo : User!
     var plants : [Plant]!
     var plantSelected : String!
@@ -37,8 +33,15 @@ class ProfileViewController: UIViewController {
         myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
-        print(userInfo.myGarden.count)
+        
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        print(userInfo.planted.count)
+        self.reloadInputViews()
+        self.harvestCollection.reloadData()
     }
     
     @IBAction func myGarden(_ sender: UIButton) {
@@ -72,6 +75,8 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             return userInfo.wantList.count
             
         }else if collectionView == self.harvestCollection{
+            print(userInfo.planted.count)
+            
             return userInfo.planted.count
         }
         return userInfo.myAchievements.count

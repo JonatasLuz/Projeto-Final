@@ -13,6 +13,7 @@
 		570BEE50225C1B0A007F5302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE4E225C1B0A007F5302 /* Main.storyboard */; };
 		570BEE52225C1B0B007F5302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE51225C1B0B007F5302 /* Assets.xcassets */; };
 		570BEE55225C1B0B007F5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE53225C1B0B007F5302 /* LaunchScreen.storyboard */; };
+		573E84AD22989F4B0091DA8E /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E84AC22989F4B0091DA8E /* GardenViewModel.swift */; };
 		574EBBB22293765100927E67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EBBB12293765100927E67 /* User.swift */; };
 		57828975227D07B00025E337 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828974227D07B00025E337 /* PlantViewController.swift */; };
 		57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C97226E833000833C09 /* PlantsTableViewController.swift */; };
@@ -21,7 +22,6 @@
 		AC3940632295BE2000A2ED5C /* WantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3940622295BE2000A2ED5C /* WantCollectionViewCell.swift */; };
 		AC3940652295C19E00A2ED5C /* HarvestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3940642295C19E00A2ED5C /* HarvestCollectionViewCell.swift */; };
 		AC4C713D228DC7B70042D292 /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C713C228DC7B70042D292 /* PlantViewModel.swift */; };
-		AC6846192298640600B52588 /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6846182298640600B52588 /* GardenViewModel.swift */; };
 		AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B88822289EBA20051D78A /* ProfileViewController.swift */; };
 		AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC77A7A32292175B0096FC14 /* LoginViewModel.swift */; };
 		AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93B756228B495500D67405 /* PlantsTableViewModel.swift */; };
@@ -41,6 +41,7 @@
 		570BEE51225C1B0B007F5302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		570BEE54225C1B0B007F5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		570BEE56225C1B0B007F5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		573E84AC22989F4B0091DA8E /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
 		574EBBB12293765100927E67 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		57828974227D07B00025E337 /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		57A18C97226E833000833C09 /* PlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		AC3940622295BE2000A2ED5C /* WantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC3940642295C19E00A2ED5C /* HarvestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarvestCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC4C713C228DC7B70042D292 /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantViewModel.swift; path = "Projeto Final/View Model/PlantViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		AC6846182298640600B52588 /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
 		AC6B88822289EBA20051D78A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC77A7A32292175B0096FC14 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AC93B756228B495500D67405 /* PlantsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantsTableViewModel.swift; path = "Projeto Final/View Model/PlantsTableViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -130,7 +130,7 @@
 				AC93B756228B495500D67405 /* PlantsTableViewModel.swift */,
 				AC4C713C228DC7B70042D292 /* PlantViewModel.swift */,
 				AC77A7A32292175B0096FC14 /* LoginViewModel.swift */,
-				AC6846182298640600B52588 /* GardenViewModel.swift */,
+				573E84AC22989F4B0091DA8E /* GardenViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -297,7 +297,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Projeto Final/Pods-Projeto Final-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -319,7 +319,7 @@
 				570657A4228628D50013656F /* Plant.swift in Sources */,
 				AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */,
 				ACC5D1B0229757C100EE8A5B /* GardenCollectionViewController.swift in Sources */,
-				AC6846192298640600B52588 /* GardenViewModel.swift in Sources */,
+				573E84AD22989F4B0091DA8E /* GardenViewModel.swift in Sources */,
 				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
 				AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */,
 				AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */,

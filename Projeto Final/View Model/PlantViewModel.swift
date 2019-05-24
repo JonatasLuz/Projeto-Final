@@ -12,7 +12,7 @@ import FirebaseFirestore
 class PlantViewModel{
     
     let db = Firestore.firestore().collection("usuario")
-    
+    var user : User!
     init() {
         
     }
@@ -60,5 +60,19 @@ class PlantViewModel{
         let documentId = user.myGarden![index!].documentId
         user.myGarden.remove(at: index!)
         db.document(user.userId).collection("myGarden").document(documentId!).delete()
+    }
+    
+    func harvestPlant(_ index : Int, _ user : User){
+        self.user = user
+        let plantedPlant = user.myGarden[index]
+        if user.planted.firstIndex(of: plantedPlant.plantId) == nil{
+            addToPlantedPlant(plantedPlant.plantId)
+        }
+    }
+    
+    func addToPlantedPlant(_ plantId : String){
+        user.planted.append(plantId)
+        let plantedList=["planted":user.planted]
+        db.document(user.userId).updateData(plantedList as [AnyHashable : Any])
     }
 }
