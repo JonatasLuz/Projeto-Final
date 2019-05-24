@@ -35,13 +35,10 @@ class LoginViewModel{
                     for user in querySnapShot!.documents{
                         let userInfo = user.data()
                         print("Ha user")
-                        
                     }
                 }else{
                     self.createUserFacebook()
                     print("Nao ha user")
-                    
-                    
                 }
                 completion()
             }

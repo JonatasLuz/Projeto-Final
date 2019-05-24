@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
     
     var userInfo : User!
     var plants : [Plant]!
+    var plantSelected : String!
     
     @IBOutlet weak var myGardenButton: UIButton!
  
@@ -37,7 +38,6 @@ class ProfileViewController: UIViewController {
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
         print(userInfo.myGarden.count)
-        
         super.viewDidLoad()
     }
     
@@ -51,12 +51,17 @@ class ProfileViewController: UIViewController {
             next.plants = plants
             next.user = userInfo
         }
+        if segue.identifier == "plantIdentifier"{
+            let next = segue.destination as! PlantViewController
+            next.plantSelected = plants.firstIndex(where: {$0.plantID == plantSelected})
+            next.plants = plants
+            next.userInfo = userInfo
+        }
     }
-    
 }
 
 
-extension ProfileViewController : UICollectionViewDataSource{
+extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDelegate{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -83,7 +88,6 @@ extension ProfileViewController : UICollectionViewDataSource{
             //cell.plantImageView.layer.cornerRadius = 0.5 * cell.bounds.height
             //cell.plantImageView.layer.borderWidth = 3
             cell.plantImageView.layer.borderColor = cell.plantNameLabel.textColor.cgColor
-            
             return cell
         }else if collectionView == self.wantCollection{
             let plant = plants.first(where: {$0.plantID == self.userInfo.wantList[indexPath.row]})
@@ -94,6 +98,37 @@ extension ProfileViewController : UICollectionViewDataSource{
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievement", for: indexPath)
             return cell
+        }
+    }
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        let plantViewModel = PlantViewModel()
+        if collectionView == self.wantCollection{
+            let alert = UIAlertController(title: "Quero Plantar", message: "O que deseja fazer?", preferredStyle: .alert)
+            let plantInfoButton = UIAlertAction(title: "Ver Planta", style: .default) { (UIAlertAction) in
+                self.plantSelected = self.userInfo.wantList[indexPath.row]
+                self.performSegue(withIdentifier: "plantIdentifier", sender: self)
+                
+            }
+            let plantButton = UIAlertAction(title: "Plantar", style: .default) { (UIAlertAction) in
+                let plant = self.plants.first(where: {$0.plantID == self.userInfo.wantList[indexPath.row]})
+                plantViewModel.addGardenPlant(plant!, self.userInfo)
+                plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
+                collectionView.reloadData()
+                
+            }
+            let removeButton = UIAlertAction(title: "Remover", style: .default) { (UIAlertAction) in
+                plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
+                collectionView.reloadData()
+                print(self.userInfo.wantList.count)
+            }
+
+            let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+            }
+            alert.addAction(plantInfoButton)
+            alert.addAction(plantButton)
+            alert.addAction(removeButton)
+            alert.addAction(cancelButton)
+            self.present(alert, animated: true)
         }
     }
 }

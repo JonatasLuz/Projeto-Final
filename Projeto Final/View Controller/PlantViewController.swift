@@ -125,6 +125,7 @@ class PlantViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "plantsIdentifier"{
             let next = segue.destination as! PlantsTableViewController
+            
             next.plants = plants
             next.user = userInfo
         }

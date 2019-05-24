@@ -29,6 +29,12 @@ class PlantViewModel{
         }
     }
     
+    func removeWantPlant(_ index : Int, _ user : User){
+        user.wantList.remove(at: index)
+        let wantList=["want":user.wantList]
+        db.document(user.userId).updateData(wantList as [AnyHashable : Any])
+    }
+    
     func addGardenPlant(_ plant: Plant, _ user: User){
         let plantedDate = Date()
         let harvestMinLimit = Calendar.current.date(byAdding: .day, value: plant.harvestMinLimit, to: Date())
@@ -43,7 +49,8 @@ class PlantViewModel{
          ]
         let newPlant = PlantedPlant(plant.plantID, plantedDateString, harvestMinLimitString, harvestMaxLimitString)
         user.myGarden.append(newPlant)
-        let myGardenRef = db.document(user.userId).collection("myGarden").document().setData(plantedPlant)
-        
+        db.document(user.userId).collection("myGarden").document().setData(plantedPlant)
     }
+    
+    
 }

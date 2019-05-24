@@ -12,6 +12,7 @@ class HarvestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var harvestCell: UIImageView!
     @IBOutlet weak var plantNameLabel: UILabel!
     @IBOutlet weak var plantImageView: UIImageView!
+    
 
     
     
