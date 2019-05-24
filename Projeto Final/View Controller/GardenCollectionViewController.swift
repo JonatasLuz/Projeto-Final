@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "plantIdentifier"
 
 class GardenCollectionViewController: UICollectionViewController {
-    
+    var gardenViewModel = GardenViewModel()
     var plants:[Plant]!
     var user : User!
 
@@ -62,6 +62,30 @@ class GardenCollectionViewController: UICollectionViewController {
         cell.harvestMaxMonth.text = "Fim: " + user.myGarden[indexPath.row].harvestMaxLimit
         return cell
     }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        let plantDate = user.myGarden[indexPath.row].plantedDate
+        let harvestMinDate = user.myGarden[indexPath.row].harvestMinLimit
+        let harvestMaxDate = user.myGarden[indexPath.row].harvestMaxLimit
+        let checkHarvest = gardenViewModel.checkMinHarvestDate(harvestMinDate!)
+        
+        
+        let alert = UIAlertController(title: "Horta", message: "Planta", preferredStyle: .alert)
+        
+        let harvestButton = UIAlertAction(title: "Marcar como colhida", style:.default) { (UIAlertAction) in
+            
+        }
+        
+        let removeButton = UIAlertAction(title: "Remover Planta", style: .destructive) { (UIAlertAction) in
+        
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in}
+        alert.addAction(harvestButton)
+        alert.addAction(removeButton)
+        alert.addAction(cancelButton)
+        self.present(alert, animated: true)
+    }
+    
+    
     
     
   

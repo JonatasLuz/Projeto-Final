@@ -583,7 +583,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkA-1B-h3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="-1039"/>
+            <point key="canvasLocation" x="1670" y="-886"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
@@ -704,7 +704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.799999999999997" y="-245.12743628185908"/>
+            <point key="canvasLocation" x="-23" y="-886"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="j8w-TA-whT">
@@ -982,7 +982,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2Y-R7-6jA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="-263"/>
+            <point key="canvasLocation" x="1670" y="-144"/>
         </scene>
         <!--Garden Collection View Controller-->
         <scene sceneID="sTP-wg-LKp">

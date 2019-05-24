@@ -21,6 +21,7 @@
 		AC3940632295BE2000A2ED5C /* WantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3940622295BE2000A2ED5C /* WantCollectionViewCell.swift */; };
 		AC3940652295C19E00A2ED5C /* HarvestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3940642295C19E00A2ED5C /* HarvestCollectionViewCell.swift */; };
 		AC4C713D228DC7B70042D292 /* PlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C713C228DC7B70042D292 /* PlantViewModel.swift */; };
+		AC6846192298640600B52588 /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6846182298640600B52588 /* GardenViewModel.swift */; };
 		AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B88822289EBA20051D78A /* ProfileViewController.swift */; };
 		AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC77A7A32292175B0096FC14 /* LoginViewModel.swift */; };
 		AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93B756228B495500D67405 /* PlantsTableViewModel.swift */; };
@@ -49,6 +50,7 @@
 		AC3940622295BE2000A2ED5C /* WantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC3940642295C19E00A2ED5C /* HarvestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarvestCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC4C713C228DC7B70042D292 /* PlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantViewModel.swift; path = "Projeto Final/View Model/PlantViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		AC6846182298640600B52588 /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
 		AC6B88822289EBA20051D78A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC77A7A32292175B0096FC14 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		AC93B756228B495500D67405 /* PlantsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantsTableViewModel.swift; path = "Projeto Final/View Model/PlantsTableViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -128,6 +130,7 @@
 				AC93B756228B495500D67405 /* PlantsTableViewModel.swift */,
 				AC4C713C228DC7B70042D292 /* PlantViewModel.swift */,
 				AC77A7A32292175B0096FC14 /* LoginViewModel.swift */,
+				AC6846182298640600B52588 /* GardenViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				570657A4228628D50013656F /* Plant.swift in Sources */,
 				AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */,
 				ACC5D1B0229757C100EE8A5B /* GardenCollectionViewController.swift in Sources */,
+				AC6846192298640600B52588 /* GardenViewModel.swift in Sources */,
 				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
 				AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */,
 				AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */,
