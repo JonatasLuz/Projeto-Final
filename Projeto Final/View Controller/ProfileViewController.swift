@@ -90,8 +90,6 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             cell.plantNameLabel.text = plant?.name
             print("Constraint")
             print( cell.plantImageView.constraints)
-            //cell.plantImageView.layer.cornerRadius = 0.5 * cell.bounds.height
-            //cell.plantImageView.layer.borderWidth = 3
             cell.plantImageView.layer.borderColor = cell.plantNameLabel.textColor.cgColor
             return cell
         }else if collectionView == self.wantCollection{
@@ -134,6 +132,9 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             alert.addAction(removeButton)
             alert.addAction(cancelButton)
             self.present(alert, animated: true)
+        }else if collectionView == self.harvestCollection{
+            self.plantSelected = self.userInfo.planted[indexPath.row]
+            self.performSegue(withIdentifier: "plantIdentifier", sender: self)
         }
     }
 }
