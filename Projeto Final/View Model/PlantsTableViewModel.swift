@@ -58,6 +58,7 @@ class PlantsTableViewModel{
                         plantsArray.append(plant)
                     })
                 }
+                plantsArray.sort(by: {$0.name < $1.name})
                 completion(plantsArray)
             }
         }
