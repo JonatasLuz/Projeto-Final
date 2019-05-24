@@ -1,26 +1,30 @@
 //
-//  CollectionViewController.swift
+//  GardenCollectionViewController.swift
 //  Projeto Final
 //
-//  Created by ALUNO on 08/05/19.
+//  Created by Guest User on 23/05/19.
 //  Copyright © 2019 Jonatas da Luz. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "plantIdentifier"
 
-class CollectionViewController: UICollectionViewController {
+class GardenCollectionViewController: UICollectionViewController {
+    
+    var plants:[Plant]!
+    var user : User!
 
     override func viewDidLoad() {
+        
+       // print(plants.count)
+        
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
         // Do any additional setup after loading the view.
     }
 
@@ -38,23 +42,24 @@ class CollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 7
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GardenCollectionViewCell
+        
         return cell
     }
-
+    
+    
+  
+    
     // MARK: UICollectionViewDelegate
 
     /*
@@ -85,5 +90,14 @@ class CollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    
 
 }
+extension GardenCollectionViewController : UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/2)
+    }
+}
+
+

@@ -520,7 +520,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zS-Kk-le9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VeJ-jN-5M6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2566" y="-884"/>
+            <point key="canvasLocation" x="2601" y="-1016"/>
         </scene>
         <!--Plantas-->
         <scene sceneID="HNl-wQ-Ajb">
@@ -583,7 +583,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkA-1B-h3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="-901"/>
+            <point key="canvasLocation" x="1671" y="-884"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
@@ -727,6 +727,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="myGarden:" destination="vZP-OD-Ksa" eventType="touchUpInside" id="kHY-wC-kTa"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLz-Jt-HsK">
                                         <rect key="frame" x="92" y="8" width="192" height="41"/>
@@ -973,11 +976,47 @@
                         <outlet property="myGardenButton" destination="cLT-7N-jps" id="x7P-Iu-rCt"/>
                         <outlet property="profileNameLabel" destination="MLz-Jt-HsK" id="Dgu-jS-vgt"/>
                         <outlet property="wantCollection" destination="rbH-qA-8dv" id="cQa-m8-bcg"/>
+                        <segue destination="jAV-Ox-XyH" kind="show" identifier="gardenIdentifier" id="27B-TL-rnW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2Y-R7-6jA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529" y="-76"/>
+            <point key="canvasLocation" x="1489" y="-39"/>
+        </scene>
+        <!--Garden Collection View Controller-->
+        <scene sceneID="sTP-wg-LKp">
+            <objects>
+                <collectionViewController id="jAV-Ox-XyH" customClass="GardenCollectionViewController" customModule="Projeto_Final" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="RMf-cp-eZv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5jV-bx-ZMr">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="plantIdentifier" id="XqA-6p-a30" customClass="GardenCollectionViewCell" customModule="Projeto_Final" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <color key="backgroundColor" red="0.49726799999999999" green="1" blue="0.20275310960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="jAV-Ox-XyH" id="4bL-rD-Li3"/>
+                            <outlet property="delegate" destination="jAV-Ox-XyH" id="STU-df-SQv"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jlq-wQ-fkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2481" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bvR-UG-KuR">

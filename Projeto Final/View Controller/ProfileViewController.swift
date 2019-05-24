@@ -41,10 +41,20 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
- 
+    @IBAction func myGarden(_ sender: UIButton) {
+        performSegue(withIdentifier: "gardenIdentifier", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gardenIdentifier"{
+            let next = segue.destination as! GardenCollectionViewController
+            next.plants = plants
+            next.user = userInfo
+        }
+    }
     
 }
+
 
 extension ProfileViewController : UICollectionViewDataSource{
     
