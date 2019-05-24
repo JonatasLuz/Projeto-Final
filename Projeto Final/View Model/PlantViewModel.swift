@@ -47,17 +47,18 @@ class PlantViewModel{
         let plantedPlant : [String : Any] = [
             "plantId" : plant.plantID, "plantedDate" : plantedDateString, "harvestMinLimit" : harvestMinLimitString, "harvestMaxLimit" : harvestMaxLimitString
          ]
-        let newPlant = PlantedPlant(plant.plantID, plantedDateString, harvestMinLimitString, harvestMaxLimitString)
+        let document = db.document(user.userId).collection("myGarden").document()
+        let newPlant = PlantedPlant(plant.plantID, plantedDateString, harvestMinLimitString, harvestMaxLimitString, document.documentID)
         user.myGarden.append(newPlant)
-        db.document(user.userId).collection("myGarden").document().setData(plantedPlant)
+        document.setData(plantedPlant)
     }
     
     func removeGardenPlant(_ index: Int, _ user: User){
         
         let plant = user.myGarden[index]
         let index = user.myGarden.firstIndex(where: {$0.plantId == plant.plantId})
+        let documentId = user.myGarden![index!].documentId
         user.myGarden.remove(at: index!)
-        db.document(user.userId).collection("myGarden").document().delete()
+        db.document(user.userId).collection("myGarden").document(documentId!).delete()
     }
-    
 }

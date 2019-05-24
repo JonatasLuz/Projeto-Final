@@ -103,7 +103,7 @@ class LoginViewModel{
                                 let plantedDate = document.get("plantedDate") as! String
                                 let harvestMinLimit = document.get("harvestMinLimit") as! String
                                 let harvestMaxLimit = document.get("harvestMaxLimit") as! String
-                                let plantedPlant = PlantedPlant(plantId, plantedDate, harvestMinLimit,harvestMaxLimit)
+                                let plantedPlant = PlantedPlant(plantId, plantedDate, harvestMinLimit,harvestMaxLimit, document.documentID)
                                 myGarden.append(plantedPlant)
                             }
                              user = User(userId, firstName, lastName , userEmail, wantList, myGarden, myAchievements, planted)
