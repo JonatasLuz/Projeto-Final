@@ -19,7 +19,7 @@ class PlantsTableViewModel{
         }
     }
     
-    func getPlantImageURL(_ url : String, completion: @escaping (UIImage) -> Void) {
+    func getImage(_ url : String, completion: @escaping (UIImage) -> Void) {
         do{
             let imageURL = try Data(contentsOf: URL.init(string: url)!)
             print(url)
@@ -42,7 +42,7 @@ class PlantsTableViewModel{
                     let plantID = document.documentID
                     let name = document.get("name") as! String
                     let photoURL = document.get("photo") as! String
-                        self.getPlantImageURL(photoURL, completion: { (image) in
+                    self.getImage(photoURL, completion: { (image) in
                         let information = document.get("information") as! String
                         let climate = document.get("climate") as! String
                         let soil = document.get("soil") as! String
@@ -60,6 +60,35 @@ class PlantsTableViewModel{
                 }
                 plantsArray.sort(by: {$0.name < $1.name})
                 completion(plantsArray)
+            }
+        }
+    }
+    
+    func getAchievements(completion: @escaping([Achievement]) -> Void){
+        var achvArray = [Achievement]()
+        db.collection("conquista").getDocuments { (querySnapShot, error) in
+            if let error = error{
+                
+                print("Error:\(error)")
+                return
+            }else{
+                
+                for document in querySnapShot!.documents{
+                    let name = document.get("name") as! String
+                    let photoUrl = document.get("photo") as! String
+                    let description = document.get("description") as! String
+                    var plantList = [String]()
+                    if document.get("plantList") != nil{
+                        plantList = document.get("plantList") as! [String]
+                    }
+                    self.getImage(photoUrl, completion: { (UIImage) in
+                        let achievement = Achievement(name, UIImage, description, plantList)
+                        achvArray.append(achievement)
+                        print(achievement)
+                        
+                    })
+                }
+                completion(achvArray)
             }
         }
     }

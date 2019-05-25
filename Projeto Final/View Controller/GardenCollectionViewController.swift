@@ -14,8 +14,9 @@ class GardenCollectionViewController: UICollectionViewController {
     var gardenViewModel = GardenViewModel()
     var plants:[Plant]!
     var user : User!
+    var achievements: [Achievement]!
 
-    override func viewDidLoad() {
+    override func viewDidLoad() {        
         super.viewDidLoad()
         
     }

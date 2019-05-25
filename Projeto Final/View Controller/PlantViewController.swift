@@ -14,6 +14,7 @@ class PlantViewController: UIViewController {
     var plants: [Plant]!
     var plantViewModel : PlantViewModel!
     var userInfo : User!
+    var achievements: [Achievement]!
     
   
     @IBOutlet var superView: UIView!
@@ -71,6 +72,8 @@ class PlantViewController: UIViewController {
         addGarden.layer.cornerRadius = 0.5 * addGarden.bounds.size.height
         wantPlantButton.layer.cornerRadius = 0.5 * wantPlantButton.bounds.size.height
         
+        print(achievements.count)
+        
         super.viewDidLoad()
         
  
@@ -125,7 +128,7 @@ class PlantViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "plantsIdentifier"{
             let next = segue.destination as! PlantsTableViewController
-            
+            next.achievements = achievements
             next.plants = plants
             next.user = userInfo
         }

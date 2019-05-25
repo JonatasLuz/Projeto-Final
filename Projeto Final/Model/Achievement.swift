@@ -16,7 +16,7 @@ class Achievement{
     
     init(){}
     
-    init(_ name : String, _ photo : UIImage, _ description: String, plantList: [String]){
+    init(_ name : String, _ photo : UIImage, _ description: String, _ plantList: [String]){
         self.name = name
         self.photo = photo
         self.description = description

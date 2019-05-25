@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     
     var userInfo : User!
     var plants : [Plant]!
+    var achievements: [Achievement]!
     var plantSelected : String!
     
     @IBOutlet weak var myGardenButton: UIButton!
@@ -52,12 +53,14 @@ class ProfileViewController: UIViewController {
             let next = segue.destination as! GardenCollectionViewController
             next.plants = plants
             next.user = userInfo
+            next.achievements = achievements
         }
         if segue.identifier == "plantIdentifier"{
             let next = segue.destination as! PlantViewController
             next.plantSelected = plants.firstIndex(where: {$0.plantID == plantSelected})
             next.plants = plants
             next.userInfo = userInfo
+            next.achievements = achievements
         }
     }
 }

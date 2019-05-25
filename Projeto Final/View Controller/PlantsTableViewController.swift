@@ -15,11 +15,13 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     let cellIdentifier = "cell"
     var plants : [Plant]!
     var user : User!
+    var achievements: [Achievement]!
 
     
     
     override func viewDidLoad() {
      
+       
         
         
         super.viewDidLoad()
@@ -40,6 +42,12 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
             plantsTableViewModel.getPlants { plantsArray in
                 self.plants = plantsArray
                 self.tableView.reloadData()
+            }
+            achievements = []
+            plantsTableViewModel.getAchievements { (achvArray) in
+                self.achievements = achvArray
+                self.tableView.reloadData()
+                
             }
         }
     }
@@ -68,10 +76,12 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
             next.plantSelected = row
             next.plants = plants
             next.userInfo = user
+            next.achievements = achievements
         }else if segue.identifier == "profileIdentifier"{
             let next = segue.destination as! ProfileViewController
             next.plants = plants
             next.userInfo = user
+            next.achievements = achievements
         }
     }
 
