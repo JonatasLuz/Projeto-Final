@@ -34,12 +34,11 @@ class ProfileViewController: UIViewController {
         myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         myGardenButton.clipsToBounds = true
         
+        
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        print(userInfo.planted.count)
         self.reloadInputViews()
         self.harvestCollection.reloadData()
     }
@@ -88,8 +87,6 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             let plant = plants.first(where: {$0.plantID == self.userInfo.planted[indexPath.row]})
             cell.plantImageView.image = plant?.photo
             cell.plantNameLabel.text = plant?.name
-            print("Constraint")
-            print( cell.plantImageView.constraints)
             cell.plantImageView.layer.borderColor = cell.plantNameLabel.textColor.cgColor
             return cell
         }else if collectionView == self.wantCollection{
@@ -99,7 +96,7 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             cell.plantNameLabel.text = plant?.name
             return cell
         }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievement", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementCollectionViewCell
             return cell
         }
     }

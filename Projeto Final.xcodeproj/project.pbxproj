@@ -14,6 +14,8 @@
 		570BEE52225C1B0B007F5302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE51225C1B0B007F5302 /* Assets.xcassets */; };
 		570BEE55225C1B0B007F5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570BEE53225C1B0B007F5302 /* LaunchScreen.storyboard */; };
 		573E84AD22989F4B0091DA8E /* GardenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E84AC22989F4B0091DA8E /* GardenViewModel.swift */; };
+		573E84B12298C4ED0091DA8E /* AchievementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E84B02298C4ED0091DA8E /* AchievementCollectionViewCell.swift */; };
+		573E84B32298C8190091DA8E /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E84B22298C8190091DA8E /* Achievement.swift */; };
 		574EBBB22293765100927E67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EBBB12293765100927E67 /* User.swift */; };
 		57828975227D07B00025E337 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57828974227D07B00025E337 /* PlantViewController.swift */; };
 		57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A18C97226E833000833C09 /* PlantsTableViewController.swift */; };
@@ -42,6 +44,8 @@
 		570BEE54225C1B0B007F5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		570BEE56225C1B0B007F5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		573E84AC22989F4B0091DA8E /* GardenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenViewModel.swift; sourceTree = "<group>"; };
+		573E84B02298C4ED0091DA8E /* AchievementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCollectionViewCell.swift; sourceTree = "<group>"; };
+		573E84B22298C8190091DA8E /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		574EBBB12293765100927E67 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		57828974227D07B00025E337 /* PlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		57A18C97226E833000833C09 /* PlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 				570657A3228628D50013656F /* Plant.swift */,
 				574EBBB12293765100927E67 /* User.swift */,
 				ACC5D1AD22973E7600EE8A5B /* PlantedPlant.swift */,
+				573E84B22298C8190091DA8E /* Achievement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				AC3940642295C19E00A2ED5C /* HarvestCollectionViewCell.swift */,
 				ACC5D1AF229757C100EE8A5B /* GardenCollectionViewController.swift */,
 				ACC5D1B1229758CB00EE8A5B /* GardenCollectionViewCell.swift */,
+				573E84B02298C4ED0091DA8E /* AchievementCollectionViewCell.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -323,7 +329,9 @@
 				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
 				AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */,
 				AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */,
+				573E84B12298C4ED0091DA8E /* AchievementCollectionViewCell.swift in Sources */,
 				570BEE4B225C1B0A007F5302 /* AppDelegate.swift in Sources */,
+				573E84B32298C8190091DA8E /* Achievement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

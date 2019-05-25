@@ -906,7 +906,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gwT-Ep-EC7">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="achievementCell" id="gwT-Ep-EC7" customClass="AchievementCollectionViewCell" customModule="Projeto_Final" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -921,6 +921,7 @@
                                                         </label>
                                                     </subviews>
                                                 </view>
+                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="Dpp-LC-Qdp" firstAttribute="leading" secondItem="gwT-Ep-EC7" secondAttribute="leading" id="TvX-qn-57m"/>
                                                     <constraint firstAttribute="trailing" secondItem="Dpp-LC-Qdp" secondAttribute="trailing" id="Y30-or-jGz"/>
@@ -929,6 +930,10 @@
                                                 </constraints>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="vZP-OD-Ksa" id="vvO-4w-pp1"/>
+                                            <outlet property="delegate" destination="vZP-OD-Ksa" id="cmT-f5-h2l"/>
+                                        </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conquistas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOG-2h-PIp">
                                         <rect key="frame" x="10" y="10" width="355" height="31"/>
@@ -1114,6 +1119,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="e39-6g-2FZ"/>
-        <segue reference="4ZU-Sr-3NQ"/>
+        <segue reference="2yD-aw-jgV"/>
     </inferredMetricsTieBreakers>
 </document>

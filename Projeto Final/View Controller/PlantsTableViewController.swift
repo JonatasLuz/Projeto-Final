@@ -34,7 +34,6 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     override func viewWillAppear(_ animated: Bool) {
         if plants != nil{
             print("N ta nulo")
-            
         }else {
             plants = []
             plantsTableViewModel = PlantsTableViewModel()
