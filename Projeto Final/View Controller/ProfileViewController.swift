@@ -101,7 +101,7 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementCollectionViewCell
-            let achievement = achievements.first(where: {$0.achievementId == self.userInfo.myAchievements[0]})
+            let achievement = achievements.first(where: {$0.achievementId == self.userInfo.myAchievements[indexPath.row]})
             cell.achievementImage.image = achievement?.photo
             cell.nameAchievementLabel.text = achievement?.name
             return cell

@@ -13,12 +13,16 @@ class PlantViewModel{
     
     let db = Firestore.firestore().collection("usuario")
     var user : User!
+    var achievements : [Achievement]!
     init() {
         
     }
     
+    func setAchievements(achievements: [Achievement]){
+        self.achievements = achievements
+    }
+    
     func addWantPlant(_ plantId: String, user : User) -> Bool{
-        
         if user.wantList.first(where: {$0 == plantId}) != nil{
             return false
         }else{
@@ -36,6 +40,21 @@ class PlantViewModel{
     }
     
     func addGardenPlant(_ plant: Plant, _ user: User){
+        //if user doest have de achievement, it includes on User my achievements
+        let startGardener = user.myAchievements.first(where: {$0 == "gMKLeCFgV11rWKd5bsUz"})
+        if startGardener == nil{
+            user.myAchievements.append("gMKLeCFgV11rWKd5bsUz")
+            let myGardenList = ["myGarden":user.myAchievements]
+            db.document(user.userId).updateData(myGardenList as[AnyHashable : Any])
+        }
+        
+        let intermediaryGardener = user.myAchievements.first(where: {$0 == "tndmhvGdF8aD8sGzAM55"})
+        if intermediaryGardener == nil && (user.myGarden.count + user.planted.count) >= 4{
+            user.myAchievements.append("tndmhvGdF8aD8sGzAM55")
+            let myGardenList = ["myGarden" : user.myAchievements]
+            db.document(user.userId).updateData(myGardenList as [AnyHashable : Any])
+        }
+
         let plantedDate = Date()
         let harvestMinLimit = Calendar.current.date(byAdding: .day, value: plant.harvestMinLimit, to: Date())
         let harvestMaxLimit = Calendar.current.date(byAdding: .day, value: plant.harvestMaxLimit, to: Date())
