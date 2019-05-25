@@ -15,7 +15,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var wantCollection: UICollectionView!
     @IBOutlet weak var harvestCollection: UICollectionView!
- 
+    @IBOutlet weak var achievementCollection: UICollectionView!
+    
     
     
     @IBOutlet weak var profileNameLabel: UILabel!
@@ -100,6 +101,9 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementCollectionViewCell
+            let achievement = achievements.first(where: {$0.achievementId == self.userInfo.myAchievements[0]})
+            cell.achievementImage.image = achievement?.photo
+            cell.nameAchievementLabel.text = achievement?.name
             return cell
         }
     }
@@ -110,21 +114,18 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             let plantInfoButton = UIAlertAction(title: "Ver Planta", style: .default) { (UIAlertAction) in
                 self.plantSelected = self.userInfo.wantList[indexPath.row]
                 self.performSegue(withIdentifier: "plantIdentifier", sender: self)
-                
             }
             let plantButton = UIAlertAction(title: "Plantar", style: .default) { (UIAlertAction) in
                 let plant = self.plants.first(where: {$0.plantID == self.userInfo.wantList[indexPath.row]})
                 plantViewModel.addGardenPlant(plant!, self.userInfo)
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
                 collectionView.reloadData()
-                
             }
             let removeButton = UIAlertAction(title: "Remover", style: .default) { (UIAlertAction) in
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
                 collectionView.reloadData()
                 print(self.userInfo.wantList.count)
             }
-
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
             }
             alert.addAction(plantInfoButton)
@@ -135,6 +136,13 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
         }else if collectionView == self.harvestCollection{
             self.plantSelected = self.userInfo.planted[indexPath.row]
             self.performSegue(withIdentifier: "plantIdentifier", sender: self)
+        }else if collectionView == achievementCollection{
+            let achievementId = self.userInfo.myAchievements[indexPath.row]
+            let achievementSelected = achievements.first(where:{$0.achievementId == achievementId})
+            let alert = UIAlertController(title: "Conquista", message: achievementSelected?.description, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "Ok", style: .cancel) { (UIAlertAction) in}
+            alert.addAction(okButton)
+            self.present(alert, animated: true)
         }
     }
 }

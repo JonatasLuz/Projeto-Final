@@ -9,5 +9,6 @@
 import UIKit
 
 class AchievementCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var achievementImage: UIImageView!
+    @IBOutlet weak var nameAchievementLabel: UILabel!
 }

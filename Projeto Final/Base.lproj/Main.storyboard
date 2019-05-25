@@ -935,6 +935,10 @@
                                                     <constraint firstAttribute="trailing" secondItem="gGA-Yy-Mx3" secondAttribute="trailing" id="xvG-7M-mE2"/>
                                                     <constraint firstItem="gGA-Yy-Mx3" firstAttribute="leading" secondItem="gwT-Ep-EC7" secondAttribute="leading" id="yeL-wr-ht9"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="achievementImage" destination="gGA-Yy-Mx3" id="6Zc-Gq-ayY"/>
+                                                    <outlet property="nameAchievementLabel" destination="In9-mL-5a0" id="z4B-h6-psn"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -984,6 +988,7 @@
                         <viewLayoutGuide key="safeArea" id="0eT-Jp-VnS"/>
                     </view>
                     <connections>
+                        <outlet property="achievementCollection" destination="Mr8-MQ-MSu" id="jkl-yR-OgI"/>
                         <outlet property="harvestCollection" destination="3d3-Lm-53J" id="EYc-ic-Lxq"/>
                         <outlet property="myGardenButton" destination="cLT-7N-jps" id="x7P-Iu-rCt"/>
                         <outlet property="profileNameLabel" destination="MLz-Jt-HsK" id="Dgu-jS-vgt"/>

@@ -82,7 +82,7 @@ class PlantsTableViewModel{
                         plantList = document.get("plantList") as! [String]
                     }
                     self.getImage(photoUrl, completion: { (UIImage) in
-                        let achievement = Achievement(name, UIImage, description, plantList)
+                        let achievement = Achievement(document.documentID ,name, UIImage, description, plantList)
                         achvArray.append(achievement)
                         print(achievement)
                         
