@@ -20,7 +20,5 @@ class GardenViewModel{
         }else{
             return true
         }
-        
     }
-    
 }

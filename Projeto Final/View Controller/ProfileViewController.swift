@@ -9,24 +9,17 @@
 import UIKit
 import SideMenu
 
-let profileCell = "harvestCell"
 class ProfileViewController: UIViewController  {
-    
     
     @IBOutlet weak var wantCollection: UICollectionView!
     @IBOutlet weak var harvestCollection: UICollectionView!
     @IBOutlet weak var achievementCollection: UICollectionView!
-    
-    
-    
     @IBOutlet weak var profileNameLabel: UILabel!
     
     var userInfo : User!
     var plants : [Plant]!
     var achievements: [Achievement]!
     var plantSelected : String!
-    
- 
     
     override func viewDidLoad() {
         profileNameLabel.text = userInfo.firstName + " " + userInfo.lastName
@@ -44,25 +37,10 @@ class ProfileViewController: UIViewController  {
         super.viewDidLoad()
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
-        
-        
         self.reloadInputViews()
         self.harvestCollection.reloadData()
         self.wantCollection.reloadData()
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-    }
-    
-    
-    
-    @IBAction func myGarden(_ sender: UIButton) {
-        performSegue(withIdentifier: "gardenIdentifier", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,10 +79,7 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView ==  self.wantCollection{
             return userInfo.wantList.count
-            
         }else if collectionView == self.harvestCollection{
-            print(userInfo.planted.count)
-            
             return userInfo.planted.count
         }
         return userInfo.myAchievements.count
@@ -132,7 +107,8 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             return cell
         }
     }
-     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         let plantViewModel = PlantViewModel()
         if collectionView == self.wantCollection{
             let alert = UIAlertController(title: "Quero Plantar", message: "O que deseja fazer?", preferredStyle: .alert)
