@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 private let reuseIdentifier = "plantIdentifier"
 
@@ -73,6 +74,18 @@ class GardenCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "menuIdentifier"{
+            
+            if let navView = segue.destination as? UISideMenuNavigationController{
+                let next = navView.topViewController as! MenuTableViewController
+                next.plants = plants
+                next.user = user
+                next.achievements = achievements
+            }
+        }
+    }
+    
 }
 extension GardenCollectionViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
