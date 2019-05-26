@@ -10,9 +10,15 @@ import UIKit
 
 class ToolTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var toolImageView: UIImageView!
+    
+    @IBOutlet weak var imageWC: NSLayoutConstraint!
+    @IBOutlet weak var imageHC: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        imageWC.constant = toolImageView.frame.height
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

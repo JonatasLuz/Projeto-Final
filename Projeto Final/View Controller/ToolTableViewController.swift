@@ -33,16 +33,19 @@ class ToolTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return tools.count
     }
-
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "toolIdentifier", for: indexPath) as! ToolTableViewCell
+        cell.nameLabel.text = tools[indexPath.row].name
+        cell.toolImageView.image = tools[indexPath.row].photo
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title:tools[indexPath.row].name, message: tools[indexPath.row].description, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .cancel) { (UIAlertAction) in}
+        alert.addAction(okButton)
+        self.present(alert,animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
