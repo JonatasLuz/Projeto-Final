@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class PlantViewController: UIViewController {
     
@@ -132,13 +133,24 @@ class PlantViewController: UIViewController {
             next.plants = plants
             next.user = userInfo
         }
+        if segue.identifier == "menuIdentifier"{
+            
+            if let navView = segue.destination as? UISideMenuNavigationController{
+                let next = navView.topViewController as! MenuTableViewController
+                next.plants = plants
+                next.user = userInfo
+                next.achievements = achievements
+            }
+        }
     }
     
     @IBAction func addAction(_ sender: UIButton) {
         let addPlant = plantViewModel.addGardenPlant(plants[plantSelected], userInfo)
         let alertController = UIAlertController(title: "Plantar", message: "Planta adicionada a sua horta", preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
-            self.performSegue(withIdentifier: "plantsIdentifier", sender: self)
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
         }
         alertController.addAction(actionButton)
         self.present(alertController, animated: true)
@@ -154,7 +166,9 @@ class PlantViewController: UIViewController {
         }
         let alertController = UIAlertController(title: "Quero Plantar", message: message, preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
-            self.performSegue(withIdentifier: "plantsIdentifier", sender: self)
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
         }
         alertController.addAction(actionButton)
         self.present(alertController, animated: true)

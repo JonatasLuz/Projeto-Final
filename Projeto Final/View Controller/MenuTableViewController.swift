@@ -1,94 +1,84 @@
 //
-//  PlantsTableViewController.swift
+//  MenuTableViewController.swift
 //  Projeto Final
 //
-//  Created by ALUNO on 22/04/19.
+//  Created by Guest User on 25/05/19.
 //  Copyright © 2019 Jonatas da Luz. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import SideMenu
 
-class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UINavigationControllerDelegate{
-
-    var plantsTableViewModel : PlantsTableViewModel!
-    let cellIdentifier = "cell"
-    var plants : [Plant]!
+class MenuTableViewController: UITableViewController {
     var user : User!
+    var plants : [Plant]!
     var achievements: [Achievement]!
+    @IBOutlet weak var profileWC: NSLayoutConstraint!
+    @IBOutlet weak var TipsWC: NSLayoutConstraint!
+    @IBOutlet weak var myGardenWc: NSLayoutConstraint!
 
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var myGardenButton: UIButton!
+    @IBOutlet weak var tipsButton: UIButton!
     
     
     override func viewDidLoad() {
-     
-       
+        
+        profileWC.constant = view.frame.width/2
+        TipsWC.constant = view.frame.width/2
+        myGardenWc.constant = view.frame.width/2
+        
+        profileButton.layer.cornerRadius = profileButton.frame.height/2.5
+        tipsButton.layer.cornerRadius = tipsButton.frame.height/2.5
+        myGardenButton.layer.cornerRadius = myGardenButton.frame.height/2.5
         
         
         super.viewDidLoad()
-    
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if plants != nil{
-            print("N ta nulo")
-        }else {
-            plants = []
-            plantsTableViewModel = PlantsTableViewModel()
-            plantsTableViewModel.getPlants { plantsArray in
-                self.plants = plantsArray
-                self.tableView.reloadData()
-            }
-            achievements = []
-            plantsTableViewModel.getAchievements { (achvArray) in
-                self.achievements = achvArray
-                self.tableView.reloadData()
-                
-            }
-        }
-    }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plants.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
-        cell?.plantNameLabel.text = plants[indexPath.row].name
-        cell?.plantImage.image =  plants[indexPath.row].photo
-        return cell!
+        // #warning Incomplete implementation, return the number of rows
+        return 3
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "plantIdentfier"{
-            let next = segue.destination as! PlantViewController
-            let row = tableView.indexPathForSelectedRow?.row
-            next.plantSelected = row
+        if segue.identifier == "profileIdentifier"{
+            let next = segue.destination as! ProfileViewController
             next.plants = plants
-            next.userInfo = user
             next.achievements = achievements
-        }else if segue.identifier == "menuIdentifier"{
-            
-            if let navView = segue.destination as? UISideMenuNavigationController{
-                let next = navView.topViewController as! MenuTableViewController
-                next.plants = plants
-                next.user = user
-                next.achievements = achievements
-            }
+            next.userInfo = user
         }
+        if segue.identifier == "myGardenIdentifer"{
+            let next = segue.destination as! GardenCollectionViewController
+            next.plants = plants
+            next.achievements = achievements
+            next.user = user
+        }
+        
     }
 
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -100,7 +90,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
 
     /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -125,5 +115,14 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     }
     */
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

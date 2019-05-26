@@ -32,7 +32,7 @@ class Login: UIViewController {
         
         
         fbButton.setTitle("Entre com o Facebook", for: [])
-        fbButton.layer.cornerRadius = 0.5 * fbButton.frame.size.height
+        fbButton.layer.cornerRadius =  fbButton.frame.size.height/2.5
         fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
         
         //print(Auth.auth().currentUser?.uid)

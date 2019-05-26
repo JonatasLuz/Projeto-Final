@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
+import SideMenu
 
 let profileCell = "harvestCell"
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController  {
     
     
     @IBOutlet weak var wantCollection: UICollectionView!
@@ -26,24 +26,29 @@ class ProfileViewController: UIViewController {
     var achievements: [Achievement]!
     var plantSelected : String!
     
-    @IBOutlet weak var myGardenButton: UIButton!
  
     
     override func viewDidLoad() {
-        profileNameLabel.text = userInfo.firstName
-        
-        myGardenButton.layer.cornerRadius = 0.5 * myGardenButton.bounds.size.height
-        myGardenButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        myGardenButton.clipsToBounds = true
-        
-        
+        profileNameLabel.text = userInfo.firstName + " " + userInfo.lastName
         super.viewDidLoad()
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+        
         self.reloadInputViews()
         self.harvestCollection.reloadData()
+        self.wantCollection.reloadData()
+        
     }
+    
+    override func viewDidLayoutSubviews() {
+        
+    }
+    
+    
     
     @IBAction func myGarden(_ sender: UIButton) {
         performSegue(withIdentifier: "gardenIdentifier", sender: self)
@@ -62,6 +67,15 @@ class ProfileViewController: UIViewController {
             next.plants = plants
             next.userInfo = userInfo
             next.achievements = achievements
+        }
+        if segue.identifier == "menuIdentifier"{
+            
+            if let navView = segue.destination as? UISideMenuNavigationController{
+                let next = navView.topViewController as! MenuTableViewController
+                next.plants = plants
+                next.user = userInfo
+                next.achievements = achievements
+            }
         }
     }
 }
@@ -120,11 +134,11 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
                 plantViewModel.addGardenPlant(plant!, self.userInfo)
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
                 collectionView.reloadData()
+                self.reloadInputViews()
             }
             let removeButton = UIAlertAction(title: "Remover", style: .default) { (UIAlertAction) in
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
                 collectionView.reloadData()
-                print(self.userInfo.wantList.count)
             }
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
             }
@@ -149,6 +163,9 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
 
 extension ProfileViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.wantCollection.frame.height, height: self.wantCollection.frame.height)
+        if collectionView == achievementCollection{
+            return CGSize(width: self.wantCollection.frame.height, height: self.wantCollection.frame.height)
+        }
+         return CGSize(width: self.achievementCollection.frame.height, height: self.achievementCollection.frame.height)
     }
 }

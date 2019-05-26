@@ -9,16 +9,19 @@
 import UIKit
 
 class PlantsTableViewCell: UITableViewCell {
-
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var plantNameLabel: UILabel!
     @IBOutlet weak var plantImage: UIImageView!
+    @IBOutlet weak var plantImageWC: NSLayoutConstraint!
     override func awakeFromNib() {
         plantNameLabel.centerYAnchor.constraint(equalTo: plantImage.centerYAnchor, constant: 1).isActive = true
         plantImage.layer.borderWidth = 5
         plantImage.layer.borderColor = plantNameLabel.textColor.cgColor
         plantImage.layer.cornerRadius = plantImage.frame.height/2
-        plantImage.layer.masksToBounds = true        
+        plantImage.layer.masksToBounds = true
+      plantImageWC.constant = plantImage.frame.height
+        
+        
         super.awakeFromNib()
     }
 
