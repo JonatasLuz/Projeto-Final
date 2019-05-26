@@ -84,6 +84,7 @@ class Login: UIViewController {
                         //self.loginViewModel.getUserData(completion: {
                        //       self.performSegue(withIdentifier: "loginAcepted", sender: self)
                         //})
+                        
                         self.loginViewModel.getUser(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!, completion: { (user) in
                             self.userLogin = user
                             self.performSegue(withIdentifier: "loginAccepted", sender: self)

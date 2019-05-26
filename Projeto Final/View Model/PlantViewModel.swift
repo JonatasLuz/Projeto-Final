@@ -40,18 +40,23 @@ class PlantViewModel{
     }
     
     func addGardenPlant(_ plant: Plant, _ user: User){
-        //if user doest have de achievement, it includes on User my achievements
+        //if user doesnt have the achievement, it includes on User my achievements
         let startGardener = user.myAchievements.first(where: {$0 == "gMKLeCFgV11rWKd5bsUz"})
         if startGardener == nil{
             user.myAchievements.append("gMKLeCFgV11rWKd5bsUz")
             let myGardenList = ["myGarden":user.myAchievements]
             db.document(user.userId).updateData(myGardenList as[AnyHashable : Any])
         }
-        
+        //if user doesnt have the achievement, it includes on User my achievements
         let intermediaryGardener = user.myAchievements.first(where: {$0 == "tndmhvGdF8aD8sGzAM55"})
         if intermediaryGardener == nil && (user.myGarden.count + user.planted.count) >= 4{
             user.myAchievements.append("tndmhvGdF8aD8sGzAM55")
             let myGardenList = ["myGarden" : user.myAchievements]
+            db.document(user.userId).updateData(myGardenList as [AnyHashable : Any])
+        }
+        let advancedGardener = user.myAchievements.first(where: {$0 == "CIhRg1ebt6FJvx1SY6Oe"})
+        if advancedGardener == nil && (user.myGarden.count + user.planted.count) >= 14{
+            let myGardenList = ["myGarden": user.myAchievements]
             db.document(user.userId).updateData(myGardenList as [AnyHashable : Any])
         }
 
