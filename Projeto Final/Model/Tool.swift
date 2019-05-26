@@ -26,6 +26,4 @@ class Tool{
         self.photo = photo
         self.description = description
     }
-    
-    
 }

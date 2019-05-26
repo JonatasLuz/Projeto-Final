@@ -16,17 +16,21 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var TipsWC: NSLayoutConstraint!
     @IBOutlet weak var myGardenWc: NSLayoutConstraint!
 
+    @IBOutlet weak var toolsWC: NSLayoutConstraint!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var myGardenButton: UIButton!
     @IBOutlet weak var tipsButton: UIButton!
     
+    @IBOutlet weak var toolButton: UIButton!
     
     override func viewDidLoad() {
         
         profileWC.constant = view.frame.width/2
         TipsWC.constant = view.frame.width/2
         myGardenWc.constant = view.frame.width/2
+        toolsWC.constant = view.frame.width/2
         
+        toolButton.layer.cornerRadius = toolButton.frame.height / 2.5
         profileButton.layer.cornerRadius = profileButton.frame.height/2.5
         tipsButton.layer.cornerRadius = tipsButton.frame.height/2.5
         myGardenButton.layer.cornerRadius = myGardenButton.frame.height/2.5
@@ -51,7 +55,7 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 4
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
