@@ -30,6 +30,17 @@ class ProfileViewController: UIViewController  {
     
     override func viewDidLoad() {
         profileNameLabel.text = userInfo.firstName + " " + userInfo.lastName
+        harvestCollection.layer.borderWidth = 5
+        harvestCollection.layer.borderColor = profileNameLabel.textColor.cgColor
+        harvestCollection.layer.cornerRadius = harvestCollection.frame.height / 8
+        
+        wantCollection.layer.borderWidth = 5
+        wantCollection.layer.borderColor = profileNameLabel.textColor.cgColor
+        wantCollection.layer.cornerRadius = wantCollection.frame.height / 8
+        
+        achievementCollection.layer.borderWidth = 5
+        achievementCollection.layer.borderColor = profileNameLabel.textColor.cgColor
+        achievementCollection.layer.cornerRadius = achievementCollection.frame.height / 8
         super.viewDidLoad()
     }
     
