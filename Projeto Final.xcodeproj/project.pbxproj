@@ -33,6 +33,10 @@
 		ACC5D1AE22973E7600EE8A5B /* PlantedPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5D1AD22973E7600EE8A5B /* PlantedPlant.swift */; };
 		ACC5D1B0229757C100EE8A5B /* GardenCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5D1AF229757C100EE8A5B /* GardenCollectionViewController.swift */; };
 		ACC5D1B2229758CB00EE8A5B /* GardenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5D1B1229758CB00EE8A5B /* GardenCollectionViewCell.swift */; };
+		ACF9466E229B109B00DF6351 /* ToolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9466D229B109B00DF6351 /* ToolTableViewCell.swift */; };
+		ACF94670229B113800DF6351 /* ToolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9466F229B113800DF6351 /* ToolTableViewController.swift */; };
+		ACF94672229B119600DF6351 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF94671229B119600DF6351 /* Tool.swift */; };
+		ACF94674229B1CA500DF6351 /* ToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF94673229B1CA500DF6351 /* ToolViewModel.swift */; };
 		C2883979DF41F4BC67647951 /* Pods_Projeto_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9300D026FAAEC4E8043A47AF /* Pods_Projeto_Final.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +71,10 @@
 		ACC5D1AD22973E7600EE8A5B /* PlantedPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantedPlant.swift; sourceTree = "<group>"; };
 		ACC5D1AF229757C100EE8A5B /* GardenCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenCollectionViewController.swift; sourceTree = "<group>"; };
 		ACC5D1B1229758CB00EE8A5B /* GardenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACF9466D229B109B00DF6351 /* ToolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTableViewCell.swift; sourceTree = "<group>"; };
+		ACF9466F229B113800DF6351 /* ToolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTableViewController.swift; sourceTree = "<group>"; };
+		ACF94671229B119600DF6351 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		ACF94673229B1CA500DF6351 /* ToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolViewModel.swift; sourceTree = "<group>"; };
 		C641F01D96095813491B578E /* Pods-Projeto Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Projeto Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-Projeto Final/Pods-Projeto Final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +97,7 @@
 				574EBBB12293765100927E67 /* User.swift */,
 				ACC5D1AD22973E7600EE8A5B /* PlantedPlant.swift */,
 				573E84B22298C8190091DA8E /* Achievement.swift */,
+				ACF94671229B119600DF6351 /* Tool.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +151,7 @@
 				AC4C713C228DC7B70042D292 /* PlantViewModel.swift */,
 				AC77A7A32292175B0096FC14 /* LoginViewModel.swift */,
 				573E84AC22989F4B0091DA8E /* GardenViewModel.swift */,
+				ACF94673229B1CA500DF6351 /* ToolViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -162,6 +172,8 @@
 				AC7FFFB3229A359200129E52 /* MenuTableViewController.swift */,
 				AC7FFFB8229A999E00129E52 /* TipsTableViewController.swift */,
 				AC7FFFBA229A99B800129E52 /* TipTableViewCell.swift */,
+				ACF9466D229B109B00DF6351 /* ToolTableViewCell.swift */,
+				ACF9466F229B113800DF6351 /* ToolTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -326,6 +338,7 @@
 			files = (
 				AC3940632295BE2000A2ED5C /* WantCollectionViewCell.swift in Sources */,
 				ACC5D1B2229758CB00EE8A5B /* GardenCollectionViewCell.swift in Sources */,
+				ACF94674229B1CA500DF6351 /* ToolViewModel.swift in Sources */,
 				574EBBB22293765100927E67 /* User.swift in Sources */,
 				AC7FFFBB229A99B800129E52 /* TipTableViewCell.swift in Sources */,
 				ACC5D1AE22973E7600EE8A5B /* PlantedPlant.swift in Sources */,
@@ -337,14 +350,17 @@
 				57A18C9A226E834A00833C09 /* PlantsTableViewCell.swift in Sources */,
 				570657A4228628D50013656F /* Plant.swift in Sources */,
 				AC93B757228B495500D67405 /* PlantsTableViewModel.swift in Sources */,
+				ACF94670229B113800DF6351 /* ToolTableViewController.swift in Sources */,
 				ACC5D1B0229757C100EE8A5B /* GardenCollectionViewController.swift in Sources */,
 				AC7FFFB4229A359200129E52 /* MenuTableViewController.swift in Sources */,
 				573E84AD22989F4B0091DA8E /* GardenViewModel.swift in Sources */,
 				57A18C98226E833000833C09 /* PlantsTableViewController.swift in Sources */,
 				AC77A7A42292175B0096FC14 /* LoginViewModel.swift in Sources */,
+				ACF9466E229B109B00DF6351 /* ToolTableViewCell.swift in Sources */,
 				AC6B88832289EBA20051D78A /* ProfileViewController.swift in Sources */,
 				573E84B12298C4ED0091DA8E /* AchievementCollectionViewCell.swift in Sources */,
 				570BEE4B225C1B0A007F5302 /* AppDelegate.swift in Sources */,
+				ACF94672229B119600DF6351 /* Tool.swift in Sources */,
 				573E84B32298C8190091DA8E /* Achievement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
