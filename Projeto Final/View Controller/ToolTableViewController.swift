@@ -7,18 +7,24 @@
 //
 
 import UIKit
+import SideMenu
 
 class ToolTableViewController: UITableViewController {
     let toolViewModel = ToolViewModel()
     var tools = [Tool]()
+    var achievements = [Achievement]()
+    var user : User!
+    var plants = [Plant]()
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        toolViewModel.getTools { toolArray in
-            self.tools = toolArray
-            self.tableView.reloadData()
+        if tools.count == 0{
+            toolViewModel.getTools { toolArray in
+                self.tools = toolArray
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -45,6 +51,18 @@ class ToolTableViewController: UITableViewController {
         let okButton = UIAlertAction(title: "Ok", style: .cancel) { (UIAlertAction) in}
         alert.addAction(okButton)
         self.present(alert,animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "menuIdentifier"{
+            if let navView = segue.destination as? UISideMenuNavigationController{
+                let next = navView.topViewController as! MenuTableViewController
+                next.plants = plants
+                next.user = user
+                next.achievements = achievements
+                next.tools = tools
+            }
+        }
     }
 
     /*

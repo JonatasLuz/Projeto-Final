@@ -19,6 +19,10 @@ class ToolTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imageWC.constant = toolImageView.frame.height
+        toolImageView.layer.borderWidth = 5
+        toolImageView.layer.borderColor = nameLabel.textColor.cgColor
+        toolImageView.layer.cornerRadius = toolImageView.frame.height/2
+        toolImageView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

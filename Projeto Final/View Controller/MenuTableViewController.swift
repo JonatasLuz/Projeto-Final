@@ -12,6 +12,7 @@ class MenuTableViewController: UITableViewController {
     var user : User!
     var plants : [Plant]!
     var achievements: [Achievement]!
+    var tools : [Tool]!
     @IBOutlet weak var profileWC: NSLayoutConstraint!
     @IBOutlet weak var TipsWC: NSLayoutConstraint!
     @IBOutlet weak var myGardenWc: NSLayoutConstraint!
@@ -70,6 +71,15 @@ class MenuTableViewController: UITableViewController {
             next.plants = plants
             next.achievements = achievements
             next.user = user
+        }
+        if segue.identifier == "toolIdentifier"{
+            let next = segue.destination as! ToolTableViewController
+            next.user = user
+            next.plants = plants
+            next.achievements = achievements
+            if tools != nil{
+                next.tools = tools
+            }
         }
         
     }
