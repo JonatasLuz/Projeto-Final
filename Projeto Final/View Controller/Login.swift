@@ -31,6 +31,13 @@ class Login: UIViewController {
     override func viewDidLoad() {
         
         loginViewModel = LoginViewModel()
+   
+        do{
+            try Auth.auth().signOut()
+        }catch{
+            print(error)
+        }
+        print(Auth.auth().currentUser?.email)
         
         
         signIn.layer.cornerRadius = signIn.bounds.size.height / 2.5
@@ -55,6 +62,17 @@ class Login: UIViewController {
     
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
+            if let error = error{
+                print("error")
+                
+            }else{
+                self.loginViewModel.getUser(Auth.auth().currentUser!.uid, "", "") { user in
+                    self.userLogin = user
+                    self.signUpView.removeFromSuperview()
+                    self.userLogin = user
+                    self.performSegue(withIdentifier: "loginAccepted", sender: self)
+                }
+            }
         }
     }
     
@@ -65,7 +83,6 @@ class Login: UIViewController {
         let nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         nameLabel.text = "Nome"
         nameLabel.textColor = .white
-        //signUpView.addSubview(nameLabel)
         
         nameTextField = UITextField(frame: CGRect(x:35, y: 25, width: signUpView.frame.width - 70, height: 50))
         nameTextField.placeholder = "Nome"
@@ -112,8 +129,16 @@ class Login: UIViewController {
                        print("Erro no cadastro:  \(String(describing: error))")
                        return
                }
-           }
-        signUpView.removeFromSuperview()
+            
+            print(Auth.auth())
+            
+            self.loginViewModel.getUser(Auth.auth().currentUser!.uid, self.emailTextField.text!, self.nameTextField.text!) { user in
+                self.userLogin = user
+                self.signUpView.removeFromSuperview()
+                self.userLogin = user
+                self.performSegue(withIdentifier: "loginAccepted", sender: self)
+            }
+        }
     }
     
     @objc func cancelAction(){
@@ -153,7 +178,9 @@ class Login: UIViewController {
                         print(error)
                     }
                     else{
-                        self.loginViewModel.getUser(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!, completion: { (user) in
+                        
+                        print(Auth.auth().currentUser?.uid)
+                        self.loginViewModel.getUser(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!, "", completion: { (user) in
                             
                             self.userLogin = user
                             self.performSegue(withIdentifier: "loginAccepted", sender: self)

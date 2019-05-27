@@ -28,12 +28,13 @@ class LoginViewModel{
         self.userFirebaseEmail = userFirebaseEmail
     }
     
-    func getUser(_ userId : String, _ userEmail : String, completion: @escaping ((User) -> Void)){
+    func getUser(_ userId : String, _ userEmail : String, _ userName : String , completion: @escaping ((User) -> Void)){
         var user = User()
         let userRef = db.collection("usuario")
         var firstName : String!
         var lastName : String!
         var wantList = [String]()
+        
         var myGarden = [PlantedPlant]()
         var myAchievements = [String]()
         var planted = [String]()
@@ -75,26 +76,41 @@ class LoginViewModel{
                         }
                     }
                 }else{
-                    let request = GraphRequest(graphPath: "me", parameters: ["fields":"id,first_name, last_name, email"])
-                    request.start(completionHandler: { (connection, result, error) -> Void in
-                        let userResult = result as! NSDictionary
-                        self.userFirebaseId = userResult.value(forKey: "id") as! String
-                        self.userFirstName = userResult.value(forKey: "first_name") as? String
-                        self.userLastName = userResult.value(forKey: "last_name") as? String
-                        self.userFirebaseEmail = userResult.value(forKey: "email") as! String
-                        self.createUserFacebook()
-            
-                        let user = User(Auth.auth().currentUser!.uid, self.userFirstName, self.userLastName , userEmail, [String](), [PlantedPlant](), [String](), [String]())
-                        completion(user)
-                    })
+                    
+                    if let providerData = Auth.auth().currentUser?.providerData {
+                        for userInfo in providerData {
+                            switch userInfo.providerID {
+                            case "facebook.com":
+                                let request = GraphRequest(graphPath: "me", parameters: ["fields":"id,first_name, last_name, email"])
+                                request.start(completionHandler: { (connection, result, error) -> Void in
+                                    let userResult = result as! NSDictionary
+                                    self.userFirebaseId = userResult.value(forKey: "id") as! String
+                                    self.userFirstName = userResult.value(forKey: "first_name") as? String
+                                    self.userLastName = userResult.value(forKey: "last_name") as? String
+                                    self.userFirebaseEmail = userResult.value(forKey: "email") as! String
+                                    self.createUserFacebook()
+                                    let user = User(Auth.auth().currentUser!.uid, self.userFirstName, self.userLastName , userEmail, [String](), [PlantedPlant](), [String](), [String]())
+                                    completion(user)
+                                })
+    
+                            default:
+                                let user = User(Auth.auth().currentUser!.uid, userName, userName , userEmail, [String](), [PlantedPlant](), [String](), [String]())
+                                self.createUser(userName,userName)
+                                completion(user)
+                            }
+                        }
+                    }
                 }
             }
         }
         
     }
     
-    func createUser(){
-        db.collection("usuario")
+    func createUser(_ firstName : String,_  lastName: String){
+        db.collection("usuario").document(Auth.auth().currentUser!.uid).setData([
+            "firstName" : firstName,
+            "lastName" : lastName
+            ])
     }
     
     func createUserFacebook(){
