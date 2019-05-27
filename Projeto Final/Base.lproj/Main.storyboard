@@ -865,7 +865,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkA-iZ-090">
                                             <rect key="frame" x="159" y="16" width="200" height="68"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
-                                            <color key="textColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.0" green="0.56470588235294117" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1524,7 +1524,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="27B-TL-rnW"/>
-        <segue reference="FFH-QH-ywS"/>
-        <segue reference="2yD-aw-jgV"/>
+        <segue reference="DRX-Ob-01d"/>
+        <segue reference="4ZU-Sr-3NQ"/>
     </inferredMetricsTieBreakers>
 </document>

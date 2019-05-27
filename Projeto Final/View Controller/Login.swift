@@ -35,15 +35,8 @@ class Login: UIViewController {
         fbButton.layer.cornerRadius =  fbButton.frame.size.height/2.5
         fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
         
-        //print(Auth.auth().currentUser?.uid)
-        
-      //  do{
-      //      try Auth.auth().signOut()
-      //  }catch{
-      //      print("Error On signOut")
-      //  }
+    
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,8 +59,23 @@ class Login: UIViewController {
     }
     
     @objc func loginButtonClicked() {
+        
         let loginManager = LoginManager()
+        
         loginManager.logIn(permissions: [ .publicProfile , .email ], viewController: self) { loginResult in
+            
+            let blankView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+            blankView.frame = self.view.frame
+            blankView.center = self.view.center
+            blankView.backgroundColor = .white
+            self.view.addSubview(blankView)
+            let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
+            
+            activityIndicatorView.color = self.logo.textColor
+            self.view.addSubview(activityIndicatorView)
+            activityIndicatorView.center = self.view.center
+            activityIndicatorView.frame = activityIndicatorView.frame
+            activityIndicatorView.startAnimating()
             switch loginResult {
             case .failed(let error):
                 print(error)
@@ -75,6 +83,7 @@ class Login: UIViewController {
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+                
                 Auth.auth().signIn(with: credential, completion: { (result, error) in
                     if let error = error{
                         print(error)
@@ -86,10 +95,12 @@ class Login: UIViewController {
                         //})
                         
                         self.loginViewModel.getUser(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!, completion: { (user) in
+                            
                             self.userLogin = user
                             self.performSegue(withIdentifier: "loginAccepted", sender: self)
                         })
                     }
+                    
                 })
             }
         }

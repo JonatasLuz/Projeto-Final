@@ -17,12 +17,40 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     var plants : [Plant]!
     var user : User!
     var achievements: [Achievement]!
-
+   
     
     
     override func viewDidLoad() {
-     
-       
+        
+        
+        if plants == nil{
+            tableView.separatorStyle = .none
+            let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
+            
+            activityIndicatorView.color = UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0)
+            self.tableView.addSubview(activityIndicatorView)
+            activityIndicatorView.center = view.center
+            activityIndicatorView.frame = activityIndicatorView.frame
+            activityIndicatorView.hidesWhenStopped = true
+            activityIndicatorView.startAnimating()
+            
+            plants = []
+            plantsTableViewModel = PlantsTableViewModel()
+            plantsTableViewModel.getPlants { plantsArray in
+                self.plants = plantsArray
+                activityIndicatorView.stopAnimating()
+                activityIndicatorView.removeFromSuperview()
+                self.tableView.separatorStyle = .singleLine
+                self.tableView.reloadData()
+            }
+            achievements = []
+            plantsTableViewModel.getAchievements { (achvArray) in
+                self.achievements = achvArray
+                self.tableView.reloadData()
+                
+            }
+        }
+
         
         
         super.viewDidLoad()
@@ -35,22 +63,7 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if plants != nil{
-            print("N ta nulo")
-        }else {
-            plants = []
-            plantsTableViewModel = PlantsTableViewModel()
-            plantsTableViewModel.getPlants { plantsArray in
-                self.plants = plantsArray
-                self.tableView.reloadData()
-            }
-            achievements = []
-            plantsTableViewModel.getAchievements { (achvArray) in
-                self.achievements = achvArray
-                self.tableView.reloadData()
-                
-            }
-        }
+        
     }
 
     // MARK: - Table view data source
