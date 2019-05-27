@@ -17,8 +17,6 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
     var plants : [Plant]!
     var user : User!
     var achievements: [Achievement]!
-   
-    
     
     override func viewDidLoad() {
         
