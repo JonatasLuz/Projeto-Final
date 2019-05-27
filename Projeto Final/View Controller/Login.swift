@@ -63,14 +63,13 @@ class Login: UIViewController {
     @IBAction func sigIn(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: email.text ?? "", password: password.text ?? "") { (authResult, error) in
             if let error = error{
-                print("error")
-                
+                self.alertError()
             }else{
                 self.loginViewModel.getUser(Auth.auth().currentUser!.uid, "", "") { user in
-                    self.userLogin = user
-                    self.signUpView.removeFromSuperview()
-                    self.userLogin = user
-                    self.performSegue(withIdentifier: "loginAccepted", sender: self)
+                self.userLogin = user
+                self.signUpView.removeFromSuperview()
+                self.userLogin = user
+                self.performSegue(withIdentifier: "loginAccepted", sender: self)
                 }
             }
         }
@@ -123,21 +122,23 @@ class Login: UIViewController {
     }
     
     @objc func signUpAction(){
-        Auth.auth().createUser(withEmail: emailTextField.text ?? "email", password: passwordTextField.text ?? "") { (authResult, error) in
-              guard (authResult?.user) != nil
-                   else {
-                       print("Erro no cadastro:  \(String(describing: error))")
-                       return
-               }
-            
-            print(Auth.auth())
-            
-            self.loginViewModel.getUser(Auth.auth().currentUser!.uid, self.emailTextField.text!, self.nameTextField.text!) { user in
-                self.userLogin = user
-                self.signUpView.removeFromSuperview()
-                self.userLogin = user
-                self.performSegue(withIdentifier: "loginAccepted", sender: self)
+        if nameTextField.text != ""{
+            Auth.auth().createUser(withEmail: emailTextField.text ?? "email", password: passwordTextField.text ?? "") { (authResult, error) in
+                guard (authResult?.user) != nil
+                    else {
+                        self.alertError()
+                        return
+                }
+                self.loginViewModel.getUser(Auth.auth().currentUser!.uid, self.emailTextField.text!, self.nameTextField.text!) { user in
+                    self.userLogin = user
+                    self.signUpView.removeFromSuperview()
+                    self.userLogin = user
+                    self.performSegue(withIdentifier: "loginAccepted", sender: self)
+                }
             }
+        }else{
+            self.alertError()
+            return
         }
     }
     
@@ -167,7 +168,7 @@ class Login: UIViewController {
             activityIndicatorView.startAnimating()
             switch loginResult {
             case .failed(let error):
-                print(error)
+                self.alertError()
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
@@ -199,5 +200,12 @@ class Login: UIViewController {
                 next.user = userLogin
             }
         }
+    }
+    
+    func alertError(){
+        let alert = UIAlertController(title: "Erro", message: "Informações incorretas", preferredStyle: .alert)
+        let alertButton = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in}
+        alert.addAction(alertButton)
+        self.present(alert,animated: true)
     }
 }
