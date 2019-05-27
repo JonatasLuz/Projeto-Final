@@ -18,6 +18,14 @@ class PlantViewController: UIViewController {
     var achievements: [Achievement]!
     
   
+    @IBOutlet weak var southLabel: UILabel!
+    @IBOutlet weak var southEastLabel: UILabel!
+    @IBOutlet weak var westLabel: UILabel!
+    @IBOutlet weak var middleEastLabel: UILabel!
+    @IBOutlet weak var northLabel: UILabel!
+    @IBOutlet weak var harvestLabel: UILabel!
+    
+    
     @IBOutlet var superView: UIView!
      @IBOutlet weak var plantViewHC: NSLayoutConstraint!
     @IBOutlet weak var plantImageView: UIImageView!
@@ -73,8 +81,6 @@ class PlantViewController: UIViewController {
         addGarden.layer.cornerRadius = 0.5 * addGarden.bounds.size.height
         wantPlantButton.layer.cornerRadius = 0.5 * wantPlantButton.bounds.size.height
         
-        print(achievements.count)
-        
         super.viewDidLoad()
         
  
@@ -92,7 +98,13 @@ class PlantViewController: UIViewController {
         harvestTextView.text = plant.harvest
         plantImageView.image = plant.photo
         
-        
+        southLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[0], plant.plantingMaxMonth[0])
+        southEastLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[1], plant.plantingMaxMonth[1])
+        southEastLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[1], plant.plantingMaxMonth[1])
+        westLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[2], plant.plantingMaxMonth[2])
+        middleEastLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[3], plant.plantingMaxMonth[3])
+        northLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[4], plant.plantingMaxMonth[4])
+        harvestLabel.text = ("\(plant.harvestMinLimit!) até \(plant.harvestMaxLimit!) dias")
         plantViewHC.constant = superView.bounds.height / 3
         
         //Information View
@@ -173,6 +185,4 @@ class PlantViewController: UIViewController {
         alertController.addAction(actionButton)
         self.present(alertController, animated: true)
     }
-    
-    
 }

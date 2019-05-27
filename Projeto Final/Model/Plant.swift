@@ -20,13 +20,21 @@ class Plant{
     var harvest : String!
     var harvestMinLimit : Int!
     var harvestMaxLimit : Int!
-    var months : [Int : String]!
     var plantingMinMonth : [Int]!
     var plantingMaxMonth : [Int]!
     
-    
-    
-    
+    let months = [1 : "Janeiro",
+               2 : "Fevereiro",
+               3 : "Março",
+               4 : "Abril",
+               5 : "Maio",
+               6 : "Junho",
+               7 : "Julho",
+               8 : "Agosto",
+               9 : "Setembro",
+               10 : "Outubro",
+               11 : "Novembro",
+               12: "Dezembro"]
     
     init(_ plantID: String, _ name : String, _ photo : UIImage, _ information : String, _ climate : String, _ soil : String, _ light : String, _ planting : String, _ watering : String, _ harvest : String, _ harvestMinLimit : Int, _ harvestMaxLimit : Int, _ plantingMinMonth : [Int], _ plantingMaxMonth : [Int]){
         self.plantID = plantID
@@ -43,21 +51,9 @@ class Plant{
         self.harvestMaxLimit = harvestMaxLimit
         self.plantingMaxMonth = plantingMaxMonth
         self.plantingMinMonth = plantingMinMonth
-        self.months = [1 : "Janeiro",
-                       2 : "Fevereiro",
-                       3 : "Março",
-                       4 : "Abril",
-                       5 : "Maio",
-                       6 : "Junho",
-                       7 : "Julho",
-                       8 : "Agosto",
-                       9 : "Setembro",
-                       10 : "Outubro",
-                       11 : "Novembro",
-                       12: "Dezembro"]
     }
     
-    init(_ plant: [String : Any]){
+    init(){
         
         
     }

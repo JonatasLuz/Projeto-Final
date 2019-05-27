@@ -99,4 +99,24 @@ class PlantViewModel{
         let plantedList=["planted":user.planted]
         db.document(user.userId).updateData(plantedList as [AnyHashable : Any])
     }
+    
+    func getCalendarText(_ minMonth : Int, _ maxMonth : Int) -> String{
+        let plant = Plant()
+        
+        if minMonth == 1 && maxMonth == 12{
+            return("Ano Todo")
+            
+            
+        }
+        if minMonth == 13 || maxMonth == 13{
+            return("*")
+            
+        }
+        if plant.months[minMonth] != nil {
+            if plant.months[maxMonth] != nil{
+                return("\(plant.months[minMonth]!) até \(plant.months[maxMonth]!)")
+            }
+        }
+        return ""
+    }
 }
