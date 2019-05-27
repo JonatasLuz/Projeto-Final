@@ -93,6 +93,10 @@ class LoginViewModel{
         
     }
     
+    func createUser(){
+        db.collection("usuario")
+    }
+    
     func createUserFacebook(){
         db.collection("usuario").document(Auth.auth().currentUser!.uid).setData([
             "firstName" : self.userFirstName,

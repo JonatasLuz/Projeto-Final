@@ -24,7 +24,10 @@ class Login: UIViewController {
     var loginViewModel : LoginViewModel!
     
     var userLogin : User!
-    
+    var signUpView : UIView!
+    var nameTextField : UITextField!
+    var emailTextField : UITextField!
+    var passwordTextField : UITextField!
     override func viewDidLoad() {
         
         loginViewModel = LoginViewModel()
@@ -36,6 +39,11 @@ class Login: UIViewController {
         fbButton.setTitle("Entre com o Facebook", for: [])
         fbButton.layer.cornerRadius =  fbButton.frame.size.height/2.5
         fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
+        
+        let customViewFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - 200)
+        signUpView = UIView(frame: customViewFrame)
+        signUpView.center = view.center
+        signUpView.backgroundColor = UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0)
         
     
         super.viewDidLoad()
@@ -51,13 +59,67 @@ class Login: UIViewController {
     }
     
     @IBAction func signUp(_ sender: UIButton) {
-        Auth.auth().createUser(withEmail: email.text ?? "email", password: password.text ?? "") { (authResult, error) in
-            guard (authResult?.user) != nil
-                else {
-                    print("Erro no cadastro:  \(String(describing: error))")
-                    return
-            }
-        }
+        
+        view.addSubview(signUpView)
+        
+        let nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+        nameLabel.text = "Nome"
+        nameLabel.textColor = .white
+        //signUpView.addSubview(nameLabel)
+        
+        nameTextField = UITextField(frame: CGRect(x:35, y: 25, width: signUpView.frame.width - 70, height: 50))
+        nameTextField.placeholder = "Nome"
+        nameTextField.backgroundColor = .white
+        nameTextField.layer.cornerRadius = nameTextField.frame.height / 4
+        
+        emailTextField = UITextField(frame: CGRect(x:35, y: 100, width: signUpView.frame.width - 70, height: 50))
+        emailTextField.placeholder = "Email"
+        emailTextField.backgroundColor = .white
+        emailTextField.layer.cornerRadius = emailTextField.frame.height / 4
+        
+        passwordTextField = UITextField(frame: CGRect(x:35, y: 175, width: signUpView.frame.width - 70, height: 50))
+        passwordTextField.placeholder = "Senha"
+        passwordTextField.backgroundColor = .white
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 4
+
+        signUpView.addSubview(passwordTextField)
+        signUpView.addSubview(emailTextField)
+        signUpView.addSubview(nameTextField)
+        
+        let signUpButton = UIButton(frame: CGRect(x:35, y: 250, width: signUpView.frame.width - 70, height: 50))
+        //signUpButton.backgroundColor = .green
+        signUpButton.setTitle("Cadastrar", for: [])
+        signUpButton.setTitleColor(UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0), for: [])
+        signUpButton.backgroundColor = .white
+        signUpButton.layer.cornerRadius = signUpButton.frame.height / 4
+        signUpButton.addTarget(self, action: #selector(signUpAction),for: .touchUpInside)
+        
+        let cancelButton = UIButton(frame: CGRect(x:35, y: 325, width: signUpView.frame.width - 70, height: 50))
+        //cancelButton.backgroundColor = .gr
+        cancelButton.setTitle("Cancelar", for: [])
+        cancelButton.setTitleColor(.red, for: [])
+        cancelButton.backgroundColor = .white
+        cancelButton.layer.cornerRadius = cancelButton.frame.height / 4
+        cancelButton.addTarget(self, action: #selector(cancelAction),for: .touchUpInside)
+        signUpView.addSubview(cancelButton)
+        signUpView.addSubview(signUpButton)
+    }
+    
+    @objc func signUpAction(){
+        Auth.auth().createUser(withEmail: emailTextField.text ?? "email", password: passwordTextField.text ?? "") { (authResult, error) in
+              guard (authResult?.user) != nil
+                   else {
+                       print("Erro no cadastro:  \(String(describing: error))")
+                       return
+               }
+           }
+        signUpView.removeFromSuperview()
+    }
+    
+    @objc func cancelAction(){
+        signUpView.removeFromSuperview()
+        
+        
     }
     
     @objc func loginButtonClicked() {
@@ -91,11 +153,6 @@ class Login: UIViewController {
                         print(error)
                     }
                     else{
-                        //self.loginViewModel.setUserInfo(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!)
-                        //self.loginViewModel.getUserData(completion: {
-                       //       self.performSegue(withIdentifier: "loginAcepted", sender: self)
-                        //})
-                        
                         self.loginViewModel.getUser(Auth.auth().currentUser!.uid, Auth.auth().currentUser!.email!, completion: { (user) in
                             
                             self.userLogin = user
