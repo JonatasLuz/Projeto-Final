@@ -30,7 +30,9 @@ class Login: UIViewController {
         loginViewModel = LoginViewModel()
         
         
-        
+        signIn.layer.cornerRadius = signIn.bounds.size.height / 2.5
+        signUp.layer.cornerRadius = signUp.bounds.size.height / 2.5
+        fbButton.heightAnchor.constraint(equalTo: signUp.heightAnchor).isActive = true
         fbButton.setTitle("Entre com o Facebook", for: [])
         fbButton.layer.cornerRadius =  fbButton.frame.size.height/2.5
         fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)

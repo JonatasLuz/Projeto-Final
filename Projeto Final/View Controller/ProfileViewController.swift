@@ -106,6 +106,7 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
             let achievement = achievements.first(where: {$0.achievementId == self.userInfo.myAchievements[indexPath.row]})
             cell.achievementImage.image = achievement?.photo
             cell.nameAchievementLabel.text = achievement?.name
+            cell.nameAchievementLabel.adjustsFontSizeToFitWidth = true
             return cell
         }
     }
@@ -123,7 +124,6 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
                 plantViewModel.addGardenPlant(plant!, self.userInfo)
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
                 print(self.userInfo.myAchievements)
-                
                 collectionView.reloadData()
                 self.achievementCollection.reloadData()
                 self.reloadInputViews()

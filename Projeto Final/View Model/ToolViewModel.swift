@@ -30,8 +30,7 @@ class ToolViewModel{
                     tools.append(tool)
                 }
             }
-            print(tools.count)
-            
+            tools.sort(by: {$0.name < $1.name})
             completion(tools)
         }
     }

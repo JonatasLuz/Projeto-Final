@@ -89,8 +89,12 @@ class PlantViewController: UIViewController {
         plantImageView.layer.cornerRadius = plantImageHC.constant/2
         plantImageView.layer.masksToBounds = true
         plantImageWC.constant = plantImageHC.constant
-        addGarden.layer.cornerRadius = 0.5 * addGarden.bounds.size.height
-        wantPlantButton.layer.cornerRadius = 0.5 * wantPlantButton.bounds.size.height
+        addGarden.layer.cornerRadius = addGarden.bounds.size.height / 2.5
+        addGarden.titleLabel?.adjustsFontSizeToFitWidth = true
+        wantPlantButton.layer.cornerRadius = wantPlantButton.bounds.size.height / 2.5
+        wantPlantButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        
         
         super.viewDidLoad()
         

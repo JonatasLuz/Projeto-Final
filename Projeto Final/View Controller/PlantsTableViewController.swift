@@ -78,6 +78,8 @@ class PlantsTableViewController: UITableViewController, UITextFieldDelegate, UIN
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlantsTableViewCell
+        cell?.heightAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
+        updateFocusIfNeeded()
         cell?.plantNameLabel.text = plants[indexPath.row].name
         cell?.plantImage.image =  plants[indexPath.row].photo
         return cell!
