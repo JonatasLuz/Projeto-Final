@@ -56,6 +56,7 @@ class PlantViewModel{
         }
         let advancedGardener = user.myAchievements.first(where: {$0 == "CIhRg1ebt6FJvx1SY6Oe"})
         if advancedGardener == nil && (user.myGarden.count + user.planted.count) >= 14{
+            user.myAchievements.append("CIhRg1ebt6FJvx1SY6Oe")
             let myGardenList = ["myGarden": user.myAchievements]
             db.document(user.userId).updateData(myGardenList as [AnyHashable : Any])
         }

@@ -122,7 +122,10 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
                 let plant = self.plants.first(where: {$0.plantID == self.userInfo.wantList[indexPath.row]})
                 plantViewModel.addGardenPlant(plant!, self.userInfo)
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
+                print(self.userInfo.myAchievements)
+                
                 collectionView.reloadData()
+                self.achievementCollection.reloadData()
                 self.reloadInputViews()
             }
             let removeButton = UIAlertAction(title: "Remover", style: .default) { (UIAlertAction) in
@@ -153,7 +156,7 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
 extension ProfileViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == achievementCollection{
-            return CGSize(width: self.wantCollection.frame.height, height: self.wantCollection.frame.height)
+            return CGSize(width: self.wantCollection.frame.height - 5, height: self.wantCollection.frame.height - 10)
         }
          return CGSize(width: view.frame.height/5, height: view.frame.height/5)
     }
