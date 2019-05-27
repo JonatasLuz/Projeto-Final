@@ -102,7 +102,7 @@ class Login: UIViewController {
         signUpView.addSubview(emailTextField)
         signUpView.addSubview(nameTextField)
         
-        let signUpButton = UIButton(frame: CGRect(x:35, y: signUpView.frame.height / 3 + 225, width: signUpView.frame.width - 70, height: 50))
+        let signUpButton = UIButton(frame: CGRect(x:70, y: signUpView.frame.height / 3 + 225, width: signUpView.frame.width - 150, height: 50))
         //signUpButton.backgroundColor = .green
         signUpButton.setTitle("Cadastrar", for: [])
         signUpButton.setTitleColor(UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0), for: [])
@@ -110,7 +110,7 @@ class Login: UIViewController {
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 4
         signUpButton.addTarget(self, action: #selector(signUpAction),for: .touchUpInside)
         
-        let cancelButton = UIButton(frame: CGRect(x:35, y: signUpView.frame.height / 3 + 300, width: signUpView.frame.width - 70, height: 50))
+        let cancelButton = UIButton(frame: CGRect(x:70, y: signUpView.frame.height / 3 + 300, width: signUpView.frame.width - 150, height: 50))
         //cancelButton.backgroundColor = .gr
         cancelButton.setTitle("Cancelar", for: [])
         cancelButton.setTitleColor(.red, for: [])
