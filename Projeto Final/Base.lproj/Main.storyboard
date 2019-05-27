@@ -571,13 +571,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ryh-iT-g0n"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Plantas" id="dUH-VN-WcF">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="tMG-p2-jh3">
-                            <connections>
-                                <segue destination="nzB-yS-t39" kind="show" identifier="menuIdentifier" id="FFH-QH-ywS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Plantas" id="dUH-VN-WcF"/>
                     <size key="freeformSize" width="375" height="1600"/>
                     <connections>
                         <outlet property="Label" destination="Hac-Ln-clo" id="7p0-zS-CS2"/>
@@ -1311,13 +1305,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0eT-Jp-VnS"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Perfil" largeTitleDisplayMode="never" id="EsE-lw-dyo">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="X34-Qz-5ew">
-                            <connections>
-                                <segue destination="nzB-yS-t39" kind="show" identifier="menuIdentifier" id="DN6-2i-K0E"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Perfil" largeTitleDisplayMode="never" id="EsE-lw-dyo"/>
                     <connections>
                         <outlet property="achievementCollection" destination="Mr8-MQ-MSu" id="jkl-yR-OgI"/>
                         <outlet property="harvestCollection" destination="3d3-Lm-53J" id="EYc-ic-Lxq"/>
@@ -1432,13 +1420,7 @@
                             <outlet property="delegate" destination="jAV-Ox-XyH" id="STU-df-SQv"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Minha Horta" largeTitleDisplayMode="never" id="DFI-oe-ln2">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="ILq-zM-gZG">
-                            <connections>
-                                <segue destination="nzB-yS-t39" kind="show" identifier="menuIdentifier" id="DRX-Ob-01d"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Minha Horta" largeTitleDisplayMode="never" id="DFI-oe-ln2"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jlq-wQ-fkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1516,13 +1498,7 @@
                             <outlet property="delegate" destination="TJs-DK-6sv" id="rIG-er-199"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Utensílios" largeTitleDisplayMode="never" id="K4W-V3-wuU" userLabel="Utensilios de Jardinagem">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="XWt-GD-xdz">
-                            <connections>
-                                <segue destination="nzB-yS-t39" kind="show" identifier="menuIdentifier" id="4iI-ya-3vX"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Utensílios" largeTitleDisplayMode="never" id="K4W-V3-wuU" userLabel="Utensilios de Jardinagem"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIo-gh-rBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1530,8 +1506,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="27B-TL-rnW"/>
-        <segue reference="FFH-QH-ywS"/>
-        <segue reference="4ZU-Sr-3NQ"/>
+        <segue reference="fPF-Kx-mPw"/>
+        <segue reference="2yD-aw-jgV"/>
     </inferredMetricsTieBreakers>
 </document>
