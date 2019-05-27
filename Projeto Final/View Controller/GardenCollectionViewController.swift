@@ -40,9 +40,13 @@ class GardenCollectionViewController: UICollectionViewController {
         
         cell.plantImage.image = plant?.photo
         cell.namePlant.text = plant?.name
+        cell.namePlant.adjustsFontSizeToFitWidth = true
         cell.plantingDate.text = "Plantio: " + user.myGarden[indexPath.row].plantedDate
+        cell.plantingDate.adjustsFontSizeToFitWidth = true
         cell.harvestMinMonth.text = "Inico:" + user.myGarden[indexPath.row].harvestMinLimit
+        cell.harvestMinMonth.adjustsFontSizeToFitWidth = true
         cell.harvestMaxMonth.text = "Fim: " + user.myGarden[indexPath.row].harvestMaxLimit
+        cell.harvestMaxMonth.adjustsFontSizeToFitWidth = true
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){

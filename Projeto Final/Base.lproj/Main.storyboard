@@ -202,17 +202,17 @@
                                                             <constraint firstItem="erM-Rn-qcp" firstAttribute="width" secondItem="y4X-H0-Z3w" secondAttribute="width" multiplier="1.2:1" id="XHq-Hz-Jfu"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="sQx-qD-WJf">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sQx-qD-WJf">
                                                         <rect key="frame" x="0.0" y="265.5" width="335" height="34.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colheita" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hac-Ln-clo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="141" height="34.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="34.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coleitaLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xma-kM-NzE">
-                                                                <rect key="frame" x="166" y="0.0" width="169" height="34.5"/>
+                                                                <rect key="frame" x="155" y="0.0" width="180" height="34.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -580,6 +580,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1400"/>
                     <connections>
+                        <outlet property="Label" destination="Hac-Ln-clo" id="7p0-zS-CS2"/>
                         <outlet property="addGarden" destination="x1L-SI-124" id="T27-hn-08s"/>
                         <outlet property="climateTextView" destination="0BV-Hj-CMz" id="6vZ-Lu-2H7"/>
                         <outlet property="climateTextViewHC" destination="AGv-Tm-Mbm" id="njD-fz-hsG"/>
@@ -1460,16 +1461,17 @@
         <scene sceneID="cxl-GB-iKP">
             <objects>
                 <tableViewController title="Tools" id="TJs-DK-6sv" customClass="ToolTableViewController" customModule="Projeto_Final" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qjP-KD-wIn">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qjP-KD-wIn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toolIdentifier" rowHeight="88" id="0XA-gg-ROD" customClass="ToolTableViewCell" customModule="Projeto_Final" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0XA-gg-ROD" id="0FI-YY-gK6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNL-0x-LHG">
@@ -1509,7 +1511,7 @@
                             <outlet property="delegate" destination="TJs-DK-6sv" id="rIG-er-199"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Plantas" largeTitleDisplayMode="never" id="K4W-V3-wuU" userLabel="Utensilios de Jardinagem">
+                    <navigationItem key="navigationItem" title="Utensílios de Jardinagem" largeTitleDisplayMode="never" id="K4W-V3-wuU" userLabel="Utensilios de Jardinagem">
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="XWt-GD-xdz">
                             <connections>
                                 <segue destination="nzB-yS-t39" kind="show" identifier="menuIdentifier" id="4iI-ya-3vX"/>
@@ -1524,7 +1526,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="27B-TL-rnW"/>
-        <segue reference="DRX-Ob-01d"/>
-        <segue reference="4ZU-Sr-3NQ"/>
+        <segue reference="DN6-2i-K0E"/>
+        <segue reference="2yD-aw-jgV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,5 +14,5 @@ class GardenCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var plantingDate: UILabel!
     @IBOutlet weak var harvestMinMonth: UILabel!
     @IBOutlet weak var harvestMaxMonth: UILabel!
-    
+
 }

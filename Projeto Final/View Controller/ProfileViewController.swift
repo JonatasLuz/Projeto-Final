@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController  {
     var plantSelected : String!
     
     override func viewDidLoad() {
-        profileNameLabel.text = userInfo.firstName + " " + userInfo.lastName
+        profileNameLabel.text = userInfo.firstName
         harvestCollection.layer.borderWidth = 5
         harvestCollection.layer.borderColor = profileNameLabel.textColor.cgColor
         harvestCollection.layer.cornerRadius = harvestCollection.frame.height / 8

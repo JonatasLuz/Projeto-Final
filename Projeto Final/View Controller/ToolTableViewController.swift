@@ -21,8 +21,17 @@ class ToolTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if tools.count == 0{
+            let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
+            activityIndicatorView.color = UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0)
+            self.view.addSubview(activityIndicatorView)
+            activityIndicatorView.center = self.view.center
+            activityIndicatorView.frame = activityIndicatorView.frame
+            activityIndicatorView.startAnimating()
             toolViewModel.getTools { toolArray in
                 self.tools = toolArray
+                activityIndicatorView.stopAnimating()
+                activityIndicatorView.removeFromSuperview()
+                self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
             }
         }

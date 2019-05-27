@@ -65,10 +65,21 @@ class PlantViewController: UIViewController {
     @IBOutlet weak var addGarden: UIButton!
     @IBOutlet weak var wantPlantButton: UIButton!
     
+    
+    @IBOutlet weak var Label: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         
         plantViewModel = PlantViewModel()
-        
+        southLabel.adjustsFontSizeToFitWidth = true
+        southEastLabel.adjustsFontSizeToFitWidth = true
+        westLabel.adjustsFontSizeToFitWidth = true
+        middleEastLabel.adjustsFontSizeToFitWidth = true
+        northLabel.adjustsFontSizeToFitWidth = true
+        harvestLabel.adjustsFontSizeToFitWidth = true
+        Label.adjustsFontSizeToFitWidth = true
        plantImageView.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
         plantImageHC.constant = superView.bounds.height/3 - (plantName.bounds.height + 20)
         plantImageWC.constant = plantImageHC.constant
