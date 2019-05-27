@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController  {
     var plantSelected : String!
     
     override func viewDidLoad() {
-        profileNameLabel.text = userInfo.firstName
+            profileNameLabel.text = userInfo.firstName
         harvestCollection.layer.borderWidth = 5
         harvestCollection.layer.borderColor = profileNameLabel.textColor.cgColor
         harvestCollection.layer.cornerRadius = harvestCollection.frame.height / 8
@@ -127,7 +127,7 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
                 self.achievementCollection.reloadData()
                 self.reloadInputViews()
             }
-            let removeButton = UIAlertAction(title: "Remover", style: .default) { (UIAlertAction) in
+            let removeButton = UIAlertAction(title: "Remover", style: .destructive) { (UIAlertAction) in
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
                 collectionView.reloadData()
             }

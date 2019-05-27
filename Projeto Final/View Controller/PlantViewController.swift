@@ -113,6 +113,10 @@ class PlantViewController: UIViewController {
         harvestTextView.text = plant.harvest
         plantImageView.image = plant.photo
         
+        if userInfo == nil{
+            wantPlantButton.isHidden = true
+            addGarden.isHidden = true
+        }
         southLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[0], plant.plantingMaxMonth[0])
         southEastLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[1], plant.plantingMaxMonth[1])
         southEastLabel.text = plantViewModel.getCalendarText(plant.plantingMinMonth[1], plant.plantingMaxMonth[1])

@@ -62,12 +62,14 @@ class MenuTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileIdentifier"{
-            let next = segue.destination as! ProfileViewController
-            next.plants = plants
-            next.achievements = achievements
-            next.userInfo = user
+            if user != nil{
+                let next = segue.destination as! ProfileViewController
+                next.plants = plants
+                next.achievements = achievements
+                next.userInfo = user
+            }
         }
-        if segue.identifier == "myGardenIdentifer"{
+        if segue.identifier == "gardenIdentifier"{
             let next = segue.destination as! GardenCollectionViewController
             next.plants = plants
             next.achievements = achievements
@@ -82,9 +84,28 @@ class MenuTableViewController: UITableViewController {
                 next.tools = tools
             }
         }
+        if segue.identifier == "loginIdentifier"{
+            let next = segue.destination as! Login
+            next.plants = plants
+            next.achievements = achievements
+        }
         
     }
-
+    @IBAction func profileAction(_ sender: Any) {
+        if user != nil{
+            performSegue(withIdentifier: "profileIdentifier", sender: self)
+        }else{
+            performSegue(withIdentifier: "loginIdentifier", sender: self)
+        }
+    }
+    
+    @IBAction func gardenAction(_ sender: Any) {
+        if user != nil{
+            performSegue(withIdentifier: "gardenIdentifier", sender: self)
+        }else{
+            performSegue(withIdentifier: "loginIdentifier", sender: self)
+        }
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

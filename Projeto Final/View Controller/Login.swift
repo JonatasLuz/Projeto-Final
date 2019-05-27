@@ -24,6 +24,8 @@ class Login: UIViewController {
     var loginViewModel : LoginViewModel!
     
     var userLogin : User!
+    var plants : [Plant]!
+    var achievements : [Achievement]!
     var signUpView : UIView!
     var nameTextField : UITextField!
     var emailTextField : UITextField!
@@ -97,6 +99,7 @@ class Login: UIViewController {
         passwordTextField.placeholder = "Senha"
         passwordTextField.backgroundColor = .white
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 4
+        passwordTextField.isSecureTextEntry = true
 
         signUpView.addSubview(passwordTextField)
         signUpView.addSubview(emailTextField)
@@ -192,6 +195,8 @@ class Login: UIViewController {
             if let navView = segue.destination as? UINavigationController{
                 let next = navView.topViewController as! PlantsTableViewController
                 next.user = userLogin
+                next.achievements = achievements
+                next.plants = plants
             }
         }
     }
