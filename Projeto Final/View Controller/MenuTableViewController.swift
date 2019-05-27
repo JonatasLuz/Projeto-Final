@@ -25,7 +25,7 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var toolButton: UIButton!
     
     override func viewDidLoad() {
-        
+        tableView.backgroundColor = UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0)
         profileWC.constant = view.frame.width/2
         TipsWC.constant = view.frame.width/2
         myGardenWc.constant = view.frame.width/2
