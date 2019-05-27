@@ -123,7 +123,6 @@ extension ProfileViewController : UICollectionViewDataSource, UICollectionViewDe
                 let plant = self.plants.first(where: {$0.plantID == self.userInfo.wantList[indexPath.row]})
                 plantViewModel.addGardenPlant(plant!, self.userInfo)
                 plantViewModel.removeWantPlant(indexPath.row, self.userInfo)
-                print(self.userInfo.myAchievements)
                 collectionView.reloadData()
                 self.achievementCollection.reloadData()
                 self.reloadInputViews()

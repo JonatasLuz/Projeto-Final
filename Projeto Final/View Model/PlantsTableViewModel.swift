@@ -22,7 +22,6 @@ class PlantsTableViewModel{
     func getImage(_ url : String, completion: @escaping (UIImage) -> Void) {
         do{
             let imageURL = try Data(contentsOf: URL.init(string: url)!)
-            print(url)
             
             completion(UIImage(data: imageURL)!)
         }catch{
@@ -84,8 +83,6 @@ class PlantsTableViewModel{
                     self.getImage(photoUrl, completion: { (UIImage) in
                         let achievement = Achievement(document.documentID ,name, UIImage, description, plantList)
                         achvArray.append(achievement)
-                        print(achievement)
-                        
                     })
                 }
                 completion(achvArray)

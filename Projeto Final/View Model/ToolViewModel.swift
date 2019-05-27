@@ -38,8 +38,6 @@ class ToolViewModel{
     func getImage(_ url : String, completion: @escaping (UIImage) -> Void) {
         do{
             let imageURL = try Data(contentsOf: URL.init(string: url)!)
-            print(url)
-            
             completion(UIImage(data: imageURL)!)
         }catch{
             print("Erro ao buscar imagem de planta \(error)")
