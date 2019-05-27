@@ -154,22 +154,20 @@ class Login: UIViewController {
             blankView.frame = self.view.frame
             blankView.center = self.view.center
             blankView.backgroundColor = .white
-            self.view.addSubview(blankView)
             let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
-            
             activityIndicatorView.color = self.logo.textColor
-            self.view.addSubview(activityIndicatorView)
             activityIndicatorView.center = self.view.center
             activityIndicatorView.frame = activityIndicatorView.frame
-            activityIndicatorView.startAnimating()
             switch loginResult {
             case .failed(let error):
                 self.alertError()
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                self.view.addSubview(blankView)
+                self.view.addSubview(activityIndicatorView)
+                activityIndicatorView.startAnimating()
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-                
                 Auth.auth().signIn(with: credential, completion: { (result, error) in
                     if let error = error{
                         print(error)

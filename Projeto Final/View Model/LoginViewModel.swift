@@ -34,7 +34,6 @@ class LoginViewModel{
         var firstName : String!
         var lastName : String!
         var wantList = [String]()
-        
         var myGarden = [PlantedPlant]()
         var myAchievements = [String]()
         var planted = [String]()
