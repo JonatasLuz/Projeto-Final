@@ -47,7 +47,7 @@ class Login: UIViewController {
         fbButton.layer.cornerRadius =  fbButton.frame.size.height/2.5
         fbButton.addTarget(self, action: #selector(self.loginButtonClicked), for: .touchUpInside)
         
-        let customViewFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - 200)
+        let customViewFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         signUpView = UIView(frame: customViewFrame)
         signUpView.center = view.center
         signUpView.backgroundColor = UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0)
@@ -83,17 +83,17 @@ class Login: UIViewController {
         nameLabel.text = "Nome"
         nameLabel.textColor = .white
         
-        nameTextField = UITextField(frame: CGRect(x:35, y: 25, width: signUpView.frame.width - 70, height: 50))
+        nameTextField = UITextField(frame: CGRect(x:35, y: signUpView.frame.height / 3, width: signUpView.frame.width - 70, height: 50))
         nameTextField.placeholder = "Nome"
         nameTextField.backgroundColor = .white
         nameTextField.layer.cornerRadius = nameTextField.frame.height / 4
         
-        emailTextField = UITextField(frame: CGRect(x:35, y: 100, width: signUpView.frame.width - 70, height: 50))
+        emailTextField = UITextField(frame: CGRect(x:35, y: signUpView.frame.height / 3 + 75, width: signUpView.frame.width - 70, height: 50))
         emailTextField.placeholder = "Email"
         emailTextField.backgroundColor = .white
         emailTextField.layer.cornerRadius = emailTextField.frame.height / 4
         
-        passwordTextField = UITextField(frame: CGRect(x:35, y: 175, width: signUpView.frame.width - 70, height: 50))
+        passwordTextField = UITextField(frame: CGRect(x:35, y: signUpView.frame.height / 3 + 150, width: signUpView.frame.width - 70, height: 50))
         passwordTextField.placeholder = "Senha"
         passwordTextField.backgroundColor = .white
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 4
@@ -102,7 +102,7 @@ class Login: UIViewController {
         signUpView.addSubview(emailTextField)
         signUpView.addSubview(nameTextField)
         
-        let signUpButton = UIButton(frame: CGRect(x:35, y: 250, width: signUpView.frame.width - 70, height: 50))
+        let signUpButton = UIButton(frame: CGRect(x:35, y: signUpView.frame.height / 3 + 225, width: signUpView.frame.width - 70, height: 50))
         //signUpButton.backgroundColor = .green
         signUpButton.setTitle("Cadastrar", for: [])
         signUpButton.setTitleColor(UIColor(red:0.00, green:0.56, blue:0.32, alpha:1.0), for: [])
@@ -110,7 +110,7 @@ class Login: UIViewController {
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 4
         signUpButton.addTarget(self, action: #selector(signUpAction),for: .touchUpInside)
         
-        let cancelButton = UIButton(frame: CGRect(x:35, y: 325, width: signUpView.frame.width - 70, height: 50))
+        let cancelButton = UIButton(frame: CGRect(x:35, y: signUpView.frame.height / 3 + 300, width: signUpView.frame.width - 70, height: 50))
         //cancelButton.backgroundColor = .gr
         cancelButton.setTitle("Cancelar", for: [])
         cancelButton.setTitleColor(.red, for: [])
@@ -144,16 +144,12 @@ class Login: UIViewController {
     
     @objc func cancelAction(){
         signUpView.removeFromSuperview()
-        
-        
+
     }
     
     @objc func loginButtonClicked() {
-        
         let loginManager = LoginManager()
-        
         loginManager.logIn(permissions: [ .publicProfile , .email ], viewController: self) { loginResult in
-            
             let blankView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
             blankView.frame = self.view.frame
             blankView.center = self.view.center
