@@ -35,12 +35,14 @@ class ProfileViewController: UIViewController  {
         achievementCollection.layer.borderColor = profileNameLabel.textColor.cgColor
         achievementCollection.layer.cornerRadius = achievementCollection.frame.height / 8
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.reloadInputViews()
+        //self.reloadInputViews()
         self.harvestCollection.reloadData()
         self.wantCollection.reloadData()
+        view.updateConstraintsIfNeeded()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -153,6 +155,6 @@ extension ProfileViewController : UICollectionViewDelegateFlowLayout{
         if collectionView == achievementCollection{
             return CGSize(width: self.wantCollection.frame.height, height: self.wantCollection.frame.height)
         }
-         return CGSize(width: self.achievementCollection.frame.height, height: self.achievementCollection.frame.height)
+         return CGSize(width: view.frame.height/5, height: view.frame.height/5)
     }
 }

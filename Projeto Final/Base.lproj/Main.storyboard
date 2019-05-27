@@ -1215,7 +1215,7 @@
                                 <rect key="frame" x="0.0" y="506" width="375" height="161"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mr8-MQ-MSu">
-                                        <rect key="frame" x="0.0" y="51" width="375" height="105"/>
+                                        <rect key="frame" x="0.0" y="31" width="375" height="130"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W4m-b6-hWv">
                                             <size key="itemSize" width="50" height="50"/>
@@ -1225,7 +1225,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="achievementCell" id="gwT-Ep-EC7" customClass="AchievementCollectionViewCell" customModule="Projeto_Final" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1266,7 +1266,7 @@
                                         </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conquistas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOG-2h-PIp">
-                                        <rect key="frame" x="10" y="10" width="355" height="31"/>
+                                        <rect key="frame" x="10" y="0.0" width="355" height="31"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1275,12 +1275,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Mr8-MQ-MSu" firstAttribute="top" secondItem="AOG-2h-PIp" secondAttribute="bottom" constant="10" id="GVl-5A-skg"/>
+                                    <constraint firstItem="AOG-2h-PIp" firstAttribute="top" secondItem="BDe-NT-df4" secondAttribute="top" id="KVb-aC-bxC"/>
                                     <constraint firstItem="Mr8-MQ-MSu" firstAttribute="leading" secondItem="BDe-NT-df4" secondAttribute="leading" id="PRK-oA-FvS"/>
-                                    <constraint firstAttribute="bottom" secondItem="Mr8-MQ-MSu" secondAttribute="bottom" constant="5" id="SaO-p6-hAv"/>
+                                    <constraint firstItem="AOG-2h-PIp" firstAttribute="leading" secondItem="BDe-NT-df4" secondAttribute="leading" constant="10" id="RqQ-DB-n3B"/>
                                     <constraint firstAttribute="trailing" secondItem="Mr8-MQ-MSu" secondAttribute="trailing" id="W8b-QV-Bqr"/>
-                                    <constraint firstItem="AOG-2h-PIp" firstAttribute="top" secondItem="BDe-NT-df4" secondAttribute="top" constant="10" id="cGz-hI-AaW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mr8-MQ-MSu" secondAttribute="bottom" id="XgH-J7-8Iz"/>
+                                    <constraint firstAttribute="trailing" secondItem="AOG-2h-PIp" secondAttribute="trailing" constant="10" id="Xjd-5O-HUS"/>
                                     <constraint firstAttribute="trailing" secondItem="AOG-2h-PIp" secondAttribute="trailing" constant="10" id="hIv-5Y-AsN"/>
+                                    <constraint firstItem="Mr8-MQ-MSu" firstAttribute="top" secondItem="AOG-2h-PIp" secondAttribute="bottom" id="hbz-qh-Z2f"/>
                                     <constraint firstItem="AOG-2h-PIp" firstAttribute="leading" secondItem="BDe-NT-df4" secondAttribute="leading" constant="10" id="wRm-Ru-rbS"/>
                                 </constraints>
                             </view>
@@ -1482,7 +1484,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1t-hy-YAo">
-                                            <rect key="frame" x="210" y="0.0" width="165" height="77.5"/>
+                                            <rect key="frame" x="210" y="0.0" width="165" height="42"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                             <color key="textColor" red="0.0" green="0.56507480139999999" blue="0.3169043064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1526,7 +1528,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="27B-TL-rnW"/>
-        <segue reference="DN6-2i-K0E"/>
+        <segue reference="DRX-Ob-01d"/>
         <segue reference="2yD-aw-jgV"/>
     </inferredMetricsTieBreakers>
 </document>
